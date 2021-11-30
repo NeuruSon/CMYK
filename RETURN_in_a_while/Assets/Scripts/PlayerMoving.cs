@@ -7,10 +7,15 @@ public class PlayerMoving : MonoBehaviour
     private Rigidbody r;
     float rotateSpeed = 4f;
     float jumpHeight = 5f;
-    float spd = 5f; //이동 속도.
+    protected float speed = 5f; //이동 속도.
     bool isJumping = true;
 
-    public Camera yourCam;
+    public Camera pCam;
+
+    public float getPlayerSpeed()
+    {
+        return speed;
+    }
 
     void Start()
     {
@@ -21,19 +26,19 @@ public class PlayerMoving : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * spd * Time.deltaTime);
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * spd * Time.deltaTime);
+            transform.Translate(Vector3.left * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(-1 * Vector3.forward * spd * Time.deltaTime);
+            transform.Translate(-1 * Vector3.forward * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(-1 * Vector3.left * spd * Time.deltaTime);
+            transform.Translate(-1 * Vector3.left * speed * Time.deltaTime);
         }
 
         float h = Input.GetAxis("Horizontal");
@@ -45,10 +50,10 @@ public class PlayerMoving : MonoBehaviour
         transform.Rotate(0, X, 0); //왼쪽 오른쪽 두리번 두리번 
 
         // Dont bang ur head 돌지마 
-        if (yourCam.transform.eulerAngles.x + (-Y) > 80 && yourCam.transform.eulerAngles.x + (-Y) < 280)
+        if (pCam.transform.eulerAngles.x + (-Y) > 80 && pCam.transform.eulerAngles.x + (-Y) < 280)
             return; //조건만 만족하면 딱히 쓸 게 없음 
         else //모가지가 더 돌아가면 한정 범위 내 최솟값으로 바꿔부러라 
-            yourCam.transform.RotateAround(transform.position, yourCam.transform.right, -Y); //RotateAround는 위치와 각도 모두 바꿔버리는데 위치 간섭을 제한하기 위해 transform.position(지금 위치) 그대로 설정하게 만듦.
+            pCam.transform.RotateAround(transform.position, pCam.transform.right, -Y); //RotateAround는 위치와 각도 모두 바꿔버리는데 위치 간섭을 제한하기 위해 transform.position(지금 위치) 그대로 설정하게 만듦.
 
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {

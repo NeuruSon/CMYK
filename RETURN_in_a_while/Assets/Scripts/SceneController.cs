@@ -14,4 +14,9 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("Test");
     }
+
+    public void toPuzzleScene()
+    {
+        SceneManager.LoadScene("Puzzle");
+    }
 }
