@@ -19,9 +19,7 @@ public class UIController : MonoBehaviour
 
     public void OpenUI()
     {
-
         UI.SetActive(true);
-
     }
 
     public void CloseUI()
@@ -31,7 +29,6 @@ public class UIController : MonoBehaviour
 
     public void displayOpenAndCloseUI()
     {
-
         if (active == true)
         {
             soundbtn.transform.Translate(0, 300, 0);
