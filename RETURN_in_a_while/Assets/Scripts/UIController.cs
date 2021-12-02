@@ -37,14 +37,11 @@ public class UIController : MonoBehaviour
             soundbtn.transform.Translate(0, 300, 0);
             UI.SetActive(false);
             active = false;
-            return;
         }
-        if (active == false)
-        {
+        else {
             soundbtn.transform.Translate(0, -300, 0);
             UI.SetActive(true);
             active = true;
-            return;
         }
 
     }
@@ -56,13 +53,13 @@ public class UIController : MonoBehaviour
 
             UI.SetActive(false);
             active = false;
-            return;
+            
         }
-        if (active == false)
+        else 
         {
             UI.SetActive(true);
             active = true;
-            return;
+            
         }
 
     }
