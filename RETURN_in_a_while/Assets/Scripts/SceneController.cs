@@ -19,4 +19,9 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("Puzzle");
     }
+
+    public void toTempScene()
+    {
+        SceneManager.LoadScene("TempMap");
+    }
 }
