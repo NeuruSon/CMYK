@@ -9,16 +9,19 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    public Vector3 offset; //초기 위치 저장
+    public bool isItIn = false;
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        offset = GetComponent<Transform>().transform.localPosition;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        isItIn = false;
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
     }
@@ -31,13 +34,19 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
+        //Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        //Debug.Log("OnPointerDown");
+
+    }
+
+    public void resetOffset()
+    {
+        this.transform.localPosition = offset;
     }
 }

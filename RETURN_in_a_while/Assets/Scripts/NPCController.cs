@@ -8,7 +8,6 @@ public class NPCController : MonoBehaviour
     GameObject sCon, gCon;
     bool isActive = false;
 
-
     void Awake()
     {
         sCon = GameObject.Find("SceneController");
