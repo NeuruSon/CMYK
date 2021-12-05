@@ -49,7 +49,6 @@ public class PlayerMoving : MonoBehaviour
         float Y = Input.GetAxis("Mouse Y") * rotateSpeed; //위쪽 아래쪽 두리번 두리번 근데 너는 한 바퀴 돌면 안 됨 
         transform.Rotate(0, X, 0); //왼쪽 오른쪽 두리번 두리번 
 
-        // Dont bang ur head 돌지마 
         if (pCam.transform.eulerAngles.x + (-Y) > 80 && pCam.transform.eulerAngles.x + (-Y) < 280)
             return; //조건만 만족하면 딱히 쓸 게 없음 
         else //모가지가 더 돌아가면 한정 범위 내 최솟값으로 바꿔부러라 
