@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PuzzleController : MonoBehaviour
 {
-    GameObject UI;
     GameObject sCon; //SceneController
     GameObject slot;
 
