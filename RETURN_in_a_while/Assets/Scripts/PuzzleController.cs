@@ -26,7 +26,7 @@ public class PuzzleController : MonoBehaviour
 
         if (answers[0] == true)
         {
-            sCon.GetComponent<SceneController>().toTestScene();
+            sCon.GetComponent<SceneController>().toTempMapScene();
         }
         else
         {
