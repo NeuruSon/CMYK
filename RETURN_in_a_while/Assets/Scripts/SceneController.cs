@@ -20,7 +20,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Puzzle");
     }
 
-    public void toTempScene()
+    public void toTempMapScene()
     {
         SceneManager.LoadScene("TempMap");
     }
