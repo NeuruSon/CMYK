@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
@@ -9,14 +10,21 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    public Vector3 offset; //초기 위치 저장
-    public bool isItIn = false;
+    Vector3 offset; //초기 위치 저장
+    GameObject parent;
+    public bool isItIn = false; //DADSlotController에서 접근해 사용
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         offset = GetComponent<Transform>().transform.localPosition;
+        parent = this.transform.parent.gameObject;
+    }
+
+    private void Start()
+    {
+        this.GetComponent<SortingGroup>().sortingOrder = 1;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -24,29 +32,32 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
         isItIn = false;
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
+        this.GetComponent<SortingGroup>().sortingOrder = 2;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnDrag");
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        this.GetComponent<SortingGroup>().sortingOrder = 1;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("OnPointerDown");
-
     }
 
     public void resetOffset()
     {
-        this.transform.localPosition = offset;
+        this.GetComponent<RectTransform>().anchoredPosition = offset;
+    }
+
+    public void resetParent()
+    {
+        this.transform.SetParent(parent.transform);
     }
 }

@@ -8,7 +8,7 @@ public class PlayerMoving : MonoBehaviour
     protected float speed = 5f; //이동 속도.
     float rotateSpeed = 7f;
     float jumpHeight = 9f;
-    public float moveSpeed;
+    float moveSpeed;
     bool isGround = false;
 
     public Camera pCam;

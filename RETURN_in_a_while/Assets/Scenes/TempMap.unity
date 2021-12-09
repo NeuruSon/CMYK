@@ -1198,6 +1198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quad: {fileID: 43527179}
+  puzzleName: Quest2_char_string
 --- !u!135 &922397051
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1374,6 +1375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quad: {fileID: 1529769045}
+  puzzleName: Quest2_char_string
 --- !u!135 &980797931
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1559,6 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quad: {fileID: 1451180307}
+  puzzleName: Quest2_char_string
 --- !u!135 &1271396186
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1678,8 +1681,9 @@ GameObject:
   - component: {fileID: 1277362039}
   - component: {fileID: 1277362038}
   - component: {fileID: 1277362037}
-  - component: {fileID: 1277362036}
   - component: {fileID: 1277362035}
+  - component: {fileID: 1277362036}
+  - component: {fileID: 1277362041}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1713,7 +1717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28821453330364cf896395cb91fb9cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
   pCam: {fileID: 2084105241}
 --- !u!54 &1277362037
 Rigidbody:
@@ -1788,13 +1791,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277362034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.880001, y: 11.57, z: 13.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2084105243}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1277362041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277362034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9688e0975ce0d4a93a1c35a740aafcc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1451180306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2366,6 +2381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quad: {fileID: 555846897}
+  puzzleName: Quest2_char_string
 --- !u!135 &1698211281
 SphereCollider:
   m_ObjectHideFlags: 0
