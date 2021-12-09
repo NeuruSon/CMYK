@@ -5,14 +5,13 @@ using UnityEngine;
 public class PuzzleController : MonoBehaviour
 {
     GameObject sCon; //SceneController
-    GameObject slot;
-
-    bool[] answers = new bool[1];
+    public List<GameObject> slots;
+    List<bool> answers;
 
     void Awake()
     {
         sCon = GameObject.Find("SceneController");
-        slot = GameObject.Find("slot1");
+        answers = new List<bool> ();
     }
 
     void Update()
@@ -22,15 +21,18 @@ public class PuzzleController : MonoBehaviour
 
     public void checkAnswer()
     {
-        answers[0] = slot.GetComponent<DADSlotController>().isCorrect();
-
-        if (answers[0] == true)
+        for (int i = 0; i < slots.Count; ++i)
         {
-            sCon.GetComponent<SceneController>().toTempMapScene();
+            answers.Add(slots[i].GetComponent<DADSlotController>().isCorrect());
         }
-        else
+
+        if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
             sCon.GetComponent<SceneController>().toPuzzleScene();
+        }
+        else //다 맞았다면 
+        {
+            sCon.GetComponent<SceneController>().toTempMapScene();
         }
     }
 }

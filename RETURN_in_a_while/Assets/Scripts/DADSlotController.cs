@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class DADSlotController : MonoBehaviour, IDropHandler
 {
-    public GameObject child;
+    GameObject child;
+    public bool hasSpecificAnswer = false; //유니티 에디터에서 지정하는 옵션 
+    public string answerTag, answerKey; //유니티 에디터에서 지정하는 옵션
 
     private void Update()
     {
@@ -36,16 +38,43 @@ public class DADSlotController : MonoBehaviour, IDropHandler
         }
     }
 
-    public bool isCorrect()
+    public bool isCorrect() //어느 부분에서 false 판단을 내렸는지 알 수 있는 변수가 있어어. 
     {
-        if (child != null)
+        if (hasSpecificAnswer)
         {
-            if (child.tag == "answer")
+            if (child != null)
             {
-                return true;
+                //태그와 키 모두 지정한 경우 
+                if (answerTag != null && answerKey != null && child.CompareTag(answerTag) && child.name == answerKey)
+                {
+                    return true;
+                }
+                else if (answerTag != null && child.CompareTag(answerTag)) //태그만 지정한 경우 
+                {
+                    return true;
+                }
+                else if (answerKey != null && child.name == answerKey) //키만 지정한 경우 
+                {
+                    return true;
+                }
+                //태그 또는 키가 맞지 않는 경우 
+                return false;
+            }
+            //child 지정된 오브젝트가 없을 경우(비어있음) 
+            return false; 
+        }
+        //answer 태그를 단 오브젝트를 정답 처리함(디폴트) 
+        else
+        {
+            if (child != null)
+            {
+                if (child.tag == "answer")
+                {
+                    return true;
+                }
+                return false;
             }
             return false;
         }
-        return false;
     }
 }
