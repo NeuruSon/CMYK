@@ -18,7 +18,7 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        offset = GetComponent<Transform>().transform.localPosition;
+        offset = GetComponent<RectTransform>().anchoredPosition;
         parent = this.transform.parent.gameObject;
     }
 

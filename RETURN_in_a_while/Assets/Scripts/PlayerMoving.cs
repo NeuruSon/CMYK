@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMoving : MonoBehaviour
 {
-    private Rigidbody r;
-    protected float speed = 5f; //이동 속도.
+    [SerializeField] private Canvas canvas;
+
+    Rigidbody r;
+    float speed = 5f; //기준 이동 속도.
     float rotateSpeed = 7f;
     float jumpHeight = 9f;
     float moveSpeed;
     bool isGround = false;
+    float X, Y;
 
-    public Camera pCam;
+    public GameObject pCam;
 
     public float getPlayerSpeed()
     {
@@ -20,6 +24,7 @@ public class PlayerMoving : MonoBehaviour
 
     void Start()
     {
+        pCam = GameObject.Find("PlayerCamera");
         Physics.gravity = new Vector3(0, -12.8f, 0);
         r = GetComponent<Rigidbody>();
         moveSpeed = speed;
@@ -61,15 +66,18 @@ public class PlayerMoving : MonoBehaviour
             r.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
 
-        //마우스로 각도 회전 
-        float X = Input.GetAxis("Mouse X") * rotateSpeed; //왼쪽 오른쪽 두리번 두리번 
-        float Y = Input.GetAxis("Mouse Y") * rotateSpeed; //위쪽 아래쪽 두리번 두리번 근데 너는 한 바퀴 돌면 안 됨;
-        transform.Rotate(0, X, 0); //왼쪽 오른쪽 두리번 두리번
+        //마우스로 각도 회전
+        if (Input.GetMouseButton(0))
+        {
+            //X축은 카메라만, Y축은 캐릭터와 카메라 모두 회전 
+            transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
+            Y = transform.rotation.eulerAngles.y;
+            transform.rotation = Quaternion.Euler(0, Y, 0);
 
-        if (pCam.transform.eulerAngles.x + (-Y) > 80 && pCam.transform.eulerAngles.x + (-Y) < 280)
-            return; //조건만 만족하면 딱히 쓸 게 없음 
-        else //모가지가 더 돌아가면 한정 범위 내 최솟값으로 바꿔부러라 
-            pCam.transform.RotateAround(transform.position, pCam.transform.right, -Y); //RotateAround는 위치와 각도 모두 바꿔버리는데 위치 간섭을 제한하기 위해 transform.position(지금 위치) 그대로 설정하게 만듦.
+            pCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
+            X = pCam.transform.rotation.eulerAngles.x;
+            pCam.transform.rotation = Quaternion.Euler(X, Y, 0);
+        }
     }
 
     void OnCollisionEnter(Collision col)

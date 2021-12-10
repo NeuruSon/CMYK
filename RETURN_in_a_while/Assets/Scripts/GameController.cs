@@ -14,7 +14,8 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         pCon = GameObject.Find("Player");
-        pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 임의 배치 
+        pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 이전 씬과 동일하게 배치
+        pCon.GetComponent<Transform>().transform.localRotation = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치 
     }
 
     void Start()

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PuzzleController : MonoBehaviour
@@ -33,6 +34,7 @@ public class PuzzleController : MonoBehaviour
 
     public void checkAnswer()
     {
-        currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer();
+        //dictionary에서 key를 이용해 value의 index를 반환하고, 해당 값을 npcNum 대신 보내줌 
+        currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName));
     }
 }

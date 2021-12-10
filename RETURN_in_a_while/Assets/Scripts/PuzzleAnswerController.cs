@@ -20,7 +20,7 @@ public class PuzzleAnswerController : MonoBehaviour
 
     }
 
-    public void checkAnswer()
+    public void checkAnswer(int puzzleNum)
     {
         for (int i = 0; i < slots.Count; ++i)
         {
@@ -29,10 +29,12 @@ public class PuzzleAnswerController : MonoBehaviour
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
+            PlayData.isPuzzleCleared[puzzleNum] -= 1;
             sCon.GetComponent<SceneController>().toPuzzleScene();
         }
         else //다 맞았다면 
         {
+            PlayData.isPuzzleCleared[puzzleNum] = 1;
             sCon.GetComponent<SceneController>().toTempMapScene();
         }
     }

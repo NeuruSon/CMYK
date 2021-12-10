@@ -33,9 +33,10 @@ public class DADSlotController : MonoBehaviour, IDropHandler
                 child.GetComponent<DADBlockController>().resetOffset();
             }
             child = eventData.pointerDrag; //들고 있는 블럭을 child에 넣어준다
-            //들고 있는 트랜스폼의 앵커포지션 = 현재 오브젝트(슬롯) 트랜스폼의 앵커포지션으로
+            //들고 있는 트랜스폼의 앵커포지션 = 현재 오브젝트(슬롯) 트랜스폼의 앵커포지션으로 -> 자식으로 설정한 뒤 pivot 중앙에 고정 
             child.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             child.transform.SetParent(this.transform);
+            child.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
         }
     }
 
@@ -64,18 +65,10 @@ public class DADSlotController : MonoBehaviour, IDropHandler
             //child 지정된 오브젝트가 없을 경우(비어있음) 
             return false; 
         }
-        //answer 태그를 단 오브젝트를 정답 처리함(디폴트) 
+        //정답에 관여하지 않는 경우 
         else
         {
-            if (child != null)
-            {
-                if (child.tag == "answer")
-                {
-                    return true;
-                }
-                return false;
-            }
-            return false;
+            return true;
         }
     }
 }
