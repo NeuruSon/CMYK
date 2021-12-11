@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
     int lineCount = 0; // 대화카운트, 대화가 종료되면 +1하고 다음 캐릭터 대사 진행 
     int contextCount = 0; // 대사 카운트 
 
-    public static bool gotoPuzzle = false;
+    
 
     void Update()
     {
@@ -56,12 +56,15 @@ public class DialogueManager : MonoBehaviour
                         {
                             // 모든 대화가 끝난 경우
                             
-                            gotoPuzzle = true;
+                           
                             EndDialogue();
-                            if (DialogueManager.gotoPuzzle == true)
+
+                            if (NPCController.inPuzzle == false)
                             {
-                               // NPCController.sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
+                               NPCController.sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
+                                
                             }
+                            
                         }
                     }
                     //txt_Name.text = "";

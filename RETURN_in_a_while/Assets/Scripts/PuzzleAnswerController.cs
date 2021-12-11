@@ -35,7 +35,9 @@ public class PuzzleAnswerController : MonoBehaviour
         else //다 맞았다면 
         {
             PlayData.isPuzzleCleared[puzzleNum] = 1;
+            
             sCon.GetComponent<SceneController>().toTempMapScene();
+           
         }
     }
 }

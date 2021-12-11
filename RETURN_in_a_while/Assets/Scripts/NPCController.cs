@@ -12,7 +12,8 @@ public class NPCController : MonoBehaviour
     public static string npcName;
     InteractionController IC; //함수 써야해서 넣음 
     DialogueManager DM;
-
+    public static bool inPuzzle = false;
+    public static bool dontgoPuzzle = false;
     void Awake()
     {
         sCon = GameObject.Find("SceneController");
@@ -24,10 +25,12 @@ public class NPCController : MonoBehaviour
     {
         IC = FindObjectOfType<InteractionController>();
         DM = FindObjectOfType<DialogueManager>();
+        
     }
 
     void Update()
     {
+        
         if (isActive == true)
         {
             quad.SetActive(true);
@@ -45,7 +48,7 @@ public class NPCController : MonoBehaviour
                 pCon.GetComponent<PlayerController>().saveCurrentPosition();
 
                 
-                 npcName = tag; // npc 이름 넘기기 => findgameobjext
+                npcName = tag; // npc 이름 넘기기 => findgameobjext
                 IC.CheckObject();
                 
                // sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
@@ -53,14 +56,33 @@ public class NPCController : MonoBehaviour
                 
             }
             else
-            {
-                //클리어 이후의 이벤트 
+            {//클리어 이후의 이벤트 
+                inPuzzle = true;
+                dontgoPuzzle = true;
+                if(puzzleName == "Puzzle1_int")
+                {
+                    DM.ShowDialogue(PlayerController.IE[6].GetDialogue());
+                }
+                if (puzzleName == "Puzzle2_char_string")
+                {
+                    DM.ShowDialogue(PlayerController.IE[5].GetDialogue());
+                }
+                if (puzzleName == "Puzzle3_bool")
+                {
+                    DM.ShowDialogue(PlayerController.IE[2].GetDialogue());
+                }
+                if (puzzleName == "Puzzle4_array")
+                {
+                    DM.ShowDialogue(PlayerController.IE[0].GetDialogue());
+                }
+                
             }
             
         }
     }
+   
 
-    private void OnTriggerEnter(Collider col)
+        private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player")
         {

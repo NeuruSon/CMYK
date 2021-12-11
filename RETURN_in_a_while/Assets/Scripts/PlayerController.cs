@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public DialogueManager DM;
-    public static InteractionEvent[] IE;
+    [SerializeField]  public static InteractionEvent[] IE;
+    public InteractionEvent[] IEplz;
 
+    
+    
     void Start()
     {
         IE = FindObjectsOfType<InteractionEvent>();
+        IEplz = IE;
     }
 
     void Update()
@@ -24,13 +28,20 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "1to4")
+        if (col.gameObject.name == "Tuto")
         {
-            DM.ShowDialogue(IE[1].GetDialogue());
+            NPCController.inPuzzle = true;
+            DM.ShowDialogue(IE[5].GetDialogue()); // 한번만 실행되도록 변경하기 
         }
-        if(col.gameObject.name == "13to14")
+        if(col.gameObject.name == "VillageEntrance")
         {
-            DM.ShowDialogue(IE[0].GetDialogue());
+            NPCController.inPuzzle = true;
+            DM.ShowDialogue(IE[4].GetDialogue());
+        }
+        if(col.gameObject.name == "ContinueRevival")
+        {
+            NPCController.inPuzzle = true;
+            DM.ShowDialogue(IE[3].GetDialogue());
         }
     }
 }
