@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public DialogueManager DM;
+    public static InteractionEvent[] IE;
 
-    public InteractionEvent IE;
     void Start()
     {
-        
+        IE = FindObjectsOfType<InteractionEvent>();
     }
 
     void Update()
@@ -26,8 +26,11 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.name == "1to4")
         {
-            DM.ShowDialogue(IE.GetDialogue());
+            DM.ShowDialogue(IE[1].GetDialogue());
         }
-
+        if(col.gameObject.name == "13to14")
+        {
+            DM.ShowDialogue(IE[0].GetDialogue());
+        }
     }
 }

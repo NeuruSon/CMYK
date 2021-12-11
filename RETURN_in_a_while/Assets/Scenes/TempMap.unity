@@ -851,7 +851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582736467}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.67096, y: 59.489975, z: -17.443764}
+  m_LocalPosition: {x: 47.3, y: 59.489975, z: -17.443764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1784013267}
@@ -2133,7 +2133,6 @@ GameObject:
   - component: {fileID: 1058869895}
   - component: {fileID: 1058869894}
   - component: {fileID: 1058869893}
-  - component: {fileID: 1058869892}
   - component: {fileID: 1058869898}
   m_Layer: 5
   m_Name: Cube
@@ -2142,22 +2141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1058869892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058869891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85f652caf0f9acc4caf9a2435e140c59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: 
-    line: {x: 0, y: 0}
-    dialogues: []
 --- !u!65 &1058869893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2602,6 +2585,73 @@ MonoBehaviour:
   nobtn: {fileID: 0}
   textDelay: 0.02
   IC: {fileID: 2141077477}
+--- !u!1 &1254731898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254731899}
+  - component: {fileID: 1254731901}
+  - component: {fileID: 1254731900}
+  m_Layer: 0
+  m_Name: 13to14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254731899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254731898}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 132.6, y: 60.8, z: 115.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1784013267}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1254731900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254731898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f652caf0f9acc4caf9a2435e140c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: "\uD14C\uC2A4\uD2B8\uD2B8"
+    line: {x: 13, y: 14}
+    dialogues:
+    - name: ss
+      contexts: []
+      number: []
+    - name: ss
+      contexts: []
+      number: []
+--- !u!65 &1254731901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254731898}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 30, z: 30}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1271396184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,7 +2845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
-  speed: 10
+  speed: 30
   pCam: {fileID: 2084105241}
 --- !u!54 &1277362037
 Rigidbody:
@@ -2890,7 +2940,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DM: {fileID: 1126170849}
-  IE: {fileID: 582736470}
 --- !u!1 &1367402195
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 582736469}
+  - {fileID: 1254731899}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4658,13 +4708,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141077476}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd084f601d7b5344a49becedb66e200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DM: {fileID: 1126170849}
-  IE: {fileID: 1698211287}
 --- !u!4 &2141077478
 Transform:
   m_ObjectHideFlags: 0

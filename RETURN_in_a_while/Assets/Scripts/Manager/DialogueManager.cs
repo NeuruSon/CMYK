@@ -93,14 +93,7 @@ public class DialogueManager : MonoBehaviour
             }
             else
             {
-                if (dialogues[lineCount].number.Equals("1"))
-                {
-                    // 1번 분기점일 경우 
-                    okbtn.gameObject.SetActive(true);
-                    nobtn.gameObject.SetActive(true);
-
-
-                }
+                
                 go_DialogueNameBar.SetActive(tf);
                 txt_Name.text = dialogues[lineCount].name;
             }

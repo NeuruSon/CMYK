@@ -11,6 +11,7 @@ public class NPCController : MonoBehaviour
     public string puzzleName = ""; //유니티 에디터에서 지정하는 옵션; 인터렉션했을 때 퍼즐씬에서 오픈할 퍼즐 name 저장 
     public static string npcName;
     InteractionController IC; //함수 써야해서 넣음 
+    DialogueManager DM;
 
     void Awake()
     {
@@ -22,7 +23,7 @@ public class NPCController : MonoBehaviour
     void Start()
     {
         IC = FindObjectOfType<InteractionController>();
-       
+        DM = FindObjectOfType<DialogueManager>();
     }
 
     void Update()
@@ -43,8 +44,9 @@ public class NPCController : MonoBehaviour
                 PlayData.puzzleName = puzzleName; //본 NPC의 puzzle name을, puzzle scene에서 사용하기 위해 임시저장
                 pCon.GetComponent<PlayerController>().saveCurrentPosition();
 
-                npcName = tag; // npc 이름 넘기기 
-               IC.CheckObject(); // npc 누군지 확인 
+                
+                 npcName = tag; // npc 이름 넘기기 => findgameobjext
+                IC.CheckObject();
                 
                // sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
 
