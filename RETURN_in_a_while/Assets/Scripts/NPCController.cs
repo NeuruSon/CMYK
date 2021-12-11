@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    GameObject sCon, gCon, pCon;
+    public static GameObject sCon, gCon, pCon;
     bool isActive = false;
     public int npcNum; //유니티 에디터에서 지정하는 옵션 
     public GameObject quad; //유니티 에디터에서 지정하는 옵션 
@@ -43,10 +43,10 @@ public class NPCController : MonoBehaviour
                 PlayData.puzzleName = puzzleName; //본 NPC의 puzzle name을, puzzle scene에서 사용하기 위해 임시저장
                 pCon.GetComponent<PlayerController>().saveCurrentPosition();
 
-              //  npcName = tag; // npc 이름 넘기기 
-              //  IC.CheckObject(); // npc 누군지 확인 
+                npcName = tag; // npc 이름 넘기기 
+               IC.CheckObject(); // npc 누군지 확인 
                 
-                sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
+               // sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
 
                 
             }

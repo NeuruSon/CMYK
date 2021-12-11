@@ -18,6 +18,7 @@ public class InteractionController : MonoBehaviour
     void Update()
     {
         CheckObject();
+        
     }
 
     public void CheckObject()
@@ -28,9 +29,19 @@ public class InteractionController : MonoBehaviour
         {
             Debug.Log("저는 intNPC입니다 ");
             DM.ShowDialogue(IE.GetDialogue());
+
+            // 다시 말걸떈 count 변수 달아서 마지막 문장만 출력하도록 변경 
+
         }
+        
 
     }
+    public void HideUI()
+    {
+        DM.go_DialogueBar.SetActive(false);
+        DM.go_DialogueNameBar.SetActive(false);
+    }
+
     
-    
+
 }

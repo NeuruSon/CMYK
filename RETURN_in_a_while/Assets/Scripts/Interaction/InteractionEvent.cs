@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class InteractionEvent : MonoBehaviour
 {
-  //  public int lineY; // 엑셀 줄 개수
-   // public int s_lineY;
-
     [SerializeField] DialogueEvent dialogue;
 
 
@@ -16,5 +13,8 @@ public class InteractionEvent : MonoBehaviour
         return dialogue.dialogues;
     }
 
+
+
+    
 
 }

@@ -10,7 +10,7 @@ public class DatabaseManager : MonoBehaviour
 
     Dictionary<int, Dialogue> dialogueDic = new Dictionary<int, Dialogue>(); // int 참조해서 그 줄만큼 꺼내오기 
 
-    public static bool isFinish = false; // 데이터 파싱한걸 저장했느냐 안 했느냐
+    public static bool isFinish = false; // 데이터 파싱한걸 전부 저장했느냐 안 했느냐
 
     void Awake()
     {
@@ -37,5 +37,6 @@ public class DatabaseManager : MonoBehaviour
 
         return dialogueList.ToArray(); 
     }
+
 
 }

@@ -19,14 +19,15 @@ public class DialogueParser : MonoBehaviour
             Dialogue dialogue = new Dialogue(); // 대사 리스트 생성
 
             dialogue.name = row[1];
-            List<string> contextList = new List<string>();
-
-
+            List<string> contextList = new List<string>(); // 대사 리스트
+            List<string> eventList = new List<string>(); // 이벤트 번호 리스트 
             // 대사 개수만큼 반복문
 
             do
             {
+                
                 contextList.Add(row[2]);
+                eventList.Add(row[3]);
                 if (++i < data.Length)
                 {
                     row = data[i].Split(new char[] { ',' });
@@ -38,6 +39,7 @@ public class DialogueParser : MonoBehaviour
             } while (row[0].ToString() == "");
 
             dialogue.contexts = contextList.ToArray();
+            dialogue.number = eventList.ToArray();
             dialogueList.Add(dialogue); // id별로 묶여서 세트로 대사가 저장됨
             
 
