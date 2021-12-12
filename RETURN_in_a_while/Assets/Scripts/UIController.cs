@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject UI;
-    public bool active = false;
+    public GameObject UI; //유니티 에디터에서 지정하는 옵션 
+    bool active = false; 
 
     private void Start()
     {

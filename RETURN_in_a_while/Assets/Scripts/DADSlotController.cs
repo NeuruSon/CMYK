@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class DADSlotController : MonoBehaviour, IDropHandler
 {
     public GameObject child;
+    public bool hasSpecificAnswer = false; //유니티 에디터에서 지정하는 옵션 
+    public string answerTag, answerKey; //유니티 에디터에서 지정하는 옵션
 
     private void Update()
     {
@@ -27,25 +29,46 @@ public class DADSlotController : MonoBehaviour, IDropHandler
             {
                 //기존에 들어있던 블럭을 초기 위치로 보내고 (들고 있던 블럭을 block에 넣어준다)
                 child.GetComponent<DADBlockController>().isItIn = false;
+                child.GetComponent<DADBlockController>().resetParent();
                 child.GetComponent<DADBlockController>().resetOffset();
             }
             child = eventData.pointerDrag; //들고 있는 블럭을 child에 넣어준다
-            child.transform.SetParent(this.transform);
-            //들고 있는 트랜스폼의 앵커포지션 = 현재 오브젝트(슬롯) 트랜스폼의 앵커포지션으로
+            //들고 있는 트랜스폼의 앵커포지션 = 현재 오브젝트(슬롯) 트랜스폼의 앵커포지션으로 -> 자식으로 설정한 뒤 pivot 중앙에 고정 
             child.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            child.transform.SetParent(this.transform);
+            child.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
         }
     }
 
-    public bool isCorrect()
+    public bool isCorrect() //어느 부분에서 false 판단을 내렸는지 알 수 있는 변수가 있어어. 
     {
-        if (child != null)
+        if (hasSpecificAnswer)
         {
-            if (child.tag == "answer")
+            if (child != null)
             {
-                return true;
+                //태그와 키 모두 지정한 경우 
+                if (answerTag != null && answerKey != null && child.CompareTag(answerTag) && child.name == answerKey)
+                {
+                    return true;
+                }
+                else if (answerTag != null && child.CompareTag(answerTag)) //태그만 지정한 경우 
+                {
+                    return true;
+                }
+                else if (answerKey != null && child.name == answerKey) //키만 지정한 경우 
+                {
+                    return true;
+                }
+                //태그 또는 키가 맞지 않는 경우 
+                return false;
             }
-            return false;
+            //child 지정된 오브젝트가 없을 경우(비어있음) 
+            return false; 
         }
-        return false;
+        //정답에 관여하지 않는 경우 
+        else
+        {
+            return true;
+        }
     }
 }

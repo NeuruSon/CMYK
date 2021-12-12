@@ -1,16 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMoving : MonoBehaviour
 {
-    private Rigidbody r;
-    float rotateSpeed = 4f;
-    float jumpHeight = 5f;
-    protected float speed = 5f; //이동 속도.
-    bool isJumping = true;
+    [SerializeField] private Canvas canvas;
 
-    public Camera pCam;
+    Rigidbody r;
+    public float speed = 5f; //기준 이동 속도.
+    float rotateSpeed = 7f;
+    float jumpHeight = 16f;
+    float moveSpeed;
+    bool isGround = false;
+    float X, Y;
+
+    public GameObject pCam;
 
     public float getPlayerSpeed()
     {
@@ -19,45 +24,59 @@ public class PlayerMoving : MonoBehaviour
 
     void Start()
     {
+        pCam = GameObject.Find("PlayerCamera");
+        Physics.gravity = new Vector3(0, -30.8f, 0);
         r = GetComponent<Rigidbody>();
+        moveSpeed = speed;
     }
 
     void Update()
     {
         if(Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(-1 * Vector3.forward * speed * Time.deltaTime);
+            transform.Translate(-1 * Vector3.forward * moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(-1 * Vector3.left * speed * Time.deltaTime);
+            transform.Translate(-1 * Vector3.left * moveSpeed * Time.deltaTime);
         }
 
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
-
-        //마우스로 각도 회전 
-        float X = Input.GetAxis("Mouse X") * rotateSpeed; //왼쪽 오른쪽 두리번 두리번 
-        float Y = Input.GetAxis("Mouse Y") * rotateSpeed; //위쪽 아래쪽 두리번 두리번 근데 너는 한 바퀴 돌면 안 됨 
-        transform.Rotate(0, X, 0); //왼쪽 오른쪽 두리번 두리번 
-
-        if (pCam.transform.eulerAngles.x + (-Y) > 80 && pCam.transform.eulerAngles.x + (-Y) < 280)
-            return; //조건만 만족하면 딱히 쓸 게 없음 
-        else //모가지가 더 돌아가면 한정 범위 내 최솟값으로 바꿔부러라 
-            pCam.transform.RotateAround(transform.position, pCam.transform.right, -Y); //RotateAround는 위치와 각도 모두 바꿔버리는데 위치 간섭을 제한하기 위해 transform.position(지금 위치) 그대로 설정하게 만듦.
-
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        //달리기
+        if (Input.GetKey(KeyCode.LeftShift) && isGround)
         {
-            isJumping = true;
+            moveSpeed = 2 * speed;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed = speed;
+        }
+
+        //점프 
+        if (Input.GetKey(KeyCode.Space) && isGround)
+        {
+            isGround = false;
             r.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+        }
+
+        //마우스로 각도 회전
+        if (Input.GetMouseButton(0))
+        {
+            //X축은 카메라만, Y축은 캐릭터와 카메라 모두 회전 
+            transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
+            Y = transform.rotation.eulerAngles.y;
+            transform.rotation = Quaternion.Euler(0, Y, 0);
+
+            pCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
+            X = pCam.transform.rotation.eulerAngles.x;
+            pCam.transform.rotation = Quaternion.Euler(X, Y, 0);
         }
     }
 
@@ -65,7 +84,7 @@ public class PlayerMoving : MonoBehaviour
     {
         if (col.gameObject.tag == "ground")
         {
-            isJumping = false;
+            isGround = true;
         }
     }
 }
