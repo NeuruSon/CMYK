@@ -307,7 +307,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: bool
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &21528578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,7 +1039,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: d
+  keyIsNot: 0
 --- !u!114 &177510199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,7 +1225,7 @@ GameObject:
   - component: {fileID: 219031847}
   m_Layer: 5
   m_Name: slot_=
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1271,9 +1275,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 1475314841}
-  hasSpecificAnswer: 0
+  hasSpecificAnswer: 1
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &219031849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,7 +1452,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: a
+  keyIsNot: 0
 --- !u!114 &224728244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,7 +1688,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &240601076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1936,7 +1946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &248210789
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2109,7 +2119,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &248253827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2639,7 +2651,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: g
+  keyIsNot: 0
 --- !u!114 &328191902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,7 +2769,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: e
+  keyIsNot: 0
 --- !u!114 &338135627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2872,6 +2888,138 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353786436}
+  m_CullTransparentMesh: 0
+--- !u!1 &360186497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 360186498}
+  - component: {fileID: 360186501}
+  - component: {fileID: 360186500}
+  - component: {fileID: 360186499}
+  m_Layer: 5
+  m_Name: QuitBtn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &360186498
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360186497}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9998923, y: 0.9998923, z: 0.9998923}
+  m_Children:
+  - {fileID: 1557022644}
+  m_Father: {fileID: 1840505000}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -1452, y: -99.989204}
+  m_SizeDelta: {x: 200, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &360186499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360186497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 360186500}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 584463528}
+        m_TargetAssemblyTypeName: PuzzleController, Assembly-CSharp
+        m_MethodName: quitPuzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &360186500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360186497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &360186501
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360186497}
   m_CullTransparentMesh: 0
 --- !u!1 &367613596
 GameObject:
@@ -3333,7 +3481,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: a
+  keyIsNot: 0
 --- !u!114 &386583036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3479,7 +3629,7 @@ GameObject:
   - component: {fileID: 446679903}
   m_Layer: 5
   m_Name: slot_5
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3529,9 +3679,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 1625457313}
-  hasSpecificAnswer: 0
-  answerTag: 
+  hasSpecificAnswer: 1
+  answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &446679905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3758,7 +3910,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: r
+  keyIsNot: 0
 --- !u!114 &548277787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4031,7 +4185,9 @@ MonoBehaviour:
   child: {fileID: 1264686506}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &586030664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4085,7 +4241,7 @@ GameObject:
   - component: {fileID: 586823183}
   m_Layer: 5
   m_Name: slot_1
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4135,9 +4291,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 577556560}
-  hasSpecificAnswer: 0
-  answerTag: 
+  hasSpecificAnswer: 1
+  answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &586823185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4320,7 +4478,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &621915209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4544,7 +4704,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: r
+  keyIsNot: 0
 --- !u!114 &636251271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4767,7 +4929,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &671702322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4940,7 +5104,7 @@ GameObject:
   - component: {fileID: 684415111}
   m_Layer: 5
   m_Name: slot_+
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4990,9 +5154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 683140654}
-  hasSpecificAnswer: 0
+  hasSpecificAnswer: 1
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &684415113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5241,8 +5407,8 @@ GameObject:
   - component: {fileID: 742735486}
   - component: {fileID: 742735485}
   m_Layer: 5
-  m_Name: answerSlot_int
-  m_TagString: slot
+  m_Name: area_nonInt
+  m_TagString: multiArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5449,7 +5615,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &762003313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5554,7 +5722,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: e
+  keyIsNot: 0
 --- !u!114 &762763470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6103,7 +6273,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - {fileID: 742735483}
+  - {fileID: 2121853057}
+  - {fileID: 1929967870}
+  - {fileID: 446679901}
+  - {fileID: 1232730496}
+  - {fileID: 1061397761}
+  - {fileID: 684415109}
+  - {fileID: 2046252684}
+  - {fileID: 967785203}
+  - {fileID: 1199889246}
+  - {fileID: 219031845}
+  - {fileID: 586823181}
 --- !u!114 &806554716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6486,7 +6666,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: y
+  keyIsNot: 0
 --- !u!114 &824057836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7639,7 +7821,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: g
+  keyIsNot: 0
 --- !u!114 &887401653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8267,7 +8451,9 @@ MonoBehaviour:
   child: {fileID: 1952717144}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &940094272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8372,7 +8558,9 @@ MonoBehaviour:
   child: {fileID: 1560467230}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &964859864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8426,7 +8614,7 @@ GameObject:
   - component: {fileID: 967785205}
   m_Layer: 5
   m_Name: slot_-
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8476,9 +8664,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 384047708}
-  hasSpecificAnswer: 0
+  hasSpecificAnswer: 1
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &967785207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8787,7 +8977,7 @@ RectTransform:
   m_Children:
   - {fileID: 1402711021}
   m_Father: {fileID: 1840505000}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -9163,7 +9353,7 @@ GameObject:
   - component: {fileID: 1061397763}
   m_Layer: 5
   m_Name: slot_8
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9213,9 +9403,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 367613596}
-  hasSpecificAnswer: 0
-  answerTag: 
+  hasSpecificAnswer: 1
+  answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1061397765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9840,7 +10032,9 @@ MonoBehaviour:
   child: {fileID: 1014249560}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1179008878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9991,7 +10185,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: INT
+  m_Text: NOT INT
 --- !u!222 &1185006803
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10015,7 +10209,7 @@ GameObject:
   - component: {fileID: 1199889248}
   m_Layer: 5
   m_Name: slot_4
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10065,9 +10259,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 280889512}
-  hasSpecificAnswer: 0
-  answerTag: 
+  hasSpecificAnswer: 1
+  answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1199889250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10121,7 +10317,7 @@ GameObject:
   - component: {fileID: 1232730498}
   m_Layer: 5
   m_Name: slot_-
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10171,9 +10367,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 631404232}
-  hasSpecificAnswer: 0
+  hasSpecificAnswer: 1
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1232730500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10357,7 +10555,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: s
+  keyIsNot: 0
 --- !u!114 &1236978990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10461,7 +10661,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1246558966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10876,7 +11078,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: m
+  keyIsNot: 0
 --- !u!114 &1320491543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11071,7 +11275,9 @@ MonoBehaviour:
   child: {fileID: 860628490}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1366425386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11492,7 +11698,9 @@ MonoBehaviour:
   child: {fileID: 785867412}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1409613778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11824,7 +12032,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: t
+  keyIsNot: 0
 --- !u!114 &1417529834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12098,7 +12308,9 @@ MonoBehaviour:
   child: {fileID: 202451913}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1467347233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12682,6 +12894,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1546852047}
   m_CullTransparentMesh: 0
+--- !u!1 &1557022643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1557022644}
+  - component: {fileID: 1557022646}
+  - component: {fileID: 1557022645}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1557022644
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557022643}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 360186498}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1557022645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557022643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 38
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 46
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\uADF8\uB9CC\uB450\uACE0 \uB098\uAC00\uAE30"
+--- !u!222 &1557022646
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557022643}
+  m_CullTransparentMesh: 0
 --- !u!1 &1560467230
 GameObject:
   m_ObjectHideFlags: 0
@@ -12937,7 +13228,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: r
+  keyIsNot: 0
 --- !u!114 &1568151115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13053,7 +13346,9 @@ MonoBehaviour:
   child: {fileID: 1415531314}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1578627168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13345,7 +13640,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: y
+  keyIsNot: 0
 --- !u!114 &1640343304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13450,7 +13747,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: e
+  keyIsNot: 0
 --- !u!114 &1641389090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13566,7 +13865,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: a
+  keyIsNot: 0
 --- !u!114 &1654797804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13670,7 +13971,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1661927235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13933,7 +14236,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: t
+  keyIsNot: 0
 --- !u!114 &1699745327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14146,7 +14451,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: r
+  keyIsNot: 0
 --- !u!114 &1756823487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14251,7 +14558,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: t
+  keyIsNot: 0
 --- !u!114 &1782435754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14356,7 +14665,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: a
+  keyIsNot: 0
 --- !u!114 &1788941634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14872,6 +15183,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2089019628}
+  - {fileID: 360186498}
   - {fileID: 1036851565}
   - {fileID: 2136317745}
   m_Father: {fileID: 0}
@@ -15167,7 +15479,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: d
+  keyIsNot: 0
 --- !u!114 &1851212672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15271,7 +15585,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: bool
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1867477436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15376,7 +15692,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: m
+  keyIsNot: 0
 --- !u!114 &1869205056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15509,7 +15827,7 @@ GameObject:
   - component: {fileID: 1929967872}
   m_Layer: 5
   m_Name: slot_+
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15559,9 +15877,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 2136692618}
-  hasSpecificAnswer: 0
+  hasSpecificAnswer: 1
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1929967874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15851,7 +16171,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1956847154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16099,7 +16421,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: a
+  keyIsNot: 0
 --- !u!114 &1961575711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16204,7 +16528,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: t
+  keyIsNot: 0
 --- !u!114 &1973629420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16309,7 +16635,9 @@ MonoBehaviour:
   child: {fileID: 778178373}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &1974489743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16403,7 +16731,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: e
+  keyIsNot: 0
 --- !u!114 &1976845109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16864,7 +17194,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: a
+  keyIsNot: 0
 --- !u!114 &2035635644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16980,7 +17312,9 @@ MonoBehaviour:
   child: {fileID: 1411955602}
   hasSpecificAnswer: 0
   answerTag: 
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &2043110410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17074,7 +17408,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: char
+  tagIsNot: 0
   answerKey: s
+  keyIsNot: 0
 --- !u!114 &2043944877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17139,7 +17475,7 @@ GameObject:
   - component: {fileID: 2046252686}
   m_Layer: 5
   m_Name: slot_6
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17189,9 +17525,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 125513418}
-  hasSpecificAnswer: 0
-  answerTag: 
+  hasSpecificAnswer: 1
+  answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &2046252688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17645,7 +17983,9 @@ MonoBehaviour:
   child: {fileID: 0}
   hasSpecificAnswer: 1
   answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &2100401023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17699,7 +18039,7 @@ GameObject:
   - component: {fileID: 2121853059}
   m_Layer: 5
   m_Name: slot_2
-  m_TagString: area
+  m_TagString: slot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17749,9 +18089,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 938993669}
-  hasSpecificAnswer: 0
-  answerTag: 
+  hasSpecificAnswer: 1
+  answerTag: int
+  tagIsNot: 0
   answerKey: 
+  keyIsNot: 0
 --- !u!114 &2121853061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17977,7 +18319,7 @@ RectTransform:
   m_Children:
   - {fileID: 244008433}
   m_Father: {fileID: 1840505000}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
