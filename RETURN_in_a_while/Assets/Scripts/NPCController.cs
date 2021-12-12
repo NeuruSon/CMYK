@@ -13,7 +13,7 @@ public class NPCController : MonoBehaviour
     InteractionController IC; //함수 써야해서 넣음 
     DialogueManager DM;
     public static bool inPuzzle = false;
-    public static bool dontgoPuzzle = false;
+
     void Awake()
     {
         sCon = GameObject.Find("SceneController");
@@ -50,31 +50,12 @@ public class NPCController : MonoBehaviour
                 
                 npcName = tag; // npc 이름 넘기기 => findgameobjext
                 IC.CheckObject();
-                
-               // sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
 
                 
             }
             else
             {//클리어 이후의 이벤트 
-                inPuzzle = true;
-                dontgoPuzzle = true;
-                if(puzzleName == "Puzzle1_int")
-                {
-                    DM.ShowDialogue(PlayerController.IE[6].GetDialogue());
-                }
-                if (puzzleName == "Puzzle2_char_string")
-                {
-                    DM.ShowDialogue(PlayerController.IE[5].GetDialogue());
-                }
-                if (puzzleName == "Puzzle3_bool")
-                {
-                    DM.ShowDialogue(PlayerController.IE[2].GetDialogue());
-                }
-                if (puzzleName == "Puzzle4_array")
-                {
-                    DM.ShowDialogue(PlayerController.IE[0].GetDialogue());
-                }
+               
                 
             }
             

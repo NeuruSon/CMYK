@@ -27,7 +27,8 @@ public class DialogueManager : MonoBehaviour
     int lineCount = 0; // 대화카운트, 대화가 종료되면 +1하고 다음 캐릭터 대사 진행 
     int contextCount = 0; // 대사 카운트 
 
-    
+   
+
 
     void Update()
     {
@@ -56,18 +57,21 @@ public class DialogueManager : MonoBehaviour
                         {
                             // 모든 대화가 끝난 경우
                             
-                           
+
                             EndDialogue();
 
                             if (NPCController.inPuzzle == false)
                             {
-                               NPCController.sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
-                                
+                                if(PlayData.isPuzzleCleared[0] == 0 || PlayData.isPuzzleCleared[1] == 0 || PlayData.isPuzzleCleared[2] == 0 || PlayData.isPuzzleCleared[3] == 0)
+                                {
+                                    NPCController.sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
+                                }
+
+
                             }
-                            
+
                         }
                     }
-                    //txt_Name.text = "";
                 }
             }
         }
@@ -114,6 +118,7 @@ public class DialogueManager : MonoBehaviour
         lineCount = 0;
         dialogues = null;
         isNext = false;
+        txt_Dialogue.text = "";
         SettingUI(false); // ui 사라짐
     }
 
