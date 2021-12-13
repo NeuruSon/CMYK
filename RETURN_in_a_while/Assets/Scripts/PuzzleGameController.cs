@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PuzzleController : MonoBehaviour
+public class PuzzleGameController : MonoBehaviour
 {
     //퍼즐 모드일 때의 게임 컨트롤러입니다.
     GameObject sCon;
@@ -37,7 +37,14 @@ public class PuzzleController : MonoBehaviour
     public void checkAnswer()
     {
         //dictionary에서 key를 이용해 value의 index를 반환하고, 해당 값을 npcNum 대신 보내줌 
-        currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName));
+        if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
+        {
+            sCon.GetComponent<SceneController>().toTempMapScene();
+        }
+        else
+        {
+            sCon.GetComponent<SceneController>().toPuzzleScene();
+        }
     }
 
     public void quitPuzzle()
@@ -45,5 +52,25 @@ public class PuzzleController : MonoBehaviour
         //오답 처리를 하고 씬 전환
         PlayData.isPuzzleCleared[puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)] -= 1; 
         sCon.GetComponent<SceneController>().toTempMapScene();
+    }
+
+    public void nextPuzzle()
+    {
+        if (currentPuzzleCanvas.name == "Puzzle3_bool")
+        {
+            if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
+            {
+                currentPuzzleCanvas.GetComponent<PuzzleController_Puzzle3_bool>().answerCount += 1;
+                currentPuzzleCanvas.GetComponent<PuzzleController_Puzzle3_bool>().changeQuestion();
+                if (currentPuzzleCanvas.GetComponent<PuzzleController_Puzzle3_bool>().answerCount == 3)
+                {
+                    GameObject.Find("NextBtn").SetActive(false);
+                }
+            }
+            else
+            {
+                sCon.GetComponent<SceneController>().toPuzzleScene();
+            }
+        }
     }
 }
