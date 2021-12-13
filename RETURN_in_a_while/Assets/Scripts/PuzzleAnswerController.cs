@@ -27,6 +27,7 @@ public class PuzzleAnswerController : MonoBehaviour
         if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
             PlayData.isPuzzleCleared[puzzleNum] -= 1;
+            Debug.Log("wrong!");
             return false;
         }
         else //다 맞았다면 
