@@ -8,7 +8,7 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private Canvas canvas;
 
     Rigidbody r;
-    public float speed = 5f; //기준 이동 속도.
+    float speed = 5f; //기준 이동 속도.
     float rotateSpeed = 7f;
     float jumpHeight = 16f;
     float moveSpeed;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-   DialogueManager DM;
+    DialogueManager DM;
     // public InteractionEvent IE;
     bool ischecking = false;
     void Start()
