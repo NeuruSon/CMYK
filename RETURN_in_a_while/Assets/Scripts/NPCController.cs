@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    GameObject sCon, gCon, pCon;
+    public static GameObject sCon, gCon, pCon;
     bool isActive = false;
     public int npcNum; //유니티 에디터에서 지정하는 옵션 
     public GameObject quad; //유니티 에디터에서 지정하는 옵션 
     public string puzzleName = ""; //유니티 에디터에서 지정하는 옵션; 인터렉션했을 때 퍼즐씬에서 오픈할 퍼즐 name 저장 
-
+    public static string npcName;
+    InteractionController IC; //함수 써야해서 넣음 
+    DialogueManager DM;
+    public static bool inPuzzle = false;
 
     void Awake()
     {
         sCon = GameObject.Find("SceneController");
         gCon = GameObject.Find("GameController");
         pCon = GameObject.Find("Player");
+        
+    }
+    void Start()
+    {
+        IC = FindObjectOfType<InteractionController>();
+        DM = FindObjectOfType<DialogueManager>();
+        
     }
 
     void Update()
     {
+        
         if (isActive == true)
         {
             quad.SetActive(true);
@@ -35,16 +46,24 @@ public class NPCController : MonoBehaviour
             {
                 PlayData.puzzleName = puzzleName; //본 NPC의 puzzle name을, puzzle scene에서 사용하기 위해 임시저장
                 pCon.GetComponent<PlayerController>().saveCurrentPosition();
-                sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
+
+                
+                npcName = tag; // npc 이름 넘기기 => findgameobjext
+                IC.CheckObject();
+
+                
             }
             else
-            {
-                //클리어 이후의 이벤트 
+            {//클리어 이후의 이벤트 
+               
+                
             }
+            
         }
     }
+   
 
-    private void OnTriggerEnter(Collider col)
+        private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player")
         {
