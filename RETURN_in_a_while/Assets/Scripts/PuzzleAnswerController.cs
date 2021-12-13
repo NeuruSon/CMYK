@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PuzzleAnswerController : MonoBehaviour
 {
-    GameObject sCon; //SceneController
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
     List<bool> answers;
 
     void Awake()
     {
-        sCon = GameObject.Find("SceneController");
         answers = new List<bool> ();
-
     }
 
     void Update()
@@ -20,7 +17,7 @@ public class PuzzleAnswerController : MonoBehaviour
 
     }
 
-    public void checkAnswer(int puzzleNum)
+    public bool checkAnswer(int puzzleNum)
     {
         for (int i = 0; i < slots.Count; ++i)
         {
@@ -30,14 +27,12 @@ public class PuzzleAnswerController : MonoBehaviour
         if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
             PlayData.isPuzzleCleared[puzzleNum] -= 1;
-            sCon.GetComponent<SceneController>().toPuzzleScene();
+            return false;
         }
         else //다 맞았다면 
         {
             PlayData.isPuzzleCleared[puzzleNum] = 1;
-            
-            sCon.GetComponent<SceneController>().toTempMapScene();
-           
+            return true;
         }
     }
 }

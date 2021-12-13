@@ -27,6 +27,16 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
         this.GetComponent<SortingGroup>().sortingOrder = 1;
     }
 
+    private void Update()
+    {
+        if (parent.CompareTag("slot") || parent.CompareTag("area"))
+        {
+            isItIn = true;
+            parent.GetComponent<DADSlotController>().child = this.gameObject;
+        }
+        else { isItIn = false; }
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         isItIn = false;

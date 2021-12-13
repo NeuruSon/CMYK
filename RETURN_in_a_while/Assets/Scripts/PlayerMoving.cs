@@ -8,7 +8,7 @@ public class PlayerMoving : MonoBehaviour
     [SerializeField] private Canvas canvas;
 
     Rigidbody r;
-    public float speed = 5f; //기준 이동 속도.
+    float speed = 5f; //기준 이동 속도.
     float rotateSpeed = 7f;
     float jumpHeight = 16f;
     float moveSpeed;
@@ -25,7 +25,7 @@ public class PlayerMoving : MonoBehaviour
     void Start()
     {
         pCam = GameObject.Find("PlayerCamera");
-        Physics.gravity = new Vector3(0, -30.8f, 0);
+        Physics.gravity = new Vector3(0, -29.8f, 0);
         r = GetComponent<Rigidbody>();
         moveSpeed = speed;
     }
