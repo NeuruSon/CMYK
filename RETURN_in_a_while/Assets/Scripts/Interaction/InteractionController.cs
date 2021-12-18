@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionController : MonoBehaviour
 {
-   DialogueManager DM;
+    DialogueManager DM;
     // public InteractionEvent IE;
     bool ischecking = false;
     void Start()
@@ -34,7 +34,7 @@ public class InteractionController : MonoBehaviour
         {
             Debug.Log("intNPC");
             
-            if (PlayData.isPuzzleCleared[1] == 1)
+            if (PlayData.isPuzzleCleared[0] == 1)
             {
                DM.ShowDialogue(PlayerController.IE[4].GetDialogue());
                 NPCController.inPuzzle = true;

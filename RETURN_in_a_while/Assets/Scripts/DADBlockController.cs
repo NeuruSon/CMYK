@@ -11,7 +11,7 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     Vector3 offset; //초기 위치 저장
-    GameObject parent;
+    public GameObject parent;
     public bool isItIn = false; //DADSlotController에서 접근해 사용
 
     private void Awake()
@@ -25,6 +25,20 @@ public class DADBlockController : MonoBehaviour, IPointerDownHandler, IBeginDrag
     private void Start()
     {
         this.GetComponent<SortingGroup>().sortingOrder = 1;
+    }
+
+    private void Update()
+    {
+        if (parent.tag == "slot")
+        {
+            isItIn = true;
+            parent.GetComponent<DADSlotController>().child = gameObject;
+        }
+        else if (parent.tag == "area")
+        {
+            isItIn = true;
+        }
+        else { isItIn = false; }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
