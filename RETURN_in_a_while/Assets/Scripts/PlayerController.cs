@@ -45,5 +45,11 @@ public class PlayerController : MonoBehaviour
             NPCController.inPuzzle = true;
             DM.ShowDialogue(IE[2].GetDialogue());
         }
+        if (col.gameObject.name == "3")
+        {
+            NPCController.inPuzzle = true;
+            DM.ShowDialogue(IE[3].GetDialogue());
+        }
     }
 }
+
