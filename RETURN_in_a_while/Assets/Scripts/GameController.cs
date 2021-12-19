@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     private bool isGuideOn = false, isSettingOn = false;
     GameObject pCon;
 
+    public bool isPaused = false;
+
     private void Awake()
     {
         pCon = GameObject.Find("Player");
@@ -52,6 +54,15 @@ public class GameController : MonoBehaviour
                 settingCanvas.SetActive(true);
                 //setting on
             }
+        }
+
+        if (isSettingOn || isGuideOn)
+        {
+            isPaused = true;
+        }
+        else
+        {
+            isPaused = false;
         }
     }
 }
