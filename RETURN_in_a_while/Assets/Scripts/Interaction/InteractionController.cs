@@ -36,12 +36,12 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[0] == 1)
             {
-               DM.ShowDialogue(PlayerController.IE[4].GetDialogue());
+               DM.ShowDialogue(PlayerController.IE[5].GetDialogue());
                 NPCController.inPuzzle = true;
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[3].GetDialogue());
+                DM.ShowDialogue(PlayerController.IE[4].GetDialogue());
                 NPCController.inPuzzle = false;
             }
            ;
@@ -52,12 +52,12 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[1] == 1)
             {
-               DM.ShowDialogue(PlayerController.IE[6].GetDialogue());
+               DM.ShowDialogue(PlayerController.IE[7].GetDialogue());
                NPCController.inPuzzle = true;
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[5].GetDialogue());
+                DM.ShowDialogue(PlayerController.IE[6].GetDialogue());
                 NPCController.inPuzzle = false;
             }
             
@@ -68,12 +68,12 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[2] == 1)
             {
-                DM.ShowDialogue(PlayerController.IE[8].GetDialogue());
+                DM.ShowDialogue(PlayerController.IE[9].GetDialogue());
                 NPCController.inPuzzle = true;
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[7].GetDialogue());
+                DM.ShowDialogue(PlayerController.IE[8].GetDialogue());
                 NPCController.inPuzzle = false;
             }
            
@@ -84,13 +84,13 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[3] == 1)
             {
-                DM.ShowDialogue(PlayerController.IE[10].GetDialogue());
+                DM.ShowDialogue(PlayerController.IE[11].GetDialogue());
                 NPCController.inPuzzle = true;
 
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[9].GetDialogue());
+                DM.ShowDialogue(PlayerController.IE[10].GetDialogue());
                 NPCController.inPuzzle = false;
             }
             

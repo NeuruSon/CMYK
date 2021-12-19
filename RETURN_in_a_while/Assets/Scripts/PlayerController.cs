@@ -56,24 +56,24 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("InTower");
         }
-        if(col.gameObject.name == "5")
-        {
-            DM.ShowDialogue(IE[0].GetDialogue());
-            
-        }
-        if (col.gameObject.name == "6")
+        if(col.gameObject.name == "T1")
         {
             DM.ShowDialogue(IE[1].GetDialogue());
+            
+        }
+        if (col.gameObject.name == "T2")
+        {
+            DM.ShowDialogue(IE[2].GetDialogue());
 
         }
     }
     private void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.name == "5")
+        if (col.gameObject.name == "T1")
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                DM.ShowDialogue(IE[2].GetDialogue());
+                DM.ShowDialogue(IE[0].GetDialogue());
                 LightMgr.lightOn();
             }
         }
