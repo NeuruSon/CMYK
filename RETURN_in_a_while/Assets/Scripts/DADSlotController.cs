@@ -55,15 +55,19 @@ public class DADSlotController : MonoBehaviour, IDropHandler
             {
                 Debug.Log(this.name + " is multiArea");
 
-                int childCount = transform.GetChildCount();
+                int childCount = transform.childCount;
+                if (childCount == 0 && answerKey != "0")
+                {
+                    return false;
+                }
                 for (int i = 0; i < childCount; ++i)
                 {
-                    //태그와 키 모두 지정한 경우
+                    //태그와 키 모두 지정한 경우: multiarea에서는 태그만을 사용하며, 키는 필요로 하는 요소 개수로 사용한다.
                     if (answerTag != "" && answerKey != "")
                     {
-                        //부정태그가 들어있지 않거나 목표태그가 들어있고 / 부정키가 들어있지 않거나 목표키가 들어있으면
+                        //부정태그가 들어있지 않거나 목표태그가 들어있고 / 목표 키 자리에 들어있는 개수가 자식 개체 개수와 일치할 경우
                         if (((tagIsNot && !transform.GetChild(i).CompareTag(answerTag)) || (!tagIsNot && transform.GetChild(i).CompareTag(answerTag)))
-                            && ((keyIsNot && transform.GetChild(i).name != answerKey) || (!keyIsNot && transform.GetChild(i).name == answerKey)))
+                            && (childCount.ToString() == answerKey))
                         {
                             continue;
                         }
@@ -72,14 +76,14 @@ public class DADSlotController : MonoBehaviour, IDropHandler
                     {
                         continue;
                     }
-                    else if (answerKey != "" && ((keyIsNot && transform.GetChild(i).name != answerKey) || (!keyIsNot && transform.GetChild(i).name == answerKey))) //키만 지정한 경우 
+                    else if (answerKey != "" && (childCount.ToString() == answerKey)) //개체 개수만 지정한 경우 
                     {
                         continue;
                     }
-                    //태그 또는 키가 맞지 않는 경우 
+                    //태그 또는 개체 개수가 맞지 않는 경우 
                     return false;
                 }
-                //multiArea 내의 모든 children이 조건을 만족한 경우 
+                //multiArea 내의 모든 children이 조건을 만족한 경우
                 return true;
             }
             else if (child != null)
