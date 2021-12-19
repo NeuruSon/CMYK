@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,20 +31,52 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerEnter(Collider col)
     {
+        NPCController.inPuzzle = true;
         if (col.gameObject.name == "0")
         {
-            NPCController.inPuzzle = true;
+           
             DM.ShowDialogue(IE[0].GetDialogue()); // 한번만 실행되도록 변경하기 
         }
         if(col.gameObject.name == "1")
         {
-            NPCController.inPuzzle = true;
+            
             DM.ShowDialogue(IE[1].GetDialogue());
         }
         if(col.gameObject.name == "2")
         {
-            NPCController.inPuzzle = true;
+            
             DM.ShowDialogue(IE[2].GetDialogue());
+        }
+        if (col.gameObject.name == "3")
+        {
+            
+            DM.ShowDialogue(IE[3].GetDialogue());
+        }
+        if(col.gameObject.name == "4")
+        {
+            SceneManager.LoadScene("InTower");
+        }
+        if(col.gameObject.name == "T1")
+        {
+            DM.ShowDialogue(IE[1].GetDialogue());
+            
+        }
+        if (col.gameObject.name == "T2")
+        {
+            DM.ShowDialogue(IE[2].GetDialogue());
+
+        }
+    }
+    private void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.name == "T1")
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                DM.ShowDialogue(IE[0].GetDialogue());
+                LightMgr.lightOn();
+            }
         }
     }
 }
+
