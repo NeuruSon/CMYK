@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class FlowchartController : MonoBehaviour
 {
-    bool isFlowchartOn = true; //실제 게임에서는 기본값 false 
+    public static bool isFlowchartOn = false; //실제 게임에서는 기본값 false 
     public bool isSelectMode = false;
     public GameObject selectPanel, selectBackPanel, FlowchartUI;
     GameObject gCon;

@@ -7,8 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     public DialogueManager DM;
     public static InteractionEvent[] IE;
-    public InteractionEvent[] showIE; 
-    
+    public InteractionEvent[] showIE;
+    public GameObject flowChartCanvas;
+    GameObject gCon, fCon;
+   //bool waitFlowchart = false;
     
     void Start()
     {
@@ -16,6 +18,8 @@ public class PlayerController : MonoBehaviour
         IE = FindObjectsOfType<InteractionEvent>();
         System.Array.Sort<InteractionEvent>(IE, (x, y) => string.Compare(x.name, y.name));
         showIE = IE;
+        gCon = GameObject.Find("GameController");
+        fCon = GameObject.Find("FlowchartController");
     }
 
     void Update()
@@ -44,8 +48,9 @@ public class PlayerController : MonoBehaviour
         }
         if(col.gameObject.name == "2")
         {
+            // 코루틴
+            StartCoroutine(WaitForFlowchart());
             
-            DM.ShowDialogue(IE[2].GetDialogue());
         }
         if (col.gameObject.name == "3")
         {
@@ -58,6 +63,7 @@ public class PlayerController : MonoBehaviour
         }
         if(col.gameObject.name == "5")
         {
+            
             DM.ShowDialogue(IE[0].GetDialogue());
             
         }
@@ -78,5 +84,22 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+    IEnumerator WaitForFlowchart()
+    {
+        
+        flowChartCanvas.SetActive(true);
+        FlowchartController.isFlowchartOn = true;
+        gCon.GetComponent<GameController>().isPaused = false;
+        fCon.GetComponent<FlowchartSequenceController>().isStarted = true;
+
+        yield return new WaitForSeconds(14.0f);
+
+        flowChartCanvas.SetActive(false);
+        FlowchartController.isFlowchartOn = false;
+        gCon.GetComponent<GameController>().isPaused = true;
+        fCon.GetComponent<FlowchartSequenceController>().isStarted = false;
+        DM.ShowDialogue(IE[2].GetDialogue());
+    }
 }
+
 

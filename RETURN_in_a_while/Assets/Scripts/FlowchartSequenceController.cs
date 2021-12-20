@@ -12,7 +12,7 @@ public class FlowchartSequenceController : MonoBehaviour
 
     void Start()
     {
-        isStarted = true;
+        //isStarted = true;
     }
 
     // Update is called once per frame
