@@ -86,14 +86,12 @@ public class InteractionController : MonoBehaviour
             {
                 DM.ShowDialogue(PlayerController.IE[11].GetDialogue());
                 NPCController.inPuzzle = true;
-
             }
             else
             {
                 DM.ShowDialogue(PlayerController.IE[10].GetDialogue());
                 NPCController.inPuzzle = false;
             }
-            
         }
 
 

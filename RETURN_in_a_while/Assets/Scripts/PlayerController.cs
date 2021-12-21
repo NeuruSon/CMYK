@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public static InteractionEvent[] IE;
     public InteractionEvent[] showIE;
     public GameObject flowChartCanvas;
-    GameObject gCon, fCon;
-   //bool waitFlowchart = false;
+    GameObject gCon, fCon, sCon;
+   bool isInActiveArea = false;
     
     void Start()
     {
@@ -20,11 +20,16 @@ public class PlayerController : MonoBehaviour
         showIE = IE;
         gCon = GameObject.Find("GameController");
         fCon = GameObject.Find("FlowchartController");
+        sCon = GameObject.Find("SceneController");
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E) && isInActiveArea)
+        {
+            DM.ShowDialogue(IE[2].GetDialogue());
+            LightMgr.lightOn();
+        }
     }
 
     public void saveCurrentPosition()
@@ -59,11 +64,12 @@ public class PlayerController : MonoBehaviour
         }
         if(col.gameObject.name == "4")
         {
-            SceneManager.LoadScene("InTower");
+            PlayData.preSceneLocation = new Vector3(26.0f, 11.0f, 12.0f);
+            PlayData.preSceneRotation = Quaternion.Euler(0, -45, 0);
+            sCon.GetComponent<SceneController>().toTowerScene();
         }
         if(col.gameObject.name == "5")
         {
-            
             DM.ShowDialogue(IE[0].GetDialogue());
             
         }
@@ -77,13 +83,17 @@ public class PlayerController : MonoBehaviour
     {
         if (col.gameObject.name == "5")
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                DM.ShowDialogue(IE[2].GetDialogue());
-                LightMgr.lightOn();
-            }
+            isInActiveArea = true;
         }
     }
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.name == "5")
+        {
+            isInActiveArea = false;
+        }
+    }
+
     IEnumerator WaitForFlowchart()
     {
         

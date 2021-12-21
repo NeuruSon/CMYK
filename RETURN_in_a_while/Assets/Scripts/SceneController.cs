@@ -24,6 +24,9 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("TempMap");
     }
-   
 
+    public void toTowerScene()
+    {
+        SceneManager.LoadScene("InTower");
+    }
 }

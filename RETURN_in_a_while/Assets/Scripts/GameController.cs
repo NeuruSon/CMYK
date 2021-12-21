@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-    //    isPaused = false;
+        isPaused = false;
     }
 
     void Update()
