@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour
 
     public void toTempMapScene()
     {
-        SceneManager.LoadScene("TempMap");
+        SceneManager.LoadScene("MainTest");
     }
 
     public void toTowerScene()
