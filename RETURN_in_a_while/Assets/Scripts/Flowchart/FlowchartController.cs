@@ -5,14 +5,17 @@ using UnityEngine.EventSystems;
 
 public class FlowchartController : MonoBehaviour
 {
-    public static bool isFlowchartOn = false; //실제 게임에서는 기본값 false 
-    public bool isSelectMode = false;
+    public static bool isFlowchartOn = true; //실제 게임에서는 기본값 false 
+    public bool isSelectMode = false; 
     public GameObject selectPanel, selectBackPanel, FlowchartUI;
     GameObject gCon;
 
     public GameObject start, end;
     public GameObject wrongLine, rightLine;
     public string startKey, endKey;
+
+    bool isGrowing = true;
+    float scaleSpd = 0.0015f;
 
     void Start()
     {
@@ -23,6 +26,22 @@ public class FlowchartController : MonoBehaviour
     {
         if (isFlowchartOn)
         {
+            //if (isGrowing == true && c_line.GetComponent<RectTransform>().localScale.x >= 1.1f && c_line.GetComponent<RectTransform>().localScale.y >= 1.1f)
+            //{
+            //    isGrowing = false;
+            //}
+            //else if (isGrowing == true && c_line.GetComponent<RectTransform>().localScale.x < 1.1f && c_line.GetComponent<RectTransform>().localScale.y < 1.1f)
+            //{
+            //    c_line.GetComponent<RectTransform>().localScale += new Vector3(scaleSpd, scaleSpd);
+            //}
+            //else if (isGrowing == false && c_line.GetComponent<RectTransform>().localScale.x <= 1.0f && c_line.GetComponent<RectTransform>().localScale.y <= 1.0f)
+            //{
+            //    isGrowing = true;
+            //}
+            //else
+            //{
+            //    c_line.GetComponent<RectTransform>().localScale -= new Vector3(scaleSpd, scaleSpd);
+            //}
             gCon.GetComponent<GameController>().isPaused = true;
 
             if (isSelectMode)
@@ -70,8 +89,13 @@ public class FlowchartController : MonoBehaviour
         {
             if (start.name == startKey && end.name == endKey)
             {
+                //wrongLine.GetComponent<FlowchartLineController>().resetParent();
                 wrongLine.SetActive(false);
                 rightLine.SetActive(true);
+                start.GetComponent<FlowchartShapeController>().resetParent();
+                end.GetComponent<FlowchartShapeController>().resetParent();
+                //rightLine.GetComponent<FlowchartLineController>().setParent();
+                isFlowchartOn = false;
             }
             else
             {

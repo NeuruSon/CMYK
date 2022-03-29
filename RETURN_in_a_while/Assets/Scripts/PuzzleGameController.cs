@@ -49,7 +49,7 @@ public class PuzzleGameController : MonoBehaviour
 
     public void quitPuzzle()
     {
-        //오답 처리를 하고 씬 전환
+        //오답 처리를 하고 씬 전환 
         PlayData.isPuzzleCleared[puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)] -= 1; 
         sCon.GetComponent<SceneController>().toTempMapScene();
     }
