@@ -9,7 +9,7 @@ public class FlowchartShapeController : MonoBehaviour, IPointerClickHandler, IPo
     SpriteRenderer sprite;
     GameObject fCon, parent;
     bool isItIn = false, isGrowing = false;
-    float scaleSpd = 0.002f;
+    float scaleSpd = 0.003f;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -65,23 +65,26 @@ public class FlowchartShapeController : MonoBehaviour, IPointerClickHandler, IPo
 
     void Update()
     {
-        if (isGrowing == true && gameObject.GetComponent<RectTransform>().localScale.x >= 1.1f && gameObject.GetComponent<RectTransform>().localScale.y >= 1.1f)
+        if (fCon.GetComponent<FlowchartController>().isSelectMode == true)
         {
-            Debug.Log("1");
-        }
-        else if (isGrowing == true && gameObject.GetComponent<RectTransform>().localScale.x < 1.1f && gameObject.GetComponent<RectTransform>().localScale.y < 1.1f)
-        {
-            Debug.Log("2");
-            gameObject.GetComponent<RectTransform>().localScale += new Vector3(scaleSpd, scaleSpd);
-        }
-        else if (isGrowing == false && gameObject.GetComponent<RectTransform>().localScale.x <= 1.0f && gameObject.GetComponent<RectTransform>().localScale.y <= 1.0f)
-        {
-            //Debug.Log("3");
-        }
-        else
-        {
-            Debug.Log("4");
-            gameObject.GetComponent<RectTransform>().localScale -= new Vector3(scaleSpd, scaleSpd);
+            if (isGrowing == true && gameObject.GetComponent<RectTransform>().localScale.x >= 1.1f && gameObject.GetComponent<RectTransform>().localScale.y >= 1.1f)
+            {
+                Debug.Log("1");
+            }
+            else if (isGrowing == true && gameObject.GetComponent<RectTransform>().localScale.x < 1.1f && gameObject.GetComponent<RectTransform>().localScale.y < 1.1f)
+            {
+                Debug.Log("2");
+                gameObject.GetComponent<RectTransform>().localScale += new Vector3(scaleSpd, scaleSpd);
+            }
+            else if (isGrowing == false && gameObject.GetComponent<RectTransform>().localScale.x <= 1.0f && gameObject.GetComponent<RectTransform>().localScale.y <= 1.0f)
+            {
+                //Debug.Log("3");
+            }
+            else
+            {
+                Debug.Log("4");
+                gameObject.GetComponent<RectTransform>().localScale -= new Vector3(scaleSpd, scaleSpd);
+            }
         }
     }
 

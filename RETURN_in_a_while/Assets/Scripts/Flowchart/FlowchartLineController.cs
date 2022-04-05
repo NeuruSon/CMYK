@@ -29,12 +29,14 @@ public class FlowchartLineController : MonoBehaviour, IPointerClickHandler, IPoi
     {
         Debug.Log("enter");
         isGrowing = true;
+        gameObject.GetComponent<FlowchartLine>().changeLineSize(6f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Debug.Log("exit");
         isGrowing = false;
+        gameObject.GetComponent<FlowchartLine>().changeLineSize(3f);
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -50,25 +52,25 @@ public class FlowchartLineController : MonoBehaviour, IPointerClickHandler, IPoi
 
     void Update()
     {
-        if (fCon.GetComponent<FlowchartController>().isSelectMode == true)
-        {
-            Debug.Log("1");
-            gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (isGrowing == true && gameObject.GetComponent<RectTransform>().localScale.x < 1.1f && gameObject.GetComponent<RectTransform>().localScale.y < 1.1f)
-        {
-            Debug.Log("2");
-            gameObject.GetComponent<RectTransform>().localScale += new Vector3(scaleSpd, scaleSpd);
-        }
-        else if (isGrowing == false && gameObject.GetComponent<RectTransform>().localScale.x >= 1.0f && gameObject.GetComponent<RectTransform>().localScale.y >= 1.0f)
-        {
-            gameObject.GetComponent<RectTransform>().localScale -= new Vector3(scaleSpd, scaleSpd);
-        }
-        else
-        {
-            //Debug.Log("4");
+        //if (fCon.GetComponent<FlowchartController>().isSelectMode == true)
+        //{
+        //    Debug.Log("1");
+        //    gameObject.GetComponent<RectTransform>().localScale = new Vector3(1f, 1f, 1f);
+        //}
+        //else if (isGrowing == true && gameObject.GetComponent<RectTransform>().localScale.x < 1.1f && gameObject.GetComponent<RectTransform>().localScale.y < 1.1f)
+        //{
+        //    Debug.Log("2");
+        //    gameObject.GetComponent<RectTransform>().localScale += new Vector3(scaleSpd, scaleSpd);
+        //}
+        //else if (isGrowing == false && gameObject.GetComponent<RectTransform>().localScale.x >= 1.0f && gameObject.GetComponent<RectTransform>().localScale.y >= 1.0f)
+        //{
+        //    gameObject.GetComponent<RectTransform>().localScale -= new Vector3(scaleSpd, scaleSpd);
+        //}
+        //else
+        //{
+        //    //Debug.Log("4");
             
-        }
+        //}
     }
 
     public void setParent()
