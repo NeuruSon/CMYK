@@ -92,8 +92,6 @@ public class FlowchartLine : MonoBehaviour
             }
         }
 
-        test_start.anchoredPosition = m_start[short_start];
-        test_end.anchoredPosition = m_end[short_end];
 
         if (_curve == 0)
         {
