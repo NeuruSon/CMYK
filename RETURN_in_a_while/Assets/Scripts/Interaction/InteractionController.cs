@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class InteractionController : MonoBehaviour
 {
     DialogueManager DM;
     // public InteractionEvent IE;
     bool ischecking = false;
+    public Flowchart puzzleFC;
+
     void Start()
     {
-      DM = FindObjectOfType<DialogueManager>(); // 파일 전체 다 뒤지는거라 성능 떨어지면 수정 
+        DM = FindObjectOfType<DialogueManager>(); // 파일 전체 다 뒤지는거라 성능 떨어지면 수정 
        
     }
    
@@ -21,7 +24,7 @@ public class InteractionController : MonoBehaviour
         {
             CheckObject();
         }
-       
+        //int varPuzzle = puzzleFC.GetIntegerVariable("Puzzle");
         
     }
 
@@ -36,13 +39,16 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[0] == 1)
             {
-               DM.ShowDialogue(PlayerController.IE[5].GetDialogue());
+               //DM.ShowDialogue(PlayerController.IE[5].GetDialogue());
                 NPCController.inPuzzle = true;
+                puzzleFC.SetIntegerVariable("Puzzle", 1);
+                Debug.Log("int퍼즐 클리어됨");
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[4].GetDialogue());
+                //DM.ShowDialogue(PlayerController.IE[4].GetDialogue());
                 NPCController.inPuzzle = false;
+                Debug.Log("퍼즐 인식이 안됐음");
             }
            ;
         }
@@ -52,8 +58,9 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[1] == 1)
             {
-               DM.ShowDialogue(PlayerController.IE[7].GetDialogue());
-               NPCController.inPuzzle = true;
+               //DM.ShowDialogue(PlayerController.IE[7].GetDialogue());
+                puzzleFC.SetIntegerVariable("Puzzle", 2);
+                NPCController.inPuzzle = true;
             }
             else
             {
@@ -68,7 +75,8 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[2] == 1)
             {
-                DM.ShowDialogue(PlayerController.IE[9].GetDialogue());
+                //DM.ShowDialogue(PlayerController.IE[9].GetDialogue());
+                puzzleFC.SetIntegerVariable("Puzzle", 3);
                 NPCController.inPuzzle = true;
             }
             else
@@ -84,16 +92,15 @@ public class InteractionController : MonoBehaviour
             
             if (PlayData.isPuzzleCleared[3] == 1)
             {
-                DM.ShowDialogue(PlayerController.IE[11].GetDialogue());
+                //DM.ShowDialogue(PlayerController.IE[11].GetDialogue());
+                puzzleFC.SetIntegerVariable("Puzzle", 4);
                 NPCController.inPuzzle = true;
-
             }
             else
             {
                 DM.ShowDialogue(PlayerController.IE[10].GetDialogue());
                 NPCController.inPuzzle = false;
             }
-            
         }
 
 
