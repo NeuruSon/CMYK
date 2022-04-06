@@ -60,6 +60,9 @@ public class GameController : MonoBehaviour
         {
             isPaused = true;
         }
-        
+        else
+        {
+            isPaused = false;
+        }
     }
 }

@@ -34,7 +34,7 @@ public class PlayerMoving : MonoBehaviour
 
     void Update()
     {
-        if (!gCon.GetComponent<GameController>().isPaused) //게임이 진행중일 때만 이동할 수 있음 
+        //if (gCon.GetComponent<GameController>().isPaused == false) //게임이 진행중일 때만 이동할 수 있음 
         {
             if (Input.GetKey(KeyCode.W))
             {
