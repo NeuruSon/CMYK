@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    GameObject sCon, gCon, pCon;
+    GameObject sCon, gCon, pCon, fCon;
     bool isActive = false;
     //public int npcNum; //유니티 에디터에서 지정하는 옵션 
     public GameObject quad; //유니티 에디터에서 지정하는 옵션 
-    public string puzzleName = ""; //유니티 에디터에서 지정하는 옵션; 인터렉션했을 때 퍼즐씬에서 오픈할 퍼즐 name 저장 
+    public GameObject flowchart; //유니티 에디터에서 지정하는 옵션
 
 
     void Awake()
@@ -16,6 +16,7 @@ public class BossController : MonoBehaviour
         sCon = GameObject.Find("SceneController");
         gCon = GameObject.Find("GameController");
         pCon = GameObject.Find("Player");
+        fCon = GameObject.Find("FlowchartController");
     }
 
     void Update()
@@ -31,13 +32,8 @@ public class BossController : MonoBehaviour
 
         if (isActive == true && Input.GetKeyDown(KeyCode.E))
         {
-            //if (PlayData.isPuzzleCleared[npcNum - 1] < 1)
-            //{
-            //}
-            //else
-            //{
-            //    //클리어 이후의 이벤트 
-            //}
+            flowchart.SetActive(true);
+            FlowchartController.isFlowchartOn = true;
         }
     }
 
