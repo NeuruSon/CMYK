@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public DialogueManager DM;
-    public static InteractionEvent[] IE;
-    public InteractionEvent[] showIE; 
+    //public DialogueManager DM;
+    //public static InteractionEvent[] IE;
+    //public InteractionEvent[] showIE; 
     
     
     void Start()
     {
       //  IE = FindObjectsOfType<InteractionEvent>();
-        IE = FindObjectsOfType<InteractionEvent>();
-        System.Array.Sort<InteractionEvent>(IE, (x, y) => string.Compare(x.name, y.name));
-        showIE = IE;
+        //IE = FindObjectsOfType<InteractionEvent>();
+        //System.Array.Sort<InteractionEvent>(IE, (x, y) => string.Compare(x.name, y.name));
+        //showIE = IE;
     }
 
     void Update()
@@ -32,40 +32,13 @@ public class PlayerController : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         NPCController.inPuzzle = true;
-        if (col.gameObject.name == "0")
-        {
-           
-            DM.ShowDialogue(IE[0].GetDialogue()); // 한번만 실행되도록 변경하기 
-        }
-        if(col.gameObject.name == "1")
-        {
-            
-            DM.ShowDialogue(IE[1].GetDialogue());
-        }
-        if(col.gameObject.name == "2")
-        {
-            
-            DM.ShowDialogue(IE[2].GetDialogue());
-        }
-        if (col.gameObject.name == "3")
-        {
-            
-            DM.ShowDialogue(IE[3].GetDialogue());
-        }
+        
+       
         if(col.gameObject.name == "4")
         {
             SceneManager.LoadScene("InTower");
         }
-        if(col.gameObject.name == "T1")
-        {
-            DM.ShowDialogue(IE[1].GetDialogue());
-            
-        }
-        if (col.gameObject.name == "T2")
-        {
-            DM.ShowDialogue(IE[2].GetDialogue());
-
-        }
+       
     }
     private void OnTriggerStay(Collider col)
     {
@@ -73,7 +46,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                DM.ShowDialogue(IE[0].GetDialogue());
+                
                 LightMgr.lightOn();
             }
         }

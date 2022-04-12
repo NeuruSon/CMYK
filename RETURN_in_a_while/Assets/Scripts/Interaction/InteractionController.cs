@@ -5,14 +5,14 @@ using Fungus;
 
 public class InteractionController : MonoBehaviour
 {
-    DialogueManager DM;
+   // DialogueManager DM;
     // public InteractionEvent IE;
     bool ischecking = false;
     public Flowchart puzzleFC;
 
     void Start()
     {
-        DM = FindObjectOfType<DialogueManager>(); // 파일 전체 다 뒤지는거라 성능 떨어지면 수정 
+       // DM = FindObjectOfType<DialogueManager>(); // 파일 전체 다 뒤지는거라 성능 떨어지면 수정 
        
     }
    
@@ -64,7 +64,7 @@ public class InteractionController : MonoBehaviour
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[6].GetDialogue());
+               // DM.ShowDialogue(PlayerController.IE[6].GetDialogue());
                 NPCController.inPuzzle = false;
             }
             
@@ -81,7 +81,7 @@ public class InteractionController : MonoBehaviour
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[8].GetDialogue());
+               // DM.ShowDialogue(PlayerController.IE[8].GetDialogue());
                 NPCController.inPuzzle = false;
             }
            
@@ -98,7 +98,7 @@ public class InteractionController : MonoBehaviour
             }
             else
             {
-                DM.ShowDialogue(PlayerController.IE[10].GetDialogue());
+                //DM.ShowDialogue(PlayerController.IE[10].GetDialogue());
                 NPCController.inPuzzle = false;
             }
         }
@@ -107,8 +107,8 @@ public class InteractionController : MonoBehaviour
     }
     public void HideUI()
     {
-        DM.go_DialogueBar.SetActive(false);
-        DM.go_DialogueNameBar.SetActive(false);
+       // DM.go_DialogueBar.SetActive(false);
+      //  DM.go_DialogueNameBar.SetActive(false);
     }
 
     
