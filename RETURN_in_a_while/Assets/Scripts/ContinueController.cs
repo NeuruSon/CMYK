@@ -9,8 +9,7 @@ public class ContinueController : MonoBehaviour
     float targetDistance;
     float allowedDistance = 3f;
     float followSpeed;
-    RaycastHit ray;
-    Vector3 velocity = Vector3.zero;
+    Vector3 offset = new Vector3(-2, 0.5f, 0);
 
     void Start()
     {
@@ -18,24 +17,12 @@ public class ContinueController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (isFollowing)
         {
-            transform.LookAt(player.transform);
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out ray))
-            {
-                targetDistance = ray.distance;
-                if (targetDistance >= allowedDistance)
-                {
-                    followSpeed = 0.75f;
-                    transform.position = Vector3.SmoothDamp(transform.position, player.transform.position, ref velocity, followSpeed * Time.deltaTime);
-                }
-            }
-            else
-            {
-                followSpeed = 0f;
-            }
+            followSpeed = 1f;
+            transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, followSpeed * Time.deltaTime);
         }
     }
 }
