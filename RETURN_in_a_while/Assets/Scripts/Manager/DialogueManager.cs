@@ -64,7 +64,7 @@ public class DialogueManager : MonoBehaviour
                             {
                                 if(PlayData.isPuzzleCleared[0] == 0 || PlayData.isPuzzleCleared[1] == 0 || PlayData.isPuzzleCleared[2] == 0 || PlayData.isPuzzleCleared[3] == 0)
                                 {
-                                    NPCController.sCon.GetComponentInChildren<SceneController>().toPuzzleScene();
+                                    NPCController.sCon.GetComponentInChildren<SceneController>().toPuzzleYScene();
                                 }
 
 

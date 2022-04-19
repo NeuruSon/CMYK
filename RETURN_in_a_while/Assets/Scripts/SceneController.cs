@@ -15,9 +15,24 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Test");
     }
 
-    public void toPuzzleScene()
+    public void toPuzzleYScene()
     {
-        SceneManager.LoadScene("Puzzle");
+        SceneManager.LoadScene("Puzzle_Y");
+    }
+
+    public void toPuzzleCScene()
+    {
+        SceneManager.LoadScene("Puzzle_C");
+    }
+
+    public void toPuzzleMScene()
+    {
+        SceneManager.LoadScene("Puzzle_M");
+    }
+
+    public void toPuzzleKScene()
+    {
+        SceneManager.LoadScene("Puzzle_K");
     }
 
     public void toTempMapScene()

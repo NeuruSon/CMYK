@@ -43,7 +43,60 @@ public class PuzzleGameController : MonoBehaviour
         }
         else
         {
-            sCon.GetComponent<SceneController>().toPuzzleScene();
+            if (PlayData.currentChapterNum <= 1)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleYScene();
+            }
+            else if (PlayData.currentChapterNum == 2)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleCScene();
+            }
+            else if (PlayData.currentChapterNum == 3)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleMScene();
+            }
+            else if (PlayData.currentChapterNum == 4)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleKScene();
+            }
+            else
+            {
+                Debug.Log("OutOfIndexError");
+                //sCon.GetComponent<SceneController>().toPuzzleScene();
+            }
+        }
+    }
+
+    public void checkAnswer_tag()
+    {
+        //dictionary에서 key를 이용해 value의 index를 반환하고, 해당 값을 npcNum 대신 보내줌
+        if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer_tag(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
+        {
+            sCon.GetComponent<SceneController>().toTempMapScene();
+        }
+        else
+        {
+            if (PlayData.currentChapterNum <= 1)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleYScene();
+            }
+            else if (PlayData.currentChapterNum == 2)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleCScene();
+            }
+            else if (PlayData.currentChapterNum == 3)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleMScene();
+            }
+            else if (PlayData.currentChapterNum == 4)
+            {
+                sCon.GetComponent<SceneController>().toPuzzleKScene();
+            }
+            else
+            {
+                Debug.Log("OutOfIndexError");
+                //sCon.GetComponent<SceneController>().toPuzzleScene();
+            }
         }
     }
 
@@ -69,7 +122,7 @@ public class PuzzleGameController : MonoBehaviour
             }
             else
             {
-                sCon.GetComponent<SceneController>().toPuzzleScene();
+                sCon.GetComponent<SceneController>().toPuzzleYScene();
             }
         }
     }
