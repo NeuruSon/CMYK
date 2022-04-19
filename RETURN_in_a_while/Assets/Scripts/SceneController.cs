@@ -40,8 +40,34 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("MainTest");
     }
 
-    public void toTowerScene()
+    public void toTowerScene() //
     {
         SceneManager.LoadScene("InTower");
+    }
+
+    public void toTowerCScene() // 
+    {
+        SceneManager.LoadScene("InTower C");
+    }
+
+    public void toTowerMScene() //
+    {
+        SceneManager.LoadScene("InTower M");
+    }
+
+    public void toGotoCScene() //
+    {
+        SceneManager.LoadScene("gotoC");
+    }
+
+    public void toCaveScene() //
+    {
+        SceneManager.LoadScene("Cave");
+    }
+
+    public string getThisSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
+
     }
 }
