@@ -9,7 +9,7 @@ public class ContinueController : MonoBehaviour
     float targetDistance;
     float allowedDistance = 3f;
     float followSpeed;
-    Vector3 offset = new Vector3(-2, 0.5f, 0);
+    public Vector3 offset = new Vector3(-2, 0.5f, 0);
 
     void Start()
     {
