@@ -1,58 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class PuzzleController_Puzzle5_if_else : MonoBehaviour
 {
-    public TMP_Dropdown num_front_drd, num_back_drd, order_front_drd, order_back_drd;
+    public GameObject tip1, tip2, answer1_1, answer1_2, answer2_1, answer2_2, scale1, scale2, s_bell_r, s_bell_b, off_bell_r, off_bell_b, r_bell_r, r_bell_b, answer_area1, answer_area2;
+    GameObject pgCon;
 
     void Start()
     {
-
+        pgCon = GameObject.Find("PuzzleController");
+        pgCon.GetComponent<PuzzleGameController>().onNextBtn();
     }
 
-
-    void Update()
+    public void nextQuestion()
     {
-        isRight_void();
-    }
-
-    public bool isRight()
-    {
-        int nf_value = num_front_drd.value;
-        int nb_value = num_back_drd.value;
-        int of_value = order_front_drd.value;
-        int ob_value = order_back_drd.value;
-
-        if (nf_value > 0 && nb_value > 0 && Mathf.Abs(nf_value - nb_value) == 2
-            && of_value > 0 && ob_value > 0 && of_value != ob_value)
+        if (answer_area1.GetComponent<DADSlotController>().isCorrect())
         {
-            return true;
+            s_bell_r.SetActive(false);
+            r_bell_r.SetActive(true);
         }
         else
         {
-            return false;
+            s_bell_r.SetActive(false);
+            off_bell_r.SetActive(true);
         }
-    }
 
-    public void isRight_void()
-    {
-        int nf_value = num_front_drd.value;
-        int nb_value = num_back_drd.value;
-        int of_value = order_front_drd.value;
-        int ob_value = order_back_drd.value;
+        tip1.SetActive(false);
+        answer1_1.SetActive(false);
+        answer2_1.SetActive(false);
+        scale1.SetActive(false);
+        answer_area1.SetActive(false);
 
-        if (nf_value > 0 && nb_value > 0 && Mathf.Abs(nf_value - nb_value) == 2
-            && of_value > 0 && ob_value > 0 && of_value != ob_value)
-        {
-            Debug.Log("t");
-            gameObject.tag = "true";
-        }
-        else
-        {
-            gameObject.tag = "PuzzleController";
-        }
+        tip2.SetActive(true);
+        answer1_2.SetActive(true);
+        answer2_2.SetActive(true);
+        scale2.SetActive(true);
+        answer_area2.SetActive(true);
+
+        pgCon.GetComponent<PuzzleGameController>().offNextBtn();
     }
 }

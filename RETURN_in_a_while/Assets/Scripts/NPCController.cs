@@ -14,15 +14,12 @@ public class NPCController : MonoBehaviour
     DialogueManager DM;
     public static bool inPuzzle = false;
 
-    void Awake()
+    void Start()
     {
         sCon = GameObject.Find("SceneController");
         gCon = GameObject.Find("GameController");
         pCon = GameObject.Find("Player");
-        
-    }
-    void Start()
-    {
+
         IC = FindObjectOfType<InteractionController>();
         DM = FindObjectOfType<DialogueManager>();
         
@@ -46,11 +43,10 @@ public class NPCController : MonoBehaviour
             {
                 PlayData.puzzleName = puzzleName; //본 NPC의 puzzle name을, puzzle scene에서 사용하기 위해 임시저장
                 pCon.GetComponent<PlayerController>().saveCurrentPosition();
+                inPuzzle = true;
                 
                 npcName = tag; // npc 이름 넘기기 => findgameobjext
                 IC.CheckObject();
-
-                
             }
             else
             {//클리어 이후의 이벤트 

@@ -33,7 +33,6 @@ public class NamingController : MonoBehaviour
                 checkPanel.SetActive(false);
                 isWriting = true;
             }
-            
         }
         else
         {

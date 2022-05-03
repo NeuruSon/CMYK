@@ -7,7 +7,7 @@ public class PuzzleGameController : MonoBehaviour
 {
     //퍼즐 모드일 때의 게임 컨트롤러입니다.
     GameObject sCon;
-    public GameObject puzzles; //유니티 에디터에서 지정하는 옵션 
+    public GameObject puzzles, nextBtn, doneBtn; //유니티 에디터에서 지정하는 옵션 
     Dictionary<string, GameObject> puzzleCanvases;
     GameObject currentPuzzleCanvas;
 
@@ -133,5 +133,17 @@ public class PuzzleGameController : MonoBehaviour
                 sCon.GetComponent<SceneController>().toPuzzleYScene();
             }
         }
+    }
+
+    public void onNextBtn()
+    {
+        nextBtn.SetActive(true);
+        doneBtn.SetActive(false);
+    }
+
+    public void offNextBtn()
+    {
+        nextBtn.SetActive(false);
+        doneBtn.SetActive(true);
     }
 }

@@ -24,8 +24,6 @@ public class InteractionController : MonoBehaviour
         {
             CheckObject();
         }
-        //int varPuzzle = puzzleFC.GetIntegerVariable("Puzzle");
-        
     }
 
     public void CheckObject()
@@ -40,6 +38,7 @@ public class InteractionController : MonoBehaviour
             if (PlayData.isPuzzleCleared[0] == 1)
             {
                //DM.ShowDialogue(PlayerController.IE[5].GetDialogue());
+
                 NPCController.inPuzzle = true;
                 puzzleFC.SetIntegerVariable("Puzzle", 1);
                 Debug.Log("int퍼즐 클리어됨");
@@ -50,7 +49,6 @@ public class InteractionController : MonoBehaviour
                 NPCController.inPuzzle = false;
                 Debug.Log("퍼즐 인식이 안됐음");
             }
-           ;
         }
         if(NPCController.npcName == "charNPC")
         {

@@ -7,8 +7,10 @@ public class DADSlotController : MonoBehaviour, IDropHandler
 {
     public GameObject child;
     public bool hasSpecificAnswer = false; //유니티 에디터에서 지정하는 옵션 
+    public bool useTag = false; //유니티 에디터에서 지정하는 옵션 
     public string answerTag; //유니티 에디터에서 지정하는 옵션 
-    public bool tagIsNot = false; //유니티 에디터에서 지정하는 옵션 
+    public bool tagIsNot = false; //유니티 에디터에서 지정하는 옵션
+    public bool useKey = false; //유니티 에디터에서 지정하는 옵션 
     public string answerKey; //유니티 에디터에서 지정하는 옵션
     public bool keyIsNot = false; //유니티 에디터에서 지정하는 옵션 
 
@@ -88,32 +90,65 @@ public class DADSlotController : MonoBehaviour, IDropHandler
             }
             else if (child != null)
             {
-                //태그와 키 모두 지정한 경우 
-                if (answerTag != "" && answerKey != "")
+                bool tag, key = false;
+
+                if (useTag)
                 {
-                    //부정태그가 들어있지 않거나 목표태그가 들어있고 / 부정키가 들어있지 않거나 목표키가 들어있으면
-                    if (((tagIsNot && !child.CompareTag(answerTag)) || (!tagIsNot && child.CompareTag(answerTag)))
-                        && ((keyIsNot && child.name != answerKey) || (!keyIsNot && child.name == answerKey)))
+                    //부정태그가 아니고 태그가 정답일 경우 
+                    if (!tagIsNot && child.CompareTag(answerTag))
                     {
-                        return true;
+                        tag = true;
+                    }
+                    //부정태그이고 태그가 오답이 아닐 경우  
+                    else if (tagIsNot && !child.CompareTag(answerTag))
+                    {
+                        tag = true;
+                    }
+                    else
+                    {
+                        tag = false;
                     }
                 }
-                else if (answerTag != "" && ((tagIsNot && !child.CompareTag(answerTag)) || (!tagIsNot && child.CompareTag(answerTag)))) //태그만 지정한 경우 
+                else
                 {
-                    return true;
+                    tag = true;
                 }
-                else if (answerKey != "" && ((keyIsNot && child.name != answerKey) || (!keyIsNot && child.name == answerKey))) //키만 지정한 경우 
+
+                if (useKey)
                 {
-                    return true;
+                    if (child)
+                    {
+                        //부정키가 아니고 키가 정답일 경우 
+                        if (!keyIsNot && child.name == answerKey)
+                        {
+                            key = true;
+                        }
+                        //부정키이고 키가 오답이 아닐 경우  
+                        else if (keyIsNot && child.name != answerKey)
+                        {
+                            key = true;
+                        }
+                        else
+                        {
+                            key = false;
+                        }
+                    }
+                    else
+                    {
+                        key = false;
+                    }
                 }
+                else
+                {
+                    key = true;
+                }
+
+                return tag && key;
+
                 //태그 또는 키가 맞지 않는 경우
-                Debug.Log(this.name + " / " + (child ? child.name : "none") + " / " + (answerKey != "" ? answerKey : "none") + " / " + (answerTag != "" ? answerTag : "none"));
-                return false;
+                //Debug.Log(this.name + " / " + (child ? child.name : "none") + " / " + (answerKey != "" ? answerKey : "none") + " / " + (answerTag != "" ? answerTag : "none"));
             }
-            else if (answerKey == "" && answerTag == "")
-            {
-                return true;
-            }
+
             //child 지정된 오브젝트가 없을 경우(비어있음)
             Debug.Log("empty child");
             return false; 
