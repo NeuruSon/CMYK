@@ -65,6 +65,13 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Cave");
     }
 
+    public void toShowPuzzleScene()
+    {
+        SceneManager.LoadScene("showPuzzle");
+    }
+
+
+
     public string getThisSceneName()
     {
         return SceneManager.GetActiveScene().name;

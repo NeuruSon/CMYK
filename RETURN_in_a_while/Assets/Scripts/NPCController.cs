@@ -62,7 +62,7 @@ public class NPCController : MonoBehaviour
     }
    
 
-        private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player")
         {
