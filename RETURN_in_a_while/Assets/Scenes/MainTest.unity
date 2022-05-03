@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.16788375, g: 0.21073635, b: 0.28994125, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3299,7 +3299,7 @@ GameObject:
   - component: {fileID: 342815190}
   - component: {fileID: 342815191}
   m_Layer: 0
-  m_Name: Continue_object
+  m_Name: Continue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3333,6 +3333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFollowing: 1
+  offset: {x: -2, y: 0.5, z: 0}
 --- !u!1001 &344532180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7249,7 +7250,7 @@ GameObject:
   - component: {fileID: 678696766}
   - component: {fileID: 678696771}
   m_Layer: 5
-  m_Name: Continue
+  m_Name: Continue_object
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9760,8 +9761,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 922397077}
+  selectedCommands:
+  - {fileID: 922397069}
   variables:
   - {fileID: 922397059}
   description: 
@@ -9805,7 +9808,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 785.25
     y: 153.5
-    width: 133
+    width: 131
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10267,7 +10270,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: Puzzle
+    stringVal: Puzzle_Y
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &922397070
@@ -12995,7 +12998,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: Puzzle
+    stringVal: Puzzle_Y
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &980797951
@@ -13644,7 +13647,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 949
     y: 93.5
-    width: 133
+    width: 131
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13687,8 +13690,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 980797958}
+  selectedCommands:
+  - {fileID: 980797950}
   variables:
   - {fileID: 980797937}
   description: 
@@ -17589,7 +17594,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: Puzzle
+    stringVal: Puzzle_Y
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &1271396206
@@ -17803,7 +17808,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 550
     y: 235.5
-    width: 99.484535
+    width: 97.42268
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17889,7 +17894,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 667
     y: 234.5
-    width: 99.484535
+    width: 97.42268
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18255,7 +18260,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1082
     y: 169.5
-    width: 133.50516
+    width: 132.98969
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18300,8 +18305,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1271396222}
-  selectedCommands: []
+  - {fileID: 1271396213}
+  selectedCommands:
+  - {fileID: 1271396205}
   variables:
   - {fileID: 1271396192}
   description: 
@@ -20884,7 +20890,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1500958941
 GameObject:
@@ -21060,7 +21066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1504497987
 AudioSource:
@@ -27338,7 +27344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1671354245
 PrefabInstance:
@@ -27996,11 +28002,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 3.649477, y: 36.75258}
+  scrollPos: {x: 26.741821, y: 88.80563}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 274
-  zoom: 1
+  zoom: 0.9131549
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -28008,9 +28014,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1698211296}
+  - {fileID: 1698211309}
   selectedCommands:
-  - {fileID: 1698211293}
+  - {fileID: 1698211297}
   variables:
   - {fileID: 1698211288}
   - {fileID: 1698211315}
@@ -28223,7 +28229,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 756
     y: 151
-    width: 98
+    width: 97.63704
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28690,7 +28696,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 522
     y: 119
-    width: 160
+    width: 159.51044
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28723,7 +28729,7 @@ MonoBehaviour:
   indentLevel: 0
   _sceneName:
     stringRef: {fileID: 0}
-    stringVal: Puzzle
+    stringVal: Puzzle_Y
   loadingImage: {fileID: 0}
   sceneNameOLD: 
 --- !u!114 &1698211298
@@ -29017,7 +29023,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 616
     y: 205
-    width: 107
+    width: 106.39788
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29043,9 +29049,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 486
-    y: 211
-    width: 98
+    x: 487
+    y: 212
+    width: 98.1846
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29403,7 +29409,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 929
     y: 103
-    width: 133
+    width: 131.03772
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -31532,7 +31538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 597141410}
+  selectedFlowchart: {fileID: 1271396223}
 --- !u!4 &1854438916
 Transform:
   m_ObjectHideFlags: 1

@@ -9,15 +9,21 @@ public class GameController : MonoBehaviour
     public GameObject guideImage; //유니티 에디터에서 지정하는 옵션 
     public GameObject settingCanvas; //유니티 에디터에서 지정하는 옵션 
     private bool isGuideOn = false, isSettingOn = false;
-    GameObject pCon;
+    GameObject pCon, cCon;
 
     public bool isPaused = false;
 
     private void Awake()
     {
-        pCon = GameObject.Find("Player");
-        pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 이전 씬과 동일하게 배치
-        pCon.GetComponent<Transform>().transform.localRotation = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치 
+        if (PlayData.toPreScene)
+        {
+            pCon = GameObject.Find("Player");
+            pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 이전 씬과 동일하게 배치
+            pCon.GetComponent<Transform>().transform.localRotation = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
+            cCon = GameObject.Find("Continue");
+            cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
+            PlayData.toPreScene = false;
+        }
     }
 
     void Start()

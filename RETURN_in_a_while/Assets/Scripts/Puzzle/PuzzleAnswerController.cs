@@ -24,7 +24,7 @@ public class PuzzleAnswerController : MonoBehaviour
             answers.Add(slots[i].GetComponent<DADSlotController>().isCorrect());
         }
 
-        if (answers.Contains(false)) //오답이 하나라도 있을 경우 
+        if (answers.Contains(false)) //오답이 하나라도 있을 경우
         {
             PlayData.isPuzzleCleared[puzzleNum] -= 1;
             Debug.Log("wrong!");
@@ -53,6 +53,7 @@ public class PuzzleAnswerController : MonoBehaviour
         else //다 맞았다면 
         {
             PlayData.isPuzzleCleared[puzzleNum] = 1;
+            PlayData.toPreScene = true;
             return true;
         }
     }
@@ -73,6 +74,7 @@ public class PuzzleAnswerController : MonoBehaviour
         else //다 맞았다면 
         {
             PlayData.isPuzzleCleared[puzzleNum] = 1;
+            PlayData.toPreScene = true;
             return true;
         }
     }
