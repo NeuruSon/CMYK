@@ -19,10 +19,15 @@ public class PuzzleAnswerController : MonoBehaviour
 
     public bool checkAnswer(int puzzleNum)
     {
+        string answer = "";
         for (int i = 0; i < slots.Count; ++i)
         {
             answers.Add(slots[i].GetComponent<DADSlotController>().isCorrect());
+
+            answer += slots[i].GetComponent<DADSlotController>().isCorrect();
         }
+
+        Debug.Log(answer);
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우
         {
@@ -33,6 +38,7 @@ public class PuzzleAnswerController : MonoBehaviour
         else //다 맞았다면 
         {
             PlayData.isPuzzleCleared[puzzleNum] = 1;
+            PlayData.toPreScene = true;
             return true;
         }
     }
