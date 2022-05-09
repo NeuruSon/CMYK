@@ -112,7 +112,7 @@ public class PuzzleGameController : MonoBehaviour
     {
         //오답 처리를 하고 씬 전환 
         PlayData.isPuzzleCleared[puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)] -= 1; 
-        sCon.GetComponent<SceneController>().toTempMapScene();
+        sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
     }
 
     public void nextPuzzle()

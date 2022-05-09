@@ -32,32 +32,32 @@ public class InteractionController : MonoBehaviour
         ischecking = true;
             
         if (PlayData.isPuzzleCleared[0] == 1) // int, 2-1 if
-         {
+        {
             
-           if(puzzleFC.GetName()=="StartScene")
+            if(puzzleFC.GetName()=="StartScene")
             {
                 puzzleFC.SetIntegerVariable("Puzzle", 5); // 수정해야됨!!!!!!!!! 
             }
-           else
+            else
             {
                 puzzleFC.SetIntegerVariable("Puzzle", 1);
             }
 
             Debug.Log("int퍼즐 클리어됨");
-         }
+        }
          
             
-         else if (PlayData.isPuzzleCleared[1] == 1) // char 
-         {
+        else if (PlayData.isPuzzleCleared[1] == 1) // char 
+        {
             puzzleFC.SetIntegerVariable("Puzzle", 2);
             NPCController.inPuzzle = true;
-         }
+        }
 
-         else if (PlayData.isPuzzleCleared[2] == 1) // bool 
-         {
+        else if (PlayData.isPuzzleCleared[2] == 1) // bool 
+        {
             puzzleFC.SetIntegerVariable("Puzzle", 3);
             NPCController.inPuzzle = true;
-         }
+        }
 
 
         else if (PlayData.isPuzzleCleared[3] == 1) // arr 
@@ -71,11 +71,5 @@ public class InteractionController : MonoBehaviour
             puzzleFC.SetIntegerVariable("Puzzle", 5);
            // NPCController.inPuzzle = true;
         }
-
-
     }
-   
-
-    
-
 }
