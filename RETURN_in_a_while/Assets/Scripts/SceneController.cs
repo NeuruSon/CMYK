@@ -40,7 +40,7 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("MainTest");
     }
 
-    public void toTowerScene() //
+    public void toTowerYScene() //
     {
         SceneManager.LoadScene("InTower");
     }
@@ -70,11 +70,14 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("showPuzzle");
     }
 
+    public void toScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 
 
     public string getThisSceneName()
     {
         return SceneManager.GetActiveScene().name;
-
     }
 }
