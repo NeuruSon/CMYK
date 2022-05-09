@@ -39,11 +39,8 @@ public class PuzzleGameController : MonoBehaviour
         //dictionary에서 key를 이용해 value의 index를 반환하고, 해당 값을 npcNum 대신 보내줌
         if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
         {
-            if (PlayData.currentChapterNum == 2)
-            {
-                sCon.GetComponent<SceneController>().toShowPuzzleScene();
-            }
             sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
+            PlayData.toPreScene = true;
         }
         else
         {
@@ -66,7 +63,6 @@ public class PuzzleGameController : MonoBehaviour
             else
             {
                 Debug.Log("OutOfIndexError");
-                //sCon.GetComponent<SceneController>().toPuzzleScene();
             }
         }
     }
@@ -76,11 +72,8 @@ public class PuzzleGameController : MonoBehaviour
         //dictionary에서 key를 이용해 value의 index를 반환하고, 해당 값을 npcNum 대신 보내줌
         if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer_tag(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
         {
-            if (PlayData.currentChapterNum == 2)
-            {
-                sCon.GetComponent<SceneController>().toShowPuzzleScene();
-            }
             sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
+            PlayData.toPreScene = true;
         }
         else
         {
@@ -103,16 +96,14 @@ public class PuzzleGameController : MonoBehaviour
             else
             {
                 Debug.Log("OutOfIndexError");
-                //sCon.GetComponent<SceneController>().toPuzzleScene();
             }
         }
     }
 
     public void quitPuzzle()
     {
-        //오답 처리를 하고 씬 전환 
-        PlayData.isPuzzleCleared[puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)] -= 1; 
         sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
+        PlayData.toPreScene = true;
     }
 
     public void nextPuzzle()

@@ -20,7 +20,7 @@ public class InteractionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ischecking==false)
+        if (!ischecking)
         {
             CheckObject();
         }

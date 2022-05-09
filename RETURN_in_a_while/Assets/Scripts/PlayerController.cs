@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public void saveCurrentSceneName()
     {
         PlayData.preSceneName = sCon.GetComponent<SceneController>().getThisSceneName();
+        Debug.Log(PlayData.preSceneName);
     }
 
 
