@@ -6,6 +6,7 @@ public class PuzzleAnswerController : MonoBehaviour
 {
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
     List<bool> answers;
+    public static int num;
 
     void Awake()
     {
@@ -37,7 +38,8 @@ public class PuzzleAnswerController : MonoBehaviour
         }
         else //다 맞았다면 
         {
-            PlayData.isPuzzleCleared[puzzleNum] = 1;
+            num = puzzleNum+1;
+            // PlayData.isPuzzleCleared[puzzleNum] = 1;
             PlayData.toPreScene = true;
             return true;
         }
@@ -58,7 +60,8 @@ public class PuzzleAnswerController : MonoBehaviour
         }
         else //다 맞았다면 
         {
-            PlayData.isPuzzleCleared[puzzleNum] = 1;
+            num = puzzleNum+1;
+            //PlayData.isPuzzleCleared[puzzleNum] = 1;
             PlayData.toPreScene = true;
             return true;
         }
@@ -79,9 +82,13 @@ public class PuzzleAnswerController : MonoBehaviour
         }
         else //다 맞았다면 
         {
-            PlayData.isPuzzleCleared[puzzleNum] = 1;
+            num = puzzleNum+1;
+            //PlayData.isPuzzleCleared[puzzleNum] = 1;
+            //FC.SetIntegerVariable("Puzzle", puzzleNum + 1);
+
             PlayData.toPreScene = true;
             return true;
         }
+        
     }
 }
