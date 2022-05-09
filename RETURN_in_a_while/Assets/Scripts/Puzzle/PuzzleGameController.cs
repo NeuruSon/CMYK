@@ -41,9 +41,9 @@ public class PuzzleGameController : MonoBehaviour
         {
             if (PlayData.currentChapterNum == 2)
             {
-               // sCon.GetComponent<SceneController>().toShowPuzzleScene();
+                sCon.GetComponent<SceneController>().toShowPuzzleScene();
             }
-            sCon.GetComponent<SceneController>().toCaveScene();
+            sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
         }
         else
         {
@@ -80,7 +80,7 @@ public class PuzzleGameController : MonoBehaviour
             {
                 sCon.GetComponent<SceneController>().toShowPuzzleScene();
             }
-            sCon.GetComponent<SceneController>().toTempMapScene();
+            sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
         }
         else
         {
