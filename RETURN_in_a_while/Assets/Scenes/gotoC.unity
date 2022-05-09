@@ -2070,7 +2070,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 588
     y: 113
-    width: 101
+    width: 102.57732
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2111,21 +2111,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 17.087908, y: -89.48351}
+  scrollPos: {x: 48.811188, y: 4.7801876}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 259
-  zoom: 1
+  zoom: 0.97
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 806026200}
-  selectedCommands:
-  - {fileID: 806026229}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -2314,7 +2312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 93
   indentLevel: 0
-  storyText: "\uD5C9, (\uC774\uB984)! \uC704\uD5D8\uD574!!"
+  storyText: "\uD5C9, {$PlayerName}! \uC704\uD5D8\uD574!!"
   description: 
   character: {fileID: 657293319}
   portrait: {fileID: 0}
@@ -2544,7 +2542,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 604
     y: 359
-    width: 74
+    width: 74.74226
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2566,6 +2564,7 @@ MonoBehaviour:
   - {fileID: 806026188}
   - {fileID: 806026189}
   - {fileID: 806026229}
+  - {fileID: 806026230}
   suppressAllAutoSelections: 0
 --- !u!114 &806026201
 MonoBehaviour:
@@ -2662,7 +2661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 81
   indentLevel: 0
-  storyText: "...\uB2E4\uB978 \uBC29\uBC95\uC740 \uC5C6\uACA0\uC5B4. \uC774\uB807\uAC8C
+  storyText: "\u2026\uB2E4\uB978 \uBC29\uBC95\uC740 \uC5C6\uACA0\uC5B4. \uC774\uB807\uAC8C
     \uD558\uC790!"
   description: 
   character: {fileID: 657293319}
@@ -2690,8 +2689,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 80
   indentLevel: 0
-  storyText: "\uBAA8\uB974\uB294 \uC0C1\uD0DC\uC5D0\uC11C\uB77C\uBA74... \uAE68\uBD80\uB97C
-    \uC624\uD788\uB824 \uB2E4\uCE58\uAC8C \uD560 \uC218\uB3C4 \uC788\uC744 \uD14C\uB2C8\uAE4C..."
+  storyText: "\uBAA8\uB974\uB294 \uC0C1\uD0DC\uC5D0\uC11C\uB77C\uBA74\u2026 \uAE68\uBD80\uB97C
+    \uC624\uD788\uB824 \uB2E4\uCE58\uAC8C \uD560 \uC218\uB3C4 \uC788\uC744 \uD14C\uB2C8\uAE4C\u2026"
   description: 
   character: {fileID: 657293319}
   portrait: {fileID: 0}
@@ -2760,7 +2759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 77
   indentLevel: 0
-  storyText: "\uC774\uB7F0...... \uADF8\uB7AC\uAD6C\uB098. \uADF8\uB807\uB2E4\uBA74
+  storyText: "\uC774\uB7F0\u2026\u2026 \uADF8\uB7AC\uAD6C\uB098. \uADF8\uB807\uB2E4\uBA74
     \uC5B4\uCA54 \uC218 \uC5C6\uC9C0."
   description: 
   character: {fileID: 657293319}
@@ -2790,7 +2789,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 582
     y: 294
-    width: 116
+    width: 118.04124
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2847,7 +2846,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 647
     y: 211
-    width: 98
+    width: 99.484535
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2874,7 +2873,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 528
     y: 212
-    width: 86
+    width: 87.1134
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2899,7 +2898,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 72
   indentLevel: 0
-  text: "\uC0AC\uAC01\uD615 \uBE14\uB85D\uC740 \uC544\uB294\uB370, \uB2E4\uB978 \uBE14\uB85D\uC740
+  text: "\uB124\uBAA8 \uBE14\uB85D\uC740 \uC544\uB294\uB370, \uB2E4\uB978 \uBE14\uB85D\uC740
     \uBAA8\uB974\uACA0\uC5B4."
   description: 
   targetBlock: {fileID: 806026212}
@@ -2954,7 +2953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 69
   indentLevel: 0
-  storyText: " {b}\uC21C\uC11C\uB3C4{/b}\uB294 {b}\uB3D9\uC791\uC744 \uBCF4\uC5EC\uC8FC\uB294
+  storyText: "{b}\uC21C\uC11C\uB3C4{/b}\uB294 {b}\uB3D9\uC791\uC744 \uBCF4\uC5EC\uC8FC\uB294
     \uD68C\uB85C{/b} \uAC19\uC740 \uAC70\uC57C. \uC774 \uC138\uACC4\uC5D0\uC120 \uC8FC\uBBFC
     \uBAA8\uB450\uAC00 \uC21C\uC11C\uB3C4\uB85C \uB3D9\uC791\uC744 \uD558\uC9C0.
     \r\n"
@@ -3011,7 +3010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 66
   indentLevel: 0
-  storyText: "\uB0B4 \uC9C1\uAC10\uC774 \uB9DE\uB2E4\uBA74... \uB10C \uC774 \uB3C4\uD615\uB4E4\uC744
+  storyText: "\uB0B4 \uC9C1\uAC10\uC774 \uB9DE\uB2E4\uBA74\u2026 \uB10C \uC774 \uB3C4\uD615\uB4E4\uC744
     \uCC98\uC74C \uBCF4\uB294 \uAC70\uC9C0?"
   description: 
   character: {fileID: 657293319}
@@ -3039,8 +3038,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 65
   indentLevel: 0
-  storyText: "(\uC774\uB984)...... \uCC98\uC74C\uBCF4\uB294 \uB4EF\uD55C \uB208\uC744
-    \uD558\uACE0 \uC788\uB294\uB370... "
+  storyText: "{$PlayerName}...... \uCC98\uC74C\uBCF4\uB294 \uB4EF\uD55C \uB208\uC744
+    \uD558\uACE0 \uC788\uB294\uB370\u2026"
   description: 
   character: {fileID: 657293319}
   portrait: {fileID: 0}
@@ -3354,6 +3353,25 @@ MonoBehaviour:
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   fadeTweenType: 4
+--- !u!114 &806026230
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806026182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 99
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: Cave
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
 --- !u!1001 &864083397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3864,6 +3882,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952070691}
   m_CullTransparentMesh: 0
+--- !u!1 &972018971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 972018973}
+  - component: {fileID: 972018972}
+  m_Layer: 0
+  m_Name: NameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &972018972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972018971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd5a11a189531b4fa9324a9355ba4fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameFC: {fileID: 1704183732}
+--- !u!4 &972018973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972018971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.929026, y: 10.930031, z: 18.613766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &995308606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5862,6 +5924,7 @@ GameObject:
   - component: {fileID: 1704183766}
   - component: {fileID: 1704183770}
   - component: {fileID: 1704183769}
+  - component: {fileID: 1704183767}
   m_Layer: 5
   m_Name: Manager
   m_TagString: Untagged
@@ -5914,9 +5977,9 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1704183743}
-  selectedCommands:
-  - {fileID: 1704183761}
-  variables: []
+  selectedCommands: []
+  variables:
+  - {fileID: 1704183767}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -5961,8 +6024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 656
-    y: 139
+    x: 675
+    y: 124
     width: 89
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -5999,7 +6062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: "\uC5EC\uD589\uC758 \uC2DC\uC791\uC774\uC57C! \r\n"
+  storyText: "{$PlayerName}, \uC5EC\uD589\uC758 \uC2DC\uC791\uC774\uC57C! \r\n"
   description: 
   character: {fileID: 657293319}
   portrait: {fileID: 0}
@@ -6439,7 +6502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 16
   indentLevel: 0
-  storyText: "\uC790! \uCD9C\uBC1C\uD558\uC790, (\uC774\uB984)!\r\n"
+  storyText: "\uC790! \uCD9C\uBC1C\uD558\uC790, {$PlayerName}!"
   description: 
   character: {fileID: 657293319}
   portrait: {fileID: 0}
@@ -6666,7 +6729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 50
   indentLevel: 0
-  storyText: "(\uC774\uB984), \uC6B0\uB9AC\uAC00 \uAE68\uBD80\uB97C \uC6D0\uB798\uB300\uB85C
+  storyText: "{$PlayerName}, \uC6B0\uB9AC\uAC00 \uAE68\uBD80\uB97C \uC6D0\uB798\uB300\uB85C
     \uB3CC\uB824\uB193\uC790! "
   description: 
   character: {fileID: 657293319}
@@ -6867,6 +6930,21 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &1704183767
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704183730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4580f28dd8581476b810b38eea2f1316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 2
+  key: PlayerName
+  value: "\uC6A9\uC0AC"
 --- !u!114 &1704183769
 MonoBehaviour:
   m_ObjectHideFlags: 2

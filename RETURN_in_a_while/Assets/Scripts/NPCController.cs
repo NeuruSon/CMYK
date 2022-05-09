@@ -11,7 +11,6 @@ public class NPCController : MonoBehaviour
     public string puzzleName = ""; //유니티 에디터에서 지정하는 옵션; 인터렉션했을 때 퍼즐씬에서 오픈할 퍼즐 name 저장 
     public static string npcName;
     InteractionController IC; //함수 써야해서 넣음 
-    DialogueManager DM;
     public static bool inPuzzle = false;
 
     void Start()
@@ -21,7 +20,7 @@ public class NPCController : MonoBehaviour
         pCon = GameObject.Find("Player");
 
         IC = FindObjectOfType<InteractionController>();
-        DM = FindObjectOfType<DialogueManager>();
+       // DM = FindObjectOfType<DialogueManager>();
         
     }
 
