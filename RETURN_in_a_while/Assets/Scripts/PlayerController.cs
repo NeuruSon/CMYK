@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
        
         if (col.gameObject.name == "4")
         {
-            sCon.GetComponene<SceneController>().toTowerYScene();
+            sCon.GetComponent<SceneController>().toTowerYScene();
         }
     }
 
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 LightMgr.lightOn();
+                ++PlayData.currentChapterNum;
             }
         }
     }

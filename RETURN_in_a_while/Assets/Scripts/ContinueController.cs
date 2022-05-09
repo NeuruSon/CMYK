@@ -16,7 +16,6 @@ public class ContinueController : MonoBehaviour
         player = GameObject.Find("Hero");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isFollowing)

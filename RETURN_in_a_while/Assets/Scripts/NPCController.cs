@@ -22,12 +22,10 @@ public class NPCController : MonoBehaviour
 
         IC = FindObjectOfType<InteractionController>();
         DM = FindObjectOfType<DialogueManager>();
-        
     }
 
     void Update()
     {
-        
         if (isActive == true)
         {
             quad.SetActive(true);
@@ -46,18 +44,11 @@ public class NPCController : MonoBehaviour
                 pCon.GetComponent<PlayerController>().saveCurrentSceneName();
                 inPuzzle = true;
                 
-                npcName = tag; // npc 이름 넘기기 => findgameobjext
+                npcName = tag; //npc 이름 넘기기 => findgameobjext
                 IC.CheckObject();
             }
-            else
-            {//클리어 이후의 이벤트 
-               
-                
-            }
-            
         }
     }
-   
 
     private void OnTriggerEnter(Collider col)
     {

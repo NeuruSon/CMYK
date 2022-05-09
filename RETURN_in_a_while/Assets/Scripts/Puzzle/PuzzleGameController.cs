@@ -43,7 +43,7 @@ public class PuzzleGameController : MonoBehaviour
             {
                 sCon.GetComponent<SceneController>().toShowPuzzleScene();
             }
-            sCon.GetComponent<SceneController>().toScene(PlayerData.preSceneName);
+            sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
         }
         else
         {
@@ -80,7 +80,7 @@ public class PuzzleGameController : MonoBehaviour
             {
                 sCon.GetComponent<SceneController>().toShowPuzzleScene();
             }
-            sCon.GetComponent<SceneController>().toScene(PlayerData.preSceneName);
+            sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
         }
         else
         {
