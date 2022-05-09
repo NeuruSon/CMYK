@@ -31,13 +31,18 @@ public class InteractionController : MonoBehaviour
         
         ischecking = true;
             
-        if (PlayData.isPuzzleCleared[0] == 1) // int 
+        if (PlayData.isPuzzleCleared[0] == 1) // int, 2-1 if
          {
-            puzzleFC.SetIntegerVariable("Puzzle", 1);
-            for(int i=0; i<15; i++)
+            
+           if(puzzleFC.GetName()=="StartScene")
             {
-                Debug.Log(PlayData.isPuzzleCleared[i]);
+                puzzleFC.SetIntegerVariable("Puzzle", 5); // 수정해야됨!!!!!!!!! 
             }
+           else
+            {
+                puzzleFC.SetIntegerVariable("Puzzle", 1);
+            }
+
             Debug.Log("int퍼즐 클리어됨");
          }
          
