@@ -51,8 +51,7 @@ public class NPCController : MonoBehaviour
             }
             else
             {//클리어 이후의 이벤트 
-
-
+                
             }
         }
 

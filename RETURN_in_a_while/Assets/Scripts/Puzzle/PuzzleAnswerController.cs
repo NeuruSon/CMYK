@@ -39,7 +39,6 @@ public class PuzzleAnswerController : MonoBehaviour
         else //다 맞았다면 
         {
             num = puzzleNum+1;
-            // PlayData.isPuzzleCleared[puzzleNum] = 1;
             PlayData.toPreScene = true;
             return true;
         }
@@ -61,7 +60,6 @@ public class PuzzleAnswerController : MonoBehaviour
         else //다 맞았다면 
         {
             num = puzzleNum+1;
-            //PlayData.isPuzzleCleared[puzzleNum] = 1;
             PlayData.toPreScene = true;
             return true;
         }
@@ -84,7 +82,7 @@ public class PuzzleAnswerController : MonoBehaviour
         {
             num = puzzleNum+1;
             //PlayData.isPuzzleCleared[puzzleNum] = 1;
-            //FC.SetIntegerVariable("Puzzle", puzzleNum + 1);
+        
 
             PlayData.toPreScene = true;
             return true;
