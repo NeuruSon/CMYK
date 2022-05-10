@@ -33,11 +33,15 @@ public class InteractionController : MonoBehaviour
     {
         
         ischecking = true;
-        puzzleFC.SetIntegerVariable("Puzzle", curnum);
+       
 
         if(puzzleFC.GetName()=="StartScene")
         {
             puzzleFC.SetIntegerVariable("Puzzle", curnum+4);
+        }
+        else
+        {
+            puzzleFC.SetIntegerVariable("Puzzle", curnum);
         }
             
         //if (PlayData.isPuzzleCleared[0] == 1) // int, 2-1 if
