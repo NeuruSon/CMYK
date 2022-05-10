@@ -39,6 +39,10 @@ public class InteractionController : MonoBehaviour
         {
             puzzleFC.SetIntegerVariable("Puzzle", curnum+4);
         }
+        else if(puzzleFC.GetName()=="Tr1")
+        {
+            puzzleFC.SetIntegerVariable("Puzzle", curnum + 6);
+        }
         else
         {
             puzzleFC.SetIntegerVariable("Puzzle", curnum);
