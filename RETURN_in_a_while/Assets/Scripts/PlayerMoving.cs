@@ -15,7 +15,7 @@ public class PlayerMoving : MonoBehaviour
     bool isGround = false;
     float X, Y;
 
-    public GameObject pCam;
+    public GameObject pCam, player;
     GameObject gCon;
 
     public float getPlayerSpeed()
@@ -25,7 +25,7 @@ public class PlayerMoving : MonoBehaviour
 
     void Start()
     {
-        pCam = GameObject.Find("PlayerCamera");
+        //pCam = GameObject.Find("PlayerCamera");
         Physics.gravity = new Vector3(0, -29.8f, 0);
         r = GetComponent<Rigidbody>();
         moveSpeed = speed;
@@ -38,48 +38,60 @@ public class PlayerMoving : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+                player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y, 0);
+                transform.Translate(pCam.transform.forward * moveSpeed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+                player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y - 90, 0);
+                transform.Translate(-1 * pCam.transform.right * moveSpeed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                transform.Translate(-1 * Vector3.forward * moveSpeed * Time.deltaTime);
+                player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y - 180, 0);
+                transform.Translate(-1 * pCam.transform.forward * moveSpeed * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                transform.Translate(-1 * Vector3.left * moveSpeed * Time.deltaTime);
+                player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y + 90, 0);
+                transform.Translate(pCam.transform.right * moveSpeed * Time.deltaTime);
             }
 
             //달리기
             if (Input.GetKey(KeyCode.LeftShift) && isGround)
             {
-                moveSpeed = 2 * speed;
+                moveSpeed = 5 * speed;
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 moveSpeed = speed;
             }
 
-            //점프 
+            //점프
             if (Input.GetKey(KeyCode.Space) && isGround)
             {
                 isGround = false;
                 r.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             }
 
+            //플레이어가 카메라 기준 정면을 바라보도록 돌려야 함.
+
+
             //마우스로 각도 회전
             if (Input.GetMouseButton(0))
             {
                 //X축은 카메라만, Y축은 캐릭터와 카메라 모두 회전 
-                transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
-                Y = transform.rotation.eulerAngles.y;
-                transform.rotation = Quaternion.Euler(0, Y, 0);
+                //transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
+                //Y = transform.rotation.eulerAngles.y;
+                //transform.rotation = Quaternion.Euler(0, Y, 0);
+
+                //회전은 카메라만 함 
+                pCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
+                Y = pCam.transform.rotation.eulerAngles.y;
 
                 pCam.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -rotateSpeed, Input.GetAxis("Mouse X") * rotateSpeed, 0));
                 X = pCam.transform.rotation.eulerAngles.x;
+
                 pCam.transform.rotation = Quaternion.Euler(X, Y, 0);
             }
         }
