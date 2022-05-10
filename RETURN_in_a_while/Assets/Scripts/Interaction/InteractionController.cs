@@ -5,44 +5,43 @@ using Fungus;
 
 public class InteractionController : MonoBehaviour
 {
-   // DialogueManager DM;
-    // public InteractionEvent IE;
     bool ischecking = false;
     public Flowchart puzzleFC;
     public int curnum;
 
     void Start()
     {
-        // DM = FindObjectOfType<DialogueManager>(); // 파일 전체 다 뒤지는거라 성능 떨어지면 수정 
         curnum = PuzzleAnswerController.num;
     }
    
-
-    // Update is called once per frame
     void Update()
     {
         if (!ischecking)
         {
             CheckObject();
         }
-        Debug.Log(curnum);
-        Debug.Log(PuzzleAnswerController.num);
+        //Debug.Log(curnum);
+        //Debug.Log(PuzzleAnswerController.num);
     }
 
     public void CheckObject()
     {
         
         ischecking = true;
-        puzzleFC.SetIntegerVariable("Puzzle", curnum);
+        //puzzleFC.SetIntegerVariable("Puzzle", curnum);
 
         if(puzzleFC.GetName()=="StartScene")
         {
             puzzleFC.SetIntegerVariable("Puzzle", curnum+4);
         }
-            
+        else
+        {
+            puzzleFC.SetIntegerVariable("Puzzle", curnum);
+        }
+
         //if (PlayData.isPuzzleCleared[0] == 1) // int, 2-1 if
         //{
-            
+
         //    if(puzzleFC.GetName()=="StartScene")
         //    {
         //        puzzleFC.SetIntegerVariable("Puzzle", 5); // 수정해야됨!!!!!!!!! 
@@ -58,8 +57,8 @@ public class InteractionController : MonoBehaviour
         //    }
 
         //}
-         
-            
+
+
         //else if (PlayData.isPuzzleCleared[1] == 1) // char 
         //{
         //    puzzleFC.SetIntegerVariable("Puzzle", 2);

@@ -19,10 +19,7 @@ public class NPCController : MonoBehaviour
         sCon = GameObject.Find("SceneController");
         gCon = GameObject.Find("GameController");
         pCon = GameObject.Find("Player");
-
         IC = FindObjectOfType<InteractionController>();
-       // DM = FindObjectOfType<DialogueManager>();
-        
     }
 
     void Update()

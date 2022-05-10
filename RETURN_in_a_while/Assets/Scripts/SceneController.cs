@@ -42,17 +42,17 @@ public class SceneController : MonoBehaviour
 
     public void toTowerYScene() //
     {
-        SceneManager.LoadScene("InTower");
+        SceneManager.LoadScene("InTower_Y");
     }
 
     public void toTowerCScene() // 
     {
-        SceneManager.LoadScene("InTower C");
+        SceneManager.LoadScene("InTower_C");
     }
 
     public void toTowerMScene() //
     {
-        SceneManager.LoadScene("InTower M");
+        SceneManager.LoadScene("InTower_M");
     }
 
     public void toGotoCScene() //
