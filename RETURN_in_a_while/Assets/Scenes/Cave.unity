@@ -555,6 +555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 69246233}
+  - component: {fileID: 69246234}
   m_Layer: 0
   m_Name: dont_remove_fake_quad
   m_TagString: Untagged
@@ -576,6 +577,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69246234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69246232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca9d1af758c14acb9e366f3e6535d64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guideImage: {fileID: 0}
+  settingCanvas: {fileID: 0}
+  isPaused: 0
 --- !u!1 &105212418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,7 +1645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1929295151}
+  selectedFlowchart: {fileID: 1955131220}
 --- !u!4 &340197238
 Transform:
   m_ObjectHideFlags: 1
@@ -9330,7 +9346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1703803978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10098,9 +10114,10 @@ GameObject:
   - component: {fileID: 1929295154}
   - component: {fileID: 1929295190}
   - component: {fileID: 1929295189}
-  - component: {fileID: 1929295144}
   - component: {fileID: 1929295143}
   - component: {fileID: 1929295142}
+  - component: {fileID: 1929295145}
+  - component: {fileID: 1929295144}
   m_Layer: 0
   m_Name: Tri3
   m_TagString: Untagged
@@ -10241,7 +10258,7 @@ MonoBehaviour:
   waitForFrames: 1
 --- !u!114 &1929295144
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10251,9 +10268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 51
+  itemId: 53
   indentLevel: 1
-  storyText: "\uD37C\uC990 \uD074\uB9AC\uC5B4"
+  storyText: "\uC88B\uC544, \uC774\uC81C \uB4E4\uC5B4\uAC00\uC790!"
   description: 
   character: {fileID: 828266729}
   portrait: {fileID: 0}
@@ -10266,6 +10283,25 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1929295145
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929295137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 52
+  indentLevel: 1
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: InTower C
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
 --- !u!114 &1929295147
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -10351,8 +10387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 592
-    y: 159
+    x: 544
+    y: 125
     width: 79
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -10393,7 +10429,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 1929295190}
   selectedCommands: []
   variables:
   - {fileID: 1929295142}
@@ -10707,8 +10744,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 729.6591
-    y: 148
+    x: 676.6591
+    y: 125
     width: 174
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -10720,6 +10757,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 1929295189}
   - {fileID: 1929295144}
+  - {fileID: 1929295145}
   suppressAllAutoSelections: 0
 --- !u!1001 &1931505149
 PrefabInstance:
@@ -11042,7 +11080,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1955131260}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1955131302}
   variables:
   - {fileID: 1955131256}
   - {fileID: 1955131263}
@@ -13966,7 +14005,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968957778}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a7e0a4699ce94d888d2d29d6a66f752, type: 3}
   m_Name: 
