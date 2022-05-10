@@ -63,7 +63,6 @@ public class PuzzleGameController : MonoBehaviour
             else
             {
                 Debug.Log("OutOfIndexError");
-                //sCon.GetComponent<SceneController>().toPuzzleScene();
             }
         }
     }
@@ -97,16 +96,14 @@ public class PuzzleGameController : MonoBehaviour
             else
             {
                 Debug.Log("OutOfIndexError");
-                //sCon.GetComponent<SceneController>().toPuzzleScene();
             }
         }
     }
 
     public void quitPuzzle()
     {
-        //오답 처리를 하고 씬 전환 
-        PlayData.isPuzzleCleared[puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)] -= 1; 
         sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
+        PlayData.toPreScene = true;
     }
 
     public void nextPuzzle()

@@ -24,7 +24,6 @@ public class PuzzleAnswerController : MonoBehaviour
         for (int i = 0; i < slots.Count; ++i)
         {
             answers.Add(slots[i].GetComponent<DADSlotController>().isCorrect());
-
             answer += slots[i].GetComponent<DADSlotController>().isCorrect();
         }
 
@@ -32,14 +31,15 @@ public class PuzzleAnswerController : MonoBehaviour
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우
         {
-            PlayData.isPuzzleCleared[puzzleNum] -= 1;
             Debug.Log("wrong!");
             return false;
         }
         else //다 맞았다면 
         {
-            num = puzzleNum+1;
+            num = puzzleNum + 1;
+            PlayData.isPuzzleCleared[puzzleNum] = 1;
             PlayData.toPreScene = true;
+            if (PlayData.toPreScene) Debug.Log("true");
             return true;
         }
     }
@@ -53,14 +53,15 @@ public class PuzzleAnswerController : MonoBehaviour
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
-            PlayData.isPuzzleCleared[puzzleNum] -= 1;
             Debug.Log("wrong!");
             return false;
         }
         else //다 맞았다면 
         {
-            num = puzzleNum+1;
+            num = puzzleNum + 1;
+            PlayData.isPuzzleCleared[puzzleNum] = 1;
             PlayData.toPreScene = true;
+            if (PlayData.toPreScene) Debug.Log("true");
             return true;
         }
     }
@@ -74,19 +75,16 @@ public class PuzzleAnswerController : MonoBehaviour
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
-            PlayData.isPuzzleCleared[puzzleNum] -= 1;
             Debug.Log("wrong!");
             return false;
         }
         else //다 맞았다면 
         {
-            num = puzzleNum+1;
-            //PlayData.isPuzzleCleared[puzzleNum] = 1;
-        
-
+            num = puzzleNum + 1;
+            PlayData.isPuzzleCleared[puzzleNum] = 1;
             PlayData.toPreScene = true;
+            if (PlayData.toPreScene) Debug.Log("true");
             return true;
         }
-        
     }
 }

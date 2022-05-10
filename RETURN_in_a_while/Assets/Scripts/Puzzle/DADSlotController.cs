@@ -18,10 +18,15 @@ public class DADSlotController : MonoBehaviour, IDropHandler
     {
         if (child != null)
         {
-            if (child.GetComponent<DADBlockController>().isItIn == false)
+            if (gameObject.transform.childCount == 0)
             {
+                child.GetComponent<DADBlockController>().isItIn = false;
                 child = null;
             }
+            //else if (child.GetComponent<DADBlockController>().isItIn == false)
+            //{
+            //    child = null;
+            //}
         }
     }
 
@@ -88,7 +93,7 @@ public class DADSlotController : MonoBehaviour, IDropHandler
                 //multiArea 내의 모든 children이 조건을 만족한 경우
                 return true;
             }
-            else if (child != null)
+            else if (child)
             {
                 bool tag, key = false;
 
@@ -150,7 +155,7 @@ public class DADSlotController : MonoBehaviour, IDropHandler
             }
 
             //child 지정된 오브젝트가 없을 경우(비어있음)
-            Debug.Log("empty child");
+            //Debug.Log("empty child");
             return false; 
         }
         //정답에 관여하지 않는 경우 

@@ -19,10 +19,7 @@ public class NPCController : MonoBehaviour
         sCon = GameObject.Find("SceneController");
         gCon = GameObject.Find("GameController");
         pCon = GameObject.Find("Player");
-
         IC = FindObjectOfType<InteractionController>();
-       // DM = FindObjectOfType<DialogueManager>();
-        
     }
 
     void Update()
@@ -37,7 +34,7 @@ public class NPCController : MonoBehaviour
             quad.SetActive(false);
         }
 
-        if(isActive == true && isAutoPlayable == true)
+        if (isActive == true && isAutoPlayable == true)
         {
             if (PlayData.isPuzzleCleared[npcNum - 1] < 1)
             {
@@ -54,7 +51,6 @@ public class NPCController : MonoBehaviour
                 
             }
         }
-
         else if (isActive == true && Input.GetKeyDown(KeyCode.E))
         {
             if (PlayData.isPuzzleCleared[npcNum - 1] < 1)

@@ -31,10 +31,8 @@ public class InteractionController : MonoBehaviour
 
     public void CheckObject()
     {
-        
         ischecking = true;
        
-
         if(puzzleFC.GetName()=="StartScene")
         {
             puzzleFC.SetIntegerVariable("Puzzle", curnum+4);
