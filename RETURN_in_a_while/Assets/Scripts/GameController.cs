@@ -46,20 +46,33 @@ public class GameController : MonoBehaviour
                 guideImage.SetActive(true);
             }
         }
+        else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true)
+        {
+            isSettingOn = false;
+            settingCanvas.SetActive(false);
+            isGuideOn = true;
+            guideImage.SetActive(true);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isSettingOn == true)
             {
                 isSettingOn = false;
                 settingCanvas.SetActive(false);
-                //setting off
             }
             else
             {
                 isSettingOn = true;
                 settingCanvas.SetActive(true);
-                //setting on
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == true)
+        {
+            isGuideOn = false;
+            guideImage.SetActive(false);
+            isSettingOn = true;
+            settingCanvas.SetActive(true);
         }
 
         if (isSettingOn || isGuideOn)
@@ -70,5 +83,13 @@ public class GameController : MonoBehaviour
         {
             isPaused = false;
         }
+    }
+
+    public void closeBtn()
+    {
+        isSettingOn = false;
+        settingCanvas.SetActive(false);
+        isGuideOn = false;
+        guideImage.SetActive(false);
     }
 }

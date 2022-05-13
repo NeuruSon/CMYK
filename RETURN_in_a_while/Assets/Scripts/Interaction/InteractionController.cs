@@ -25,8 +25,8 @@ public class InteractionController : MonoBehaviour
         {
             CheckObject();
         }
-        Debug.Log(curnum);
-        Debug.Log(PuzzleAnswerController.num);
+        //Debug.Log(curnum);
+        //Debug.Log(PuzzleAnswerController.num);
     }
 
     public void CheckObject()
