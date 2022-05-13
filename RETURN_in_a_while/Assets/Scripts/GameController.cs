@@ -7,7 +7,8 @@ public class GameController : MonoBehaviour
     //모험 모드일 때의 게임 컨트롤러입니다.
 
     public GameObject guideImage; //유니티 에디터에서 지정하는 옵션 
-    public GameObject settingCanvas; //유니티 에디터에서 지정하는 옵션 
+    public GameObject settingCanvas; //유니티 에디터에서 지정하는 옵션
+    public GameObject reAskTitle_panel; //유니티 에디터에서 지정하는 옵션 
     private bool isGuideOn = false, isSettingOn = false;
     GameObject pCon, cCon;
 
@@ -91,5 +92,15 @@ public class GameController : MonoBehaviour
         settingCanvas.SetActive(false);
         isGuideOn = false;
         guideImage.SetActive(false);
+    }
+
+    public void reAskTitle()
+    {
+        reAskTitle_panel.SetActive(true);
+    }
+
+    public void closeReAskTitle()
+    {
+        reAskTitle_panel.SetActive(false);
     }
 }
