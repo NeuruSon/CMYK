@@ -25,7 +25,6 @@ public class PlayerMoving : MonoBehaviour
 
     void Start()
     {
-        //pCam = GameObject.Find("PlayerCamera");
         Physics.gravity = new Vector3(0, -29.8f, 0);
         r = GetComponent<Rigidbody>();
         moveSpeed = speed;
@@ -34,7 +33,7 @@ public class PlayerMoving : MonoBehaviour
 
     void Update()
     {
-        //if (gCon.GetComponent<GameController>().isPaused == false) //게임이 진행중일 때만 이동할 수 있음 
+        if (gCon.GetComponent<GameController>().isPaused == false) //게임이 진행중일 때만 이동할 수 있음 
         {
             if (Input.GetKey(KeyCode.W))
             {

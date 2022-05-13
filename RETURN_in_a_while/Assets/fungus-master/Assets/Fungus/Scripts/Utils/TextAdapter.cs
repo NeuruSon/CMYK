@@ -4,6 +4,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Reflection;
+using TMPro;
 
 namespace Fungus
 {
@@ -16,7 +17,7 @@ namespace Fungus
         protected InputField inputField;
         protected TextMesh textMesh;
 #if UNITY_2018_1_OR_NEWER
-        protected TMPro.TMP_Text tmpro;
+        protected TMP_Text tmpro;
 #endif
         protected Component textComponent;
         protected PropertyInfo textProperty;
@@ -35,7 +36,7 @@ namespace Fungus
                 inputField = go.GetComponent<InputField>();
                 textMesh = go.GetComponent<TextMesh>();
 #if UNITY_2018_1_OR_NEWER
-                tmpro = go.GetComponent<TMPro.TMP_Text>();
+                tmpro = go.GetComponent<TMP_Text>();
 #endif
                 writerTextDestination = go.GetComponent<IWriterTextDestination>();
             }
@@ -45,7 +46,7 @@ namespace Fungus
                 inputField = go.GetComponentInChildren<InputField>();
                 textMesh = go.GetComponentInChildren<TextMesh>();
 #if UNITY_2018_1_OR_NEWER
-                tmpro = go.GetComponentInChildren<TMPro.TMP_Text>();
+                tmpro = go.GetComponentInChildren<TMP_Text>();
 #endif
                 writerTextDestination = go.GetComponentInChildren<IWriterTextDestination>();
             }
