@@ -7,9 +7,12 @@ public class PuzzleGameController : MonoBehaviour
 {
     //퍼즐 모드일 때의 게임 컨트롤러입니다.
     GameObject sCon;
-    public GameObject puzzles, nextBtn, doneBtn; //유니티 에디터에서 지정하는 옵션 
+    public GameObject puzzles, nextBtn, doneBtn, effect_bg, clear_spr, clear_bg_spr, fail_spr; //유니티 에디터에서 지정하는 옵션 
+    public AudioClip bgm, jingle_cleared, jingle_failed;
+    AudioSource audio;
     Dictionary<string, GameObject> puzzleCanvases;
     GameObject currentPuzzleCanvas;
+    bool isCleared = false;
 
     void Awake()
     {
@@ -18,6 +21,8 @@ public class PuzzleGameController : MonoBehaviour
 
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        audio.Play();
         sCon = GameObject.Find("SceneController");
         //puzzles 뭉탱이에 들어있는 퍼즐 개체를 dictionary에 담음 
         for (int i = 0; i < puzzles.transform.childCount; ++i)
@@ -31,7 +36,68 @@ public class PuzzleGameController : MonoBehaviour
 
     void Update()
     {
-        
+        if (isCleared)
+        {
+            clear_bg_spr.transform.Rotate(Vector3.forward * Time.deltaTime * 7.5f);
+        }
+    }
+
+    IEnumerator waitForResult_cleared()
+    {
+        isCleared = true;
+        audio.clip = jingle_cleared;
+        audio.Play();
+        yield return new WaitForSeconds(5f);
+
+        if (PlayData.preSceneName != null)
+        {
+            sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
+            PlayData.toPreScene = true;
+        }
+        sCon.GetComponent<SceneController>().toTitleScene();
+    }
+
+    IEnumerator waitForResult_failed()
+    {
+        audio.clip = jingle_failed;
+        audio.Play();
+        yield return new WaitForSeconds(3.5f);
+
+        if (PlayData.currentChapterNum <= 1)
+        {
+            sCon.GetComponent<SceneController>().toPuzzleYScene();
+        }
+        else if (PlayData.currentChapterNum == 2)
+        {
+            sCon.GetComponent<SceneController>().toPuzzleCScene();
+        }
+        else if (PlayData.currentChapterNum == 3)
+        {
+            sCon.GetComponent<SceneController>().toPuzzleMScene();
+        }
+        else if (PlayData.currentChapterNum == 4)
+        {
+            sCon.GetComponent<SceneController>().toPuzzleKScene();
+        }
+        else
+        {
+            Debug.Log("OutOfIndexError");
+        }
+    }
+
+    void result_cleared()
+    {
+        effect_bg.SetActive(true);
+        clear_spr.SetActive(true);
+        clear_bg_spr.SetActive(true);
+        StartCoroutine(waitForResult_cleared());
+    }
+
+    void result_failed()
+    {
+        effect_bg.SetActive(true);
+        fail_spr.SetActive(true);
+        StartCoroutine(waitForResult_failed());
     }
 
     public void checkAnswer()
@@ -39,31 +105,11 @@ public class PuzzleGameController : MonoBehaviour
         //dictionary에서 key를 이용해 value의 index를 반환하고, 해당 값을 npcNum 대신 보내줌
         if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
         {
-            sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
-            PlayData.toPreScene = true;
+            result_cleared();
         }
         else
         {
-            if (PlayData.currentChapterNum <= 1)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleYScene();
-            }
-            else if (PlayData.currentChapterNum == 2)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleCScene();
-            }
-            else if (PlayData.currentChapterNum == 3)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleMScene();
-            }
-            else if (PlayData.currentChapterNum == 4)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleKScene();
-            }
-            else
-            {
-                Debug.Log("OutOfIndexError");
-            }
+            result_failed();
         }
     }
 
@@ -72,31 +118,11 @@ public class PuzzleGameController : MonoBehaviour
         //dictionary에서 key를 이용해 value의 index를 반환하고, 해당 값을 npcNum 대신 보내줌
         if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer_tag(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
         {
-            sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
-            PlayData.toPreScene = true;
+            result_cleared();
         }
         else
         {
-            if (PlayData.currentChapterNum <= 1)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleYScene();
-            }
-            else if (PlayData.currentChapterNum == 2)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleCScene();
-            }
-            else if (PlayData.currentChapterNum == 3)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleMScene();
-            }
-            else if (PlayData.currentChapterNum == 4)
-            {
-                sCon.GetComponent<SceneController>().toPuzzleKScene();
-            }
-            else
-            {
-                Debug.Log("OutOfIndexError");
-            }
+            result_failed();
         }
     }
 
