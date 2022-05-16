@@ -6,7 +6,7 @@ public class PuzzleAnswerController : MonoBehaviour
 {
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
     List<bool> answers;
-    public static int num;
+    public static int num=0;
 
     void Awake()
     {
