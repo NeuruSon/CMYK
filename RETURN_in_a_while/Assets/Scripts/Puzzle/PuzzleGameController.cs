@@ -47,14 +47,18 @@ public class PuzzleGameController : MonoBehaviour
         isCleared = true;
         audio.clip = jingle_cleared;
         audio.Play();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
         if (PlayData.preSceneName != null)
         {
             sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
             PlayData.toPreScene = true;
         }
-        sCon.GetComponent<SceneController>().toTitleScene();
+        else
+        {
+            sCon.GetComponent<SceneController>().toTitleScene();
+
+        }
     }
 
     IEnumerator waitForResult_failed()
