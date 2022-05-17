@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     //모험 모드일 때의 게임 컨트롤러입니다.
 
     public GameObject guideImage; //유니티 에디터에서 지정하는 옵션 
-    public GameObject settingCanvas; //유니티 에디터에서 지정하는 옵션 
+    public GameObject settingCanvas; //유니티 에디터에서 지정하는 옵션
+    public GameObject reAskTitle_panel; //유니티 에디터에서 지정하는 옵션
+    public Slider bright_slider, bgm_slider, sfx_slider;
     private bool isGuideOn = false, isSettingOn = false;
     GameObject pCon, cCon;
 
@@ -28,6 +31,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        bright_slider.value = PlayData.curBrightness;
+        bgm_slider.value = PlayData.curBgmVolume;
+        sfx_slider.value = PlayData.curSfxVolume;
+
         isPaused = false;
     }
 
@@ -78,18 +85,40 @@ public class GameController : MonoBehaviour
         if (isSettingOn || isGuideOn)
         {
             isPaused = true;
+
+            Screen.brightness = bright_slider.value;
+            gameObject.GetComponent<AudioSource>().volume = bgm_slider.value;
         }
         else
         {
             isPaused = false;
         }
     }
+    public void openSettingPanel()
+    {
+        isSettingOn = true;
+        settingCanvas.SetActive(true);
+    }
 
     public void closeBtn()
     {
         isSettingOn = false;
         settingCanvas.SetActive(false);
+        PlayData.curBrightness = bright_slider.value;
+        PlayData.curBgmVolume = bgm_slider.value;
+        PlayData.curSfxVolume = sfx_slider.value;
+
         isGuideOn = false;
         guideImage.SetActive(false);
+    }
+
+    public void reAskTitle()
+    {
+        reAskTitle_panel.SetActive(true);
+    }
+
+    public void closeReAskTitle()
+    {
+        reAskTitle_panel.SetActive(false);
     }
 }
