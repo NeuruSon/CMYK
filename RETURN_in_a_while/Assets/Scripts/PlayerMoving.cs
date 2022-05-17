@@ -85,7 +85,7 @@ public class PlayerMoving : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift) && isGround)
             {
                 pAnim.SetInteger("walk", 2);
-                moveSpeed = 5 * speed;
+                moveSpeed = 2.5f * speed;
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {

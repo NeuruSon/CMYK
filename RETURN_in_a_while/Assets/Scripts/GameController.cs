@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public Slider bright_slider, bgm_slider, sfx_slider;
     private bool isGuideOn = false, isSettingOn = false;
     GameObject pCon, cCon;
+    public GameObject soundBox;
 
     public bool isPaused = false;
 
@@ -33,7 +34,7 @@ public class GameController : MonoBehaviour
     {
         bright_slider.value = PlayData.curBrightness;
         bgm_slider.value = PlayData.curBgmVolume;
-        sfx_slider.value = PlayData.curSfxVolume;
+        sfx_slider.value = PlayData.curSfxVolume; 
 
         isPaused = false;
     }
@@ -87,7 +88,7 @@ public class GameController : MonoBehaviour
             isPaused = true;
 
             Screen.brightness = bright_slider.value;
-            gameObject.GetComponent<AudioSource>().volume = bgm_slider.value;
+            soundBox.GetComponent<AudioSource>().volume = bgm_slider.value;
         }
         else
         {

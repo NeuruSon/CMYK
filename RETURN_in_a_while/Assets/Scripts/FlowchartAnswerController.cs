@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FlowchartAnswerController : MonoBehaviour
 {
     GameObject gCon;
-    public GameObject soundBox, effect_bg, clear_spr, clear_bg_spr; //유니티 에디터에서 지정하는 옵션
+    public GameObject soundBox, effect_bg, clear_spr, clear_bg_spr, char_spr; //유니티 에디터에서 지정하는 옵션
+    public Sprite mono_heart, color_heart, mono_char, color_char;
+    public List<GameObject> hearts;
     public AudioClip jingle_cleared;
     AudioSource audio;
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
@@ -15,7 +18,7 @@ public class FlowchartAnswerController : MonoBehaviour
     void Start()
     {
         gCon = GameObject.Find("GameController");
-
+        hearts = new List<GameObject>();
         //다른 곳에서 flowchart를 열 때 꼭 잘 isPaused = true; 해줘야 합니다!
         gCon.GetComponent<GameController>().isPaused = true;
 
@@ -36,6 +39,7 @@ public class FlowchartAnswerController : MonoBehaviour
 
             //cleared!!
             Debug.Log("true"); //한번만 떠야 정상
+            char_spr.GetComponent<Image>().sprite = color_char;
             result_cleared();
         }
 
@@ -51,7 +55,11 @@ public class FlowchartAnswerController : MonoBehaviour
         for (int i = 0; i < slots.Count; ++i)
         {
             answers[i] = slots[i].GetComponent<DADSlotController>().isCorrect();
-            if (answers[i]) answer += "1";
+            if (answers[i])
+            {
+                answer += "1";
+                hearts[i].GetComponent<Image>().sprite = color_heart;
+            }
             else answer += "0";
         }
         Debug.Log(answer);
