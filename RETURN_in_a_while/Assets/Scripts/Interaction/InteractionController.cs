@@ -21,8 +21,6 @@ public class InteractionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
             CheckObject();
             curnum = PuzzleAnswerController.num;
         

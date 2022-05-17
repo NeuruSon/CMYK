@@ -106,8 +106,8 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        audio.clip = jingle_cleared;
-        audio.Play();
+        mainAudio.clip = jingle_cleared;
+        mainAudio.Play();
         yield return new WaitForSeconds(6.5f);
 
         mainAudio.GetComponent<GameSoundController>().on_mainBGM();
