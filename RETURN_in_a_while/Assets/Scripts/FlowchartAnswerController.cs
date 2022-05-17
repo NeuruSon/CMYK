@@ -18,7 +18,6 @@ public class FlowchartAnswerController : MonoBehaviour
     void Start()
     {
         gCon = GameObject.Find("GameController");
-        hearts = new List<GameObject>();
         //다른 곳에서 flowchart를 열 때 꼭 잘 isPaused = true; 해줘야 합니다!
         gCon.GetComponent<GameController>().isPaused = true;
 
