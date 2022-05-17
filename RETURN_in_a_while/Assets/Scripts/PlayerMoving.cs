@@ -14,6 +14,7 @@ public class PlayerMoving : MonoBehaviour
     float moveSpeed;
     bool isGround = false;
     float X, Y;
+    Animator pAnim;
 
     public GameObject pCam, player;
     GameObject gCon;
@@ -29,6 +30,7 @@ public class PlayerMoving : MonoBehaviour
         r = GetComponent<Rigidbody>();
         moveSpeed = speed;
         gCon = GameObject.Find("GameController");
+        pAnim = player.GetComponent<Animator>();
     }
 
     void Update()
@@ -37,32 +39,57 @@ public class PlayerMoving : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
+                pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y, 0);
                 transform.Translate(pCam.transform.forward * moveSpeed * Time.deltaTime);
             }
+            else if (Input.GetKeyUp(KeyCode.W)) {
+                pAnim.SetInteger("walk", 0);
+            }
+
             if (Input.GetKey(KeyCode.A))
             {
+                pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y - 90, 0);
                 transform.Translate(-1 * pCam.transform.right * moveSpeed * Time.deltaTime);
             }
+            else if (Input.GetKeyUp(KeyCode.A))
+            {
+                pAnim.SetInteger("walk", 0);
+            }
+
             if (Input.GetKey(KeyCode.S))
             {
+                pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y - 180, 0);
                 transform.Translate(-1 * pCam.transform.forward * moveSpeed * Time.deltaTime);
             }
+            else if (Input.GetKeyUp(KeyCode.S))
+            {
+                pAnim.SetInteger("walk", 0);
+            }
+
             if (Input.GetKey(KeyCode.D))
             {
+                pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y + 90, 0);
                 transform.Translate(pCam.transform.right * moveSpeed * Time.deltaTime);
             }
+            else if (Input.GetKeyUp(KeyCode.D))
+            {
+                pAnim.SetInteger("walk", 0);
+            }
+
 
             //달리기
             if (Input.GetKey(KeyCode.LeftShift) && isGround)
             {
+                pAnim.SetInteger("walk", 2);
                 moveSpeed = 5 * speed;
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
+                pAnim.SetInteger("walk", 1);
                 moveSpeed = speed;
             }
 
@@ -74,7 +101,6 @@ public class PlayerMoving : MonoBehaviour
             }
 
             //플레이어가 카메라 기준 정면을 바라보도록 돌려야 함.
-
 
             //마우스로 각도 회전
             if (Input.GetMouseButton(0))
