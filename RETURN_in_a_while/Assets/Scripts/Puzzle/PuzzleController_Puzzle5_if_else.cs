@@ -11,7 +11,6 @@ public class PuzzleController_Puzzle5_if_else : MonoBehaviour
     {
         pgCon = GameObject.Find("PuzzleController");
         pgCon.GetComponent<PuzzleGameController>().onNextBtn();
-        GameObject.Find("DoneBtn").SetActive(false);
     }
 
     public void on_if_bell()

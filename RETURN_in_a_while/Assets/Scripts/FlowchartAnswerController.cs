@@ -5,23 +5,21 @@ using UnityEngine.UI;
 
 public class FlowchartAnswerController : MonoBehaviour
 {
-    GameObject gCon;
-    public GameObject soundBox, effect_bg, clear_spr, clear_bg_spr, char_spr; //유니티 에디터에서 지정하는 옵션
+    GameObject gCon, mainSoundBox;
+    public GameObject effect_bg, clear_spr, clear_bg_spr, char_spr; //유니티 에디터에서 지정하는 옵션
     public Sprite mono_heart, color_heart, mono_char, color_char;
     public List<GameObject> hearts;
-    public AudioClip jingle_cleared;
-    AudioSource audio;
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
     public List<bool> answers;
     bool isCleared = false;
 
     void Start()
     {
+        mainSoundBox = GameObject.Find("mainSoundBox");
+        mainSoundBox.GetComponent<GameSoundController>().on_flowchartBGM();
         gCon = GameObject.Find("GameController");
         //다른 곳에서 flowchart를 열 때 꼭 잘 isPaused = true; 해줘야 합니다!
         gCon.GetComponent<GameController>().isPaused = true;
-
-        audio = soundBox.GetComponent<AudioSource>();
 
         answers = new List<bool>();
         for (int i = 0; i < slots.Count; ++i)
@@ -76,11 +74,10 @@ public class FlowchartAnswerController : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        audio.clip = jingle_cleared;
-        audio.Play();
+        mainSoundBox.GetComponent<GameSoundController>().on_flowchartJINGLE();
         yield return new WaitForSeconds(6.5f);
 
-        audio.GetComponent<GameSoundController>().on_mainBGM();
+        mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
         gameObject.SetActive(false);
         gCon.GetComponent<GameController>().isPaused = false;
     }

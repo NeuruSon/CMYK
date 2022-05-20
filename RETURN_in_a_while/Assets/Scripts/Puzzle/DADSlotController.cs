@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class DADSlotController : MonoBehaviour, IDropHandler
 {
     public GameObject child;
+    GameObject soundBox;
     public bool hasSpecificAnswer = false; //유니티 에디터에서 지정하는 옵션 
     public bool useTag = false; //유니티 에디터에서 지정하는 옵션 
     public string answerTag; //유니티 에디터에서 지정하는 옵션 
@@ -13,6 +14,11 @@ public class DADSlotController : MonoBehaviour, IDropHandler
     public bool useKey = false; //유니티 에디터에서 지정하는 옵션 
     public string answerKey; //유니티 에디터에서 지정하는 옵션
     public bool keyIsNot = false; //유니티 에디터에서 지정하는 옵션 
+
+    void Start()
+    {
+        soundBox = GameObject.Find("soundBox");
+    }
 
     private void Update()
     {
@@ -51,6 +57,8 @@ public class DADSlotController : MonoBehaviour, IDropHandler
                 child.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
                 child.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
             }
+
+            soundBox.GetComponent<GameSoundController>().on_inSFX();
         }
     }
 

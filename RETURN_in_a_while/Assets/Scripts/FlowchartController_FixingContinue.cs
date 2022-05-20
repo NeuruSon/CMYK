@@ -110,7 +110,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
         mainAudio.Play();
         yield return new WaitForSeconds(6.5f);
 
-        mainAudio.GetComponent<GameSoundController>().on_mainBGM();
+        mainAudio.GetComponent<GameSoundController>().on_fieldBGM();
         gameObject.SetActive(false);
         gCon.GetComponent<GameController>().isPaused = false;
     }

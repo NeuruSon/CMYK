@@ -6,10 +6,9 @@ using UnityEngine;
 public class PuzzleGameController : MonoBehaviour
 {
     //퍼즐 모드일 때의 게임 컨트롤러입니다.
-    GameObject sCon;
+    GameObject sCon, mainSoundBox;
     public GameObject puzzles, nextBtn, doneBtn, effect_bg, clear_spr, clear_bg_spr, fail_spr; //유니티 에디터에서 지정하는 옵션 
-    public AudioClip bgm, jingle_cleared, jingle_failed;
-    AudioSource audio;
+    public AudioClip jingle_cleared, jingle_failed;
     Dictionary<string, GameObject> puzzleCanvases;
     GameObject currentPuzzleCanvas;
     bool isCleared = false;
@@ -21,8 +20,7 @@ public class PuzzleGameController : MonoBehaviour
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
-        audio.Play();
+        mainSoundBox = GameObject.Find("mainSoundBox");
         sCon = GameObject.Find("SceneController");
         //puzzles 뭉탱이에 들어있는 퍼즐 개체를 dictionary에 담음 
         for (int i = 0; i < puzzles.transform.childCount; ++i)
@@ -45,8 +43,7 @@ public class PuzzleGameController : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        audio.clip = jingle_cleared;
-        audio.Play();
+        mainSoundBox.GetComponent<GameSoundController>().on_pRightJINGLE();
         yield return new WaitForSeconds(3f);
 
         if (PlayData.preSceneName != null)
@@ -63,8 +60,7 @@ public class PuzzleGameController : MonoBehaviour
 
     IEnumerator waitForResult_failed()
     {
-        audio.clip = jingle_failed;
-        audio.Play();
+        mainSoundBox.GetComponent<GameSoundController>().on_pWrongJINGLE();
         yield return new WaitForSeconds(3.5f);
 
         if (PlayData.currentChapterNum <= 1)
