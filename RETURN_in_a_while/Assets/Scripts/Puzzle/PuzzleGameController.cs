@@ -85,7 +85,7 @@ public class PuzzleGameController : MonoBehaviour
         }
     }
 
-    void result_cleared()
+    public void result_cleared()
     {
         effect_bg.SetActive(true);
         clear_spr.SetActive(true);
@@ -93,7 +93,7 @@ public class PuzzleGameController : MonoBehaviour
         StartCoroutine(waitForResult_cleared());
     }
 
-    void result_failed()
+    public void result_failed()
     {
         effect_bg.SetActive(true);
         fail_spr.SetActive(true);
@@ -130,26 +130,6 @@ public class PuzzleGameController : MonoBehaviour
     {
         sCon.GetComponent<SceneController>().toScene(PlayData.preSceneName);
         PlayData.toPreScene = true;
-    }
-
-    public void nextPuzzle()
-    {
-        if (currentPuzzleCanvas.name == "Puzzle3_bool")
-        {
-            if (currentPuzzleCanvas.GetComponent<PuzzleAnswerController>().checkAnswer(puzzleCanvases.Keys.ToList().IndexOf(PlayData.puzzleName)))
-            {
-                currentPuzzleCanvas.GetComponent<PuzzleController_Puzzle3_bool>().answerCount += 1;
-                currentPuzzleCanvas.GetComponent<PuzzleController_Puzzle3_bool>().changeQuestion();
-                if (currentPuzzleCanvas.GetComponent<PuzzleController_Puzzle3_bool>().answerCount == 3)
-                {
-                    GameObject.Find("NextBtn").SetActive(false);
-                }
-            }
-            else
-            {
-                sCon.GetComponent<SceneController>().toPuzzleYScene();
-            }
-        }
     }
 
     public void onNextBtn()

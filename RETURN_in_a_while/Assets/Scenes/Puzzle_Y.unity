@@ -893,8 +893,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 584463528}
-        m_TargetAssemblyTypeName: PuzzleGameController, Assembly-CSharp
+      - m_Target: {fileID: 248210794}
+        m_TargetAssemblyTypeName: PuzzleController_Puzzle3_bool, Assembly-CSharp
         m_MethodName: nextPuzzle
         m_Mode: 1
         m_Arguments:
@@ -2010,6 +2010,8 @@ MonoBehaviour:
   sExampleR: {fileID: 676603099}
   sAnswer: {fileID: 717671276}
   finishBtn: {fileID: 2136317744}
+  effect_bg: {fileID: 1286754657}
+  fail_spr: {fileID: 1021742796}
 --- !u!1 &248253823
 GameObject:
   m_ObjectHideFlags: 0
@@ -2318,6 +2320,18 @@ MonoBehaviour:
       - m_Target: {fileID: 527109276}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: toPuzzleYScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 248210794}
+        m_TargetAssemblyTypeName: PuzzleController_Puzzle3_bool, Assembly-CSharp
+        m_MethodName: resetPuzzle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3681,6 +3695,18 @@ MonoBehaviour:
       - m_Target: {fileID: 584463528}
         m_TargetAssemblyTypeName: PuzzleController, Assembly-CSharp
         m_MethodName: quitPuzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 248210794}
+        m_TargetAssemblyTypeName: PuzzleController_Puzzle3_bool, Assembly-CSharp
+        m_MethodName: resetPuzzle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5197,8 +5223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   child: {fileID: 0}
   hasSpecificAnswer: 1
-  useTag: 0
-  answerTag: 
+  useTag: 1
+  answerTag: bool
   tagIsNot: 0
   useKey: 0
   answerKey: 
@@ -10439,11 +10465,11 @@ MonoBehaviour:
   field_bgm: {fileID: 8300000, guid: 7e248d49618224070b7f4768ec95a9a4, type: 3}
   puzzle_bgm: {fileID: 8300000, guid: c6c0eacf2f296b641ac73eb2d8ed8f41, type: 3}
   flowchart_bgm: {fileID: 8300000, guid: 7e248d49618224070b7f4768ec95a9a4, type: 3}
-  flowchart_win_jignle: {fileID: 8300000, guid: 376ec1e8940da4667a99dbb206a6c247,
+  flowchart_win_jignle: {fileID: 8300000, guid: ef36c3dad63de431a9ae38deff12384c,
     type: 3}
   in_sfx: {fileID: 8300000, guid: b12176f70dbda41c9a20b017df18b92b, type: 3}
-  puzzle_right_jingle: {fileID: 0}
-  puzzle_wrong_jingle: {fileID: 0}
+  puzzle_right_jingle: {fileID: 8300000, guid: 866395ee2c6ef4b4daea10f3586026c9, type: 3}
+  puzzle_wrong_jingle: {fileID: 8300000, guid: 692c871500ace48398010a4bc14b63b7, type: 3}
 --- !u!82 &1422598874
 AudioSource:
   m_ObjectHideFlags: 0

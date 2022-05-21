@@ -6,7 +6,7 @@ public class PuzzleAnswerController : MonoBehaviour
 {
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
     List<bool> answers;
-    public static int num=0;
+    public static int num = 0;
 
     void Awake()
     {
@@ -31,15 +31,12 @@ public class PuzzleAnswerController : MonoBehaviour
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우
         {
-            Debug.Log("wrong!");
+            wrong(puzzleNum);
             return false;
         }
         else //다 맞았다면 
         {
-            num = puzzleNum + 1;
-            PlayData.isPuzzleCleared[puzzleNum] = 1;
-            PlayData.toPreScene = true;
-            if (PlayData.toPreScene) Debug.Log("true");
+            all_cleared(puzzleNum);
             return true;
         }
     }
@@ -53,15 +50,12 @@ public class PuzzleAnswerController : MonoBehaviour
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
-            Debug.Log("wrong!");
+            wrong(puzzleNum);
             return false;
         }
         else //다 맞았다면 
         {
-            num = puzzleNum + 1;
-            PlayData.isPuzzleCleared[puzzleNum] = 1;
-            PlayData.toPreScene = true;
-            if (PlayData.toPreScene) Debug.Log("true");
+            all_cleared(puzzleNum);
             return true;
         }
     }
@@ -75,16 +69,31 @@ public class PuzzleAnswerController : MonoBehaviour
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우 
         {
-            Debug.Log("wrong!");
+            wrong(puzzleNum);
             return false;
         }
         else //다 맞았다면 
         {
-            num = puzzleNum + 1;
-            PlayData.isPuzzleCleared[puzzleNum] = 1;
-            PlayData.toPreScene = true;
-            if (PlayData.toPreScene) Debug.Log("true");
+            all_cleared(puzzleNum);
             return true;
         }
+    }
+
+    public void resetCheckAnswer(int puzzleName)
+    {
+        answers = new List<bool>();
+    }
+
+    public void all_cleared(int puzzleNum)
+    {
+        num = puzzleNum + 1;
+        PlayData.isPuzzleCleared[puzzleNum] = 1;
+        PlayData.toPreScene = true;
+        if (PlayData.toPreScene) Debug.Log("true");
+    }
+
+    public void wrong(int puzzleNum)
+    {
+        Debug.Log("wrong!");
     }
 }
