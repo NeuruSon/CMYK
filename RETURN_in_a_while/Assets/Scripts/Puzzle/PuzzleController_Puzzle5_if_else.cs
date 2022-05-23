@@ -5,22 +5,25 @@ using UnityEngine;
 public class PuzzleController_Puzzle5_if_else : MonoBehaviour
 {
     public GameObject bg_spr1, bg_spr2, answer1_1, answer1_2, answer2_1, answer2_2, r_bell_r, r_bell_b;
-    GameObject pgCon;
+    GameObject pgCon, soundBox;
 
     void Start()
     {
+        soundBox = GameObject.Find("soundBox");
         pgCon = GameObject.Find("PuzzleController");
         pgCon.GetComponent<PuzzleGameController>().onNextBtn();
     }
 
     public void on_if_bell()
     {
+        soundBox.GetComponent<GameSoundController>().on_flowchartJINGLE(); //종소리 
         r_bell_r.SetActive(true);
         r_bell_b.SetActive(false);
     }
 
     public void on_else_bell()
     {
+        soundBox.GetComponent<GameSoundController>().on_flowchartJINGLE(); //종소리 
         r_bell_r.SetActive(false);
         r_bell_b.SetActive(true);
     }
@@ -58,6 +61,7 @@ public class PuzzleController_Puzzle5_if_else : MonoBehaviour
         r_bell_b.SetActive(false);
         r_bell_r.SetActive(false);
 
+        soundBox.GetComponent<GameSoundController>().on_flowchartBGM(); //종소리
         pgCon.GetComponent<PuzzleGameController>().offNextBtn();
     }
 }

@@ -112,7 +112,7 @@ public class DADSlotController : MonoBehaviour, IDropHandler
                     {
                         tag = true;
                     }
-                    //부정태그이고 태그가 오답이 아닐 경우  
+                    //부정태그이고 태그가 오답이 아닐 경우
                     else if (tagIsNot && !child.CompareTag(answerTag))
                     {
                         tag = true;
@@ -164,6 +164,7 @@ public class DADSlotController : MonoBehaviour, IDropHandler
 
             //child 지정된 오브젝트가 없을 경우(비어있음)
             //Debug.Log("empty child");
+
             return false; 
         }
         //정답에 관여하지 않는 경우 
