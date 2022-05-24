@@ -4,37 +4,41 @@ using UnityEngine;
 
 public class ColliderEventController : MonoBehaviour
 {
-    GameObject sCon;
+    public GameObject light_spr;
+    bool isLightOn = false;
+    GameObject mainSoundBox;
 
     void Start()
     {
-        sCon = GameObject.Find("SceneController");
+        mainSoundBox = GameObject.Find("mainSoundBox");
     }
 
     void Update()
     {
-        
+        if (light_spr.activeInHierarchy == true && isLightOn == false && Input.GetKeyDown(KeyCode.E))
+        {
+            isLightOn = true;
+            light_spr.SetActive(false);
+            mainSoundBox.GetComponent<GameSoundController>().on_flowchartJINGLE();
+            Invoke("returnBGM", 10);
+        }
     }
 
     void OnTriggerEnter(Collider col)
     {
-        NPCController.inPuzzle = true;
-
-        if (gameObject.name == "4" && col.gameObject.name == "Player")
+        if (isLightOn == false && col.CompareTag("Player"))
         {
-            sCon.GetComponent<SceneController>().toTowerYScene();
+            light_spr.SetActive(true);
         }
     }
 
-    private void OnTriggerStay(Collider col)
+    private void OnTriggerExit(Collider col)
     {
-        if (gameObject.name == "5" && col.gameObject.name == "Player")
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                LightMgr.lightOn();
-                ++PlayData.currentChapterNum;
-            }
-        }
+        light_spr.SetActive(false);
+    }
+
+    void returnBGM()
+    {
+        mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
     }
 }

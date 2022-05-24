@@ -7,17 +7,24 @@ using Fungus;
 
 public class NamingController : MonoBehaviour
 {
+    GameObject gCon;
     public bool isNaming = false, isWriting = false, isChecking = false;
     public GameObject namingPanel, checkPanel, nameTmp;
     public TMP_InputField namingField;
     public Flowchart nameSet;
-    
 
+    void Start()
+    {
+        gCon = GameObject.Find("GameController");
+        isNaming = true;
+    }
 
     void Update()
     {
         if (isNaming)
         {
+            gCon.GetComponent<GameController>().isPaused = true;
+
             namingPanel.SetActive(true);
             isWriting = true;
 
@@ -45,8 +52,11 @@ public class NamingController : MonoBehaviour
             checkPanel.SetActive(false);
             namingField.interactable = false;
             namingPanel.SetActive(false);
+
+            gCon.GetComponent<GameController>().isPaused = false;
         }
-        if(namingField.text=="")
+
+        if (namingField.text=="")
         {
             nameSet.SetStringVariable("PlayerName", "용사");
         }
@@ -54,12 +64,10 @@ public class NamingController : MonoBehaviour
 
     public void doneBtn()
     {
-        
         PlayData.playerName = namingField.text;
         isWriting = false;
         isChecking = true;
         nameSet.SetStringVariable("PlayerName", PlayData.playerName);
-        
     }
 
     public void backBtn()
