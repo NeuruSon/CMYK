@@ -11,7 +11,7 @@ public class TeleportController : MonoBehaviour
 
     void Awake()
     {
-        pCon = GameObject.Find("Hero");
+        pCon = GameObject.Find("Player");
         cCon = GameObject.Find("Continue");
     }
 
