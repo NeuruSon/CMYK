@@ -17,16 +17,12 @@ public class GameController : MonoBehaviour
 
     public bool isPaused = false;
 
+    [System.Obsolete]
     private void Awake()
     {
         if (PlayData.toPreScene)
         {
-            pCon = GameObject.Find("Hero");
-            pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 이전 씬과 동일하게 배치
-            pCon.GetComponent<Transform>().transform.localRotation = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
-            cCon = GameObject.Find("Continue");
-            cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
-            PlayData.toPreScene = false;
+            setPosition();
         }
     }
 
@@ -121,5 +117,21 @@ public class GameController : MonoBehaviour
     public void closeReAskTitle()
     {
         reAskTitle_panel.SetActive(false);
+    }
+
+    [System.Obsolete]
+    void setPosition()
+    {
+        pCon = GameObject.Find("Player");
+        pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 이전 씬과 동일하게 배치
+        int childCount = pCon.transform.GetChildCount();
+        for (int i = 0; i < childCount; ++i)
+        {
+            pCon.transform.GetChild(i).GetComponent<Transform>().transform.localRotation = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
+        }
+
+        cCon = GameObject.Find("Continue");
+        cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
+        PlayData.toPreScene = false;
     }
 }

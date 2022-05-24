@@ -15,10 +15,16 @@ public class TeleportController : MonoBehaviour
         cCon = GameObject.Find("Continue");
     }
 
+    [System.Obsolete]
     private void OnEnable()
     {
         pCon.GetComponent<Transform>().transform.localPosition = dest_position[index];
-        pCon.GetComponent<Transform>().transform.localRotation = Quaternion.Euler(dest_rotation[index]);
+        int childCount = pCon.transform.GetChildCount();
+        for (int i = 0; i < childCount; ++i)
+        {
+            pCon.transform.GetChild(i).GetComponent<Transform>().transform.localRotation = Quaternion.Euler(dest_rotation[index]);
+        }
+
         cCon.GetComponent<Transform>().transform.localPosition = dest_position[index] + cCon.GetComponent<ContinueController>().offset;
         ++index;
         gameObject.SetActive(false);
