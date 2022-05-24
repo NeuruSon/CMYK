@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     {
         if (PlayData.toPreScene)
         {
-            pCon = GameObject.Find("Player");
+            pCon = GameObject.Find("Hero");
             pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 이전 씬과 동일하게 배치
             pCon.GetComponent<Transform>().transform.localRotation = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
             cCon = GameObject.Find("Continue");
