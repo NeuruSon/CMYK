@@ -18,8 +18,7 @@ public class FlowchartAnswerController : MonoBehaviour
         mainSoundBox = GameObject.Find("mainSoundBox");
         mainSoundBox.GetComponent<GameSoundController>().on_flowchartBGM();
         gCon = GameObject.Find("GameController");
-        //다른 곳에서 flowchart를 열 때 꼭 잘 isPaused = true; 해줘야 합니다!
-        gCon.GetComponent<GameController>().isPaused = true;
+        Debug.Log("Trying Pause");
 
         answers = new List<bool>();
         for (int i = 0; i < slots.Count; ++i)
@@ -30,6 +29,8 @@ public class FlowchartAnswerController : MonoBehaviour
 
     void Update()
     {
+        gCon.GetComponent<GameController>().isPaused = true;
+
         if (!isCleared && checkAnswer())
         {
             isCleared = true;
@@ -78,8 +79,8 @@ public class FlowchartAnswerController : MonoBehaviour
         yield return new WaitForSeconds(6.5f);
 
         mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
-        gameObject.SetActive(false);
         gCon.GetComponent<GameController>().isPaused = false;
+        gameObject.SetActive(false);
     }
 
     void result_cleared()

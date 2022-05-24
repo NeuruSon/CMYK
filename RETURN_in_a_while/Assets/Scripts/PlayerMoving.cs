@@ -120,6 +120,9 @@ public class PlayerMoving : MonoBehaviour
                 pCam.transform.rotation = Quaternion.Euler(X, Y, 0);
             }
         }
+        else
+        {
+        }
     }
 
     void OnCollisionEnter(Collision col)
