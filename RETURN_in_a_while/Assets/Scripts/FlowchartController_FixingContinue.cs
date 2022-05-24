@@ -6,7 +6,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
 {
     public GameObject mainSoundBox, soundBox, block_int, block_char, block_bool, block_array;
     public AudioClip right_sfx, wrong_sfx;
-    AudioSource mainAudio, audio;
+    AudioSource audio;
     bool b_1 = false, b_2 = false, b_3 = false, b_4 = false;
     GameObject gCon;
     public GameObject effect_bg, clear_spr, clear_bg_spr; //유니티 에디터에서 지정하는 옵션
@@ -21,7 +21,6 @@ public class FlowchartController_FixingContinue : MonoBehaviour
         //다른 곳에서 flowchart를 열 때 꼭 잘 isPaused = true; 해줘야 합니다!
         gCon.GetComponent<GameController>().isPaused = true;
 
-        mainAudio = mainSoundBox.GetComponent<AudioSource>();
         audio = soundBox.GetComponent<AudioSource>();
 
         answers = new List<bool>();
@@ -106,13 +105,12 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        mainAudio.clip = jingle_cleared;
-        mainAudio.Play();
+        mainSoundBox.GetComponent<GameSoundController>().on_flowchartJINGLE();
         yield return new WaitForSeconds(6.5f);
 
-        mainAudio.GetComponent<GameSoundController>().on_fieldBGM();
-        gameObject.SetActive(false);
+        mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
         gCon.GetComponent<GameController>().isPaused = false;
+        gameObject.SetActive(false);
     }
 
     void result_cleared()
