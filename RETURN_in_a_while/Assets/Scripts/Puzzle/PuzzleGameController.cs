@@ -63,21 +63,39 @@ public class PuzzleGameController : MonoBehaviour
         mainSoundBox.GetComponent<GameSoundController>().on_pWrongJINGLE();
         yield return new WaitForSeconds(3.5f);
 
-        if (PlayData.currentChapterNum <= 1)
+        //if (PlayData.currentChapterNum <= 1)
+        //{
+        //    sCon.GetComponent<SceneController>().toPuzzleYScene();
+        //}
+        //else if (PlayData.currentChapterNum == 2)
+        //{
+        //    sCon.GetComponent<SceneController>().toPuzzleCScene();
+        //}
+        //else if (PlayData.currentChapterNum == 3)
+        //{
+        //    sCon.GetComponent<SceneController>().toPuzzleMScene();
+        //}
+        //else if (PlayData.currentChapterNum == 4)
+        //{
+        //    sCon.GetComponent<SceneController>().toPuzzleKScene();
+        //}
+        //else
+        //{
+        //    Debug.Log("OutOfIndexError");
+        //}
+
+        if (PlayData.puzzleName == "Puzzle1_int"|| PlayData.puzzleName == "Puzzle2_char_string"
+            || PlayData.puzzleName == "Puzzle3_bool" || PlayData.puzzleName == "Puzzle4_array")
         {
             sCon.GetComponent<SceneController>().toPuzzleYScene();
         }
-        else if (PlayData.currentChapterNum == 2)
+        else if (PlayData.puzzleName == "Puzzle5_if_else" || PlayData.puzzleName == "Puzzle6_double_if")
         {
             sCon.GetComponent<SceneController>().toPuzzleCScene();
         }
-        else if (PlayData.currentChapterNum == 3)
+        else if (PlayData.puzzleName == "Puzzle7_for" || PlayData.puzzleName == "Puzzle8_for_hard")
         {
             sCon.GetComponent<SceneController>().toPuzzleMScene();
-        }
-        else if (PlayData.currentChapterNum == 4)
-        {
-            sCon.GetComponent<SceneController>().toPuzzleKScene();
         }
         else
         {
