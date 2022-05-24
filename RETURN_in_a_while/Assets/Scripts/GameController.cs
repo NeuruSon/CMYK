@@ -127,7 +127,7 @@ public class GameController : MonoBehaviour
         int childCount = pCon.transform.GetChildCount();
         for (int i = 0; i < childCount; ++i)
         {
-            pCon.transform.GetChild(i).GetComponent<Transform>().transform.localRotation = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
+            pCon.transform.GetChild(i).GetComponent<Transform>().transform.localEulerAngles = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
         }
 
         cCon = GameObject.Find("Continue");

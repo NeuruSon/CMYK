@@ -22,7 +22,7 @@ public class TeleportController : MonoBehaviour
         int childCount = pCon.transform.GetChildCount();
         for (int i = 0; i < childCount; ++i)
         {
-            pCon.transform.GetChild(i).GetComponent<Transform>().transform.localRotation = Quaternion.Euler(dest_rotation[index]);
+            pCon.transform.GetChild(i).GetComponent<Transform>().transform.localEulerAngles = dest_rotation[index];
         }
 
         cCon.GetComponent<Transform>().transform.localPosition = dest_position[index] + cCon.GetComponent<ContinueController>().offset;
