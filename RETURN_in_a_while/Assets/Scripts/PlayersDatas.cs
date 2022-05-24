@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayData //저장해야 할 데이터 목록 
 {
-    public static string playerName = "";
+    public static string playerName = "용사";
 
     //0: 최초 시작 /1: 1장 /2: 2장 /3: 3장 /4: 4장 /5: 엔딩 포함 그 이후
     public static int currentChapterNum = 0;

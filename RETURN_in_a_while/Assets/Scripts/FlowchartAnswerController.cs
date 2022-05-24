@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FlowchartAnswerController : MonoBehaviour
 {
-    GameObject gCon, mainSoundBox;
-    public GameObject effect_bg, clear_spr, clear_bg_spr, char_spr; //유니티 에디터에서 지정하는 옵션
+    GameObject gCon, mainSoundBox, soundBox;
+    string text;
+    public TextMeshProUGUI flee_name_tmp;
+    public GameObject effect_bg, clear_spr, clear_bg_spr, char_spr, flee_panel; //유니티 에디터에서 지정하는 옵션
     public Sprite mono_heart, color_heart, mono_char, color_char;
     public List<GameObject> hearts;
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
@@ -16,10 +19,11 @@ public class FlowchartAnswerController : MonoBehaviour
     void Start()
     {
         mainSoundBox = GameObject.Find("mainSoundBox");
+        soundBox = GameObject.Find("soundBox");
         mainSoundBox.GetComponent<GameSoundController>().on_flowchartBGM();
         gCon = GameObject.Find("GameController");
-        Debug.Log("Trying Pause");
-
+        text = flee_name_tmp.text;
+        
         answers = new List<bool>();
         for (int i = 0; i < slots.Count; ++i)
         {
@@ -89,5 +93,17 @@ public class FlowchartAnswerController : MonoBehaviour
         clear_spr.SetActive(true);
         clear_bg_spr.SetActive(true);
         StartCoroutine(waitForResult_cleared());
+    }
+
+    public void flee()
+    {
+        flee_panel.SetActive(true);
+        soundBox.GetComponent<GameSoundController>().on_pWrongJINGLE();
+        flee_name_tmp.text = text + PlayData.playerName + "!";
+    }
+
+    public void close_flee()
+    {
+        flee_panel.SetActive(false);
     }
 }
