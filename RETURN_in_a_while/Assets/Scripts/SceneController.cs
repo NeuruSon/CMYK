@@ -70,11 +70,15 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("showPuzzle");
     }
 
+    public void toShowOffScene()
+    {
+        SceneManager.LoadScene("Ch01_Yvillage");
+    }
+
     public void toScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
     }
-
 
     public string getThisSceneName()
     {
