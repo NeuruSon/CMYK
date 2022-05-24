@@ -44,7 +44,7 @@ public class PuzzleGameController : MonoBehaviour
     {
         isCleared = true;
         mainSoundBox.GetComponent<GameSoundController>().on_pRightJINGLE();
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
 
         if (PlayData.preSceneName != null)
         {
