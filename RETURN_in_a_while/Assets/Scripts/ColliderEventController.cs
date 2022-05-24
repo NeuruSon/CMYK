@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColliderEventController : MonoBehaviour
 {
-    public GameObject light_spr;
+    public GameObject light_guide_spr, light_spr;
     bool isLightOn = false;
     GameObject mainSoundBox;
 
@@ -19,6 +19,7 @@ public class ColliderEventController : MonoBehaviour
         {
             isLightOn = true;
             light_spr.SetActive(false);
+            light_guide_spr.SetActive(false);
             mainSoundBox.GetComponent<GameSoundController>().on_flowchartJINGLE();
             Invoke("returnBGM", 10);
         }
@@ -29,12 +30,14 @@ public class ColliderEventController : MonoBehaviour
         if (isLightOn == false && col.CompareTag("Player"))
         {
             light_spr.SetActive(true);
+            light_guide_spr.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider col)
     {
         light_spr.SetActive(false);
+        light_guide_spr.SetActive(false);
     }
 
     void returnBGM()

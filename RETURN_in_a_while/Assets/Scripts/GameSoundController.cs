@@ -58,4 +58,14 @@ public class GameSoundController : MonoBehaviour
         audio.clip = puzzle_wrong_jingle;
         audio.Play();
     }
+
+    public void pause_audio()
+    {
+        audio.Pause();
+    }
+
+    public void stop_audio()
+    {
+        audio.Stop();
+    }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class PuzzleGameController : MonoBehaviour
 {
     //퍼즐 모드일 때의 게임 컨트롤러입니다.
-    GameObject sCon, mainSoundBox;
+    GameObject sCon, mainSoundBox, soundBox;
     public GameObject puzzles, nextBtn, doneBtn, effect_bg, clear_spr, clear_bg_spr, fail_spr; //유니티 에디터에서 지정하는 옵션 
     public AudioClip jingle_cleared, jingle_failed;
     Dictionary<string, GameObject> puzzleCanvases;
@@ -21,6 +21,7 @@ public class PuzzleGameController : MonoBehaviour
     void Start()
     {
         mainSoundBox = GameObject.Find("mainSoundBox");
+        soundBox = GameObject.Find("soundBox");
         sCon = GameObject.Find("SceneController");
         //puzzles 뭉탱이에 들어있는 퍼즐 개체를 dictionary에 담음 
         for (int i = 0; i < puzzles.transform.childCount; ++i)
@@ -43,7 +44,8 @@ public class PuzzleGameController : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        mainSoundBox.GetComponent<GameSoundController>().on_pRightJINGLE();
+        mainSoundBox.GetComponent<GameSoundController>().stop_audio();
+        soundBox.GetComponent<GameSoundController>().on_pRightJINGLE();
         yield return new WaitForSeconds(2f);
 
         if (PlayData.preSceneName != null)
@@ -62,27 +64,6 @@ public class PuzzleGameController : MonoBehaviour
     {
         mainSoundBox.GetComponent<GameSoundController>().on_pWrongJINGLE();
         yield return new WaitForSeconds(3.5f);
-
-        //if (PlayData.currentChapterNum <= 1)
-        //{
-        //    sCon.GetComponent<SceneController>().toPuzzleYScene();
-        //}
-        //else if (PlayData.currentChapterNum == 2)
-        //{
-        //    sCon.GetComponent<SceneController>().toPuzzleCScene();
-        //}
-        //else if (PlayData.currentChapterNum == 3)
-        //{
-        //    sCon.GetComponent<SceneController>().toPuzzleMScene();
-        //}
-        //else if (PlayData.currentChapterNum == 4)
-        //{
-        //    sCon.GetComponent<SceneController>().toPuzzleKScene();
-        //}
-        //else
-        //{
-        //    Debug.Log("OutOfIndexError");
-        //}
 
         if (PlayData.puzzleName == "Puzzle1_int"|| PlayData.puzzleName == "Puzzle2_char_string"
             || PlayData.puzzleName == "Puzzle3_bool" || PlayData.puzzleName == "Puzzle4_array")
