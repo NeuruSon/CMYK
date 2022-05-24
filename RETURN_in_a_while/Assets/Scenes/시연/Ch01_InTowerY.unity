@@ -2837,6 +2837,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 527510552}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &537214365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537214367}
+  - component: {fileID: 537214366}
+  m_Layer: 0
+  m_Name: Teleport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &537214366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537214365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48efe30386a734705b642bc2e074f70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dest_position:
+  - {x: 32, y: 45.6, z: 23.9}
+  dest_rotation:
+  - {x: 0, y: 180, z: 0}
+--- !u!4 &537214367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537214365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.236122, y: 46.5886, z: 14.651355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &555044346
 GameObject:
   m_ObjectHideFlags: 0
@@ -3859,8 +3906,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 697543338}
+  selectedCommands:
+  - {fileID: 697543318}
   variables:
   - {fileID: 697543330}
   - {fileID: 697543310}
@@ -4682,8 +4731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 873.5
-    y: 174
+    x: 865.5
+    y: 147
     width: 107
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -6874,7 +6923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1704183732}
+  selectedFlowchart: {fileID: 697543308}
 --- !u!4 &919829257
 Transform:
   m_ObjectHideFlags: 1
@@ -9573,8 +9622,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1704183734}
-  selectedCommands:
-  - {fileID: 1704183743}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -9703,7 +9751,7 @@ MonoBehaviour:
   indentLevel: 0
   duration: 2
   targetAlpha: 0
-  waitUntilFinished: 0
+  waitUntilFinished: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   fadeTweenType: 0
@@ -32347,6 +32395,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 864974468047599644, guid: 2cadabec2571947a2b4b331ba5685886,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 864974468047599646, guid: 2cadabec2571947a2b4b331ba5685886,
         type: 3}
