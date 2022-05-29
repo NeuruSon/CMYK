@@ -17,15 +17,15 @@ public class PlayerController : MonoBehaviour
         PlayData.preSceneLocation = GetComponent<Transform>().transform.localPosition; //현재 플레이어의 위치를, 복귀할 때의 위치 선정을 위해 임시저장
         PlayData.preSceneRotation = player.GetComponent<Transform>().transform.localRotation.eulerAngles; //현재 플레이어의 각도를, 복귀할 때의 각도 지정을 위해 임시저장
 
-        //Debug.Log(GetComponent<Transform>().transform.localPosition);
-        //Debug.Log(player.GetComponent<Transform>().transform.localRotation.eulerAngles);
-        //Debug.Log(PlayData.preSceneLocation);
-        //Debug.Log(PlayData.preSceneRotation);
+        Debug.Log(GetComponent<Transform>().transform.localPosition);
+        Debug.Log(player.GetComponent<Transform>().transform.localRotation.eulerAngles);
+        Debug.Log(PlayData.preSceneLocation);
+        Debug.Log(PlayData.preSceneRotation);
     }
 
     public void saveCurrentSceneName()
     {
         PlayData.preSceneName = sCon.GetComponent<SceneController>().getThisSceneName();
-        //Debug.Log(PlayData.preSceneName);
+        Debug.Log(PlayData.preSceneName);
     }
 }

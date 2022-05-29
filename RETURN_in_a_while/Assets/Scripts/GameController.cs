@@ -17,17 +17,12 @@ public class GameController : MonoBehaviour
 
     public bool isPaused = false;
 
-    [System.Obsolete]
-    private void Awake()
+    void Start()
     {
-        if (PlayData.toPreScene)
+        if (PlayData.toPreScene == true)
         {
             setPosition();
         }
-    }
-
-    void Start()
-    {
         bright_slider.value = PlayData.curBrightness;
         bgm_slider.value = PlayData.curBgmVolume;
         sfx_slider.value = PlayData.curSfxVolume; 
@@ -119,12 +114,12 @@ public class GameController : MonoBehaviour
         reAskTitle_panel.SetActive(false);
     }
 
-    [System.Obsolete]
     void setPosition()
     {
+        PlayData.toPreScene = false;
         pCon = GameObject.Find("Player");
         pCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation; //player를 이전 씬과 동일하게 배치
-        int childCount = pCon.transform.GetChildCount();
+        int childCount = pCon.transform.childCount;
         for (int i = 0; i < childCount; ++i)
         {
             pCon.transform.GetChild(i).GetComponent<Transform>().transform.localEulerAngles = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
@@ -132,6 +127,5 @@ public class GameController : MonoBehaviour
 
         cCon = GameObject.Find("Continue");
         cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
-        PlayData.toPreScene = false;
     }
 }

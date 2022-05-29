@@ -18,8 +18,6 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     void Start()
     {
         gCon = GameObject.Find("GameController");
-        //다른 곳에서 flowchart를 열 때 꼭 잘 isPaused = true; 해줘야 합니다!
-        gCon.GetComponent<GameController>().isPaused = true;
 
         audio = soundBox.GetComponent<AudioSource>();
 
@@ -32,6 +30,8 @@ public class FlowchartController_FixingContinue : MonoBehaviour
 
     void Update()
     {
+        gCon.GetComponent<GameController>().isPaused = true;
+
         if (answers[0] && !b_1)
         {
             b_1 = true;
