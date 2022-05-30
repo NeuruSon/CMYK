@@ -12663,6 +12663,7 @@ GameObject:
   - component: {fileID: 1955131316}
   - component: {fileID: 1955131318}
   - component: {fileID: 1955131319}
+  - component: {fileID: 1955131320}
   m_Layer: 0
   m_Name: StartScene
   m_TagString: Untagged
@@ -12716,9 +12717,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1955131224}
-  selectedCommands:
-  - {fileID: 1955131257}
+  - {fileID: 1955131312}
+  selectedCommands: []
   variables:
   - {fileID: 1955131256}
   - {fileID: 1955131263}
@@ -12818,9 +12818,9 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 1955131223}
   commandList:
+  - {fileID: 1955131265}
   - {fileID: 1955131257}
   - {fileID: 1955131318}
-  - {fileID: 1955131265}
   - {fileID: 1955131266}
   - {fileID: 1955131258}
   - {fileID: 1955131222}
@@ -13769,7 +13769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 35
-  indentLevel: 0
+  indentLevel: 1
   duration: 0
   targetAlpha: 1
   waitUntilFinished: 1
@@ -15367,8 +15367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 94
   indentLevel: 1
-  duration: 2
-  targetAlpha: 1
+  duration: 1
+  targetAlpha: 0
   waitUntilFinished: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
@@ -15781,6 +15781,7 @@ MonoBehaviour:
   eventHandler: {fileID: 1955131305}
   commandList:
   - {fileID: 1955131311}
+  - {fileID: 1955131304}
   - {fileID: 1955131310}
   - {fileID: 1955131309}
   - {fileID: 1955131308}
@@ -15791,7 +15792,7 @@ MonoBehaviour:
   - {fileID: 1955131227}
   - {fileID: 1955131255}
   - {fileID: 1955131254}
-  - {fileID: 1955131304}
+  - {fileID: 1955131320}
   - {fileID: 1955131314}
   suppressAllAutoSelections: 0
 --- !u!114 &1955131313
@@ -15945,7 +15946,7 @@ MonoBehaviour:
   toPositionOLD: {x: 0, y: 0, z: 0}
 --- !u!114 &1955131318
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15956,7 +15957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 113
-  indentLevel: 0
+  indentLevel: 1
   _targetGameObject:
     gameObjectRef: {fileID: 0}
     gameObjectVal: {fileID: 1402129297}
@@ -15966,7 +15967,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &1955131319
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15985,6 +15986,26 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 0
   targetGameObjectOLD: {fileID: 0}
+--- !u!114 &1955131320
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955131218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 115
+  indentLevel: 1
+  duration: 2
+  targetAlpha: 1
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
 --- !u!1001 &1968940096
 PrefabInstance:
   m_ObjectHideFlags: 0
