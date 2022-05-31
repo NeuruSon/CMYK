@@ -4973,6 +4973,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 278206702}
+  - component: {fileID: 278206706}
   - component: {fileID: 278206701}
   - component: {fileID: 278206703}
   - component: {fileID: 278206705}
@@ -5087,7 +5088,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 656
     y: 136
-    width: 110
+    width: 108
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5098,6 +5099,19 @@ MonoBehaviour:
   commandList:
   - {fileID: 278206704}
   suppressAllAutoSelections: 0
+--- !u!135 &278206706
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278206700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &282012893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8672,7 +8686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 143092023}
+  selectedFlowchart: {fileID: 278206703}
 --- !u!4 &919829257
 Transform:
   m_ObjectHideFlags: 1
