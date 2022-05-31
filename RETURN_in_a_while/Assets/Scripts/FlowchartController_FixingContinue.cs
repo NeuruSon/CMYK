@@ -118,6 +118,8 @@ public class FlowchartController_FixingContinue : MonoBehaviour
         effect_bg.SetActive(true);
         clear_spr.SetActive(true);
         clear_bg_spr.SetActive(true);
+
+        PlayData.isFlowchartCleared[0] = true;
         StartCoroutine(waitForResult_cleared());
     }
 }

@@ -7,6 +7,7 @@ using TMPro;
 public class FlowchartAnswerController : MonoBehaviour
 {
     GameObject gCon, mainSoundBox, soundBox;
+    public int flowchartNum;
     string text;
     public TextMeshProUGUI flee_name_tmp;
     public GameObject effect_bg, clear_spr, clear_bg_spr, char_spr, flee_panel; //유니티 에디터에서 지정하는 옵션
@@ -14,12 +15,14 @@ public class FlowchartAnswerController : MonoBehaviour
     public List<GameObject> hearts;
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
     public List<bool> answers;
-    bool isCleared = false;
+    public AudioClip bgm;
+    bool isCleared = false, isEnded = false;
 
     void Start()
     {
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
+        mainSoundBox.GetComponent<GameSoundController>().flowchart_bgm = bgm;
         mainSoundBox.GetComponent<GameSoundController>().on_flowchartBGM();
         gCon = GameObject.Find("GameController");
         text = flee_name_tmp.text;
@@ -45,7 +48,7 @@ public class FlowchartAnswerController : MonoBehaviour
             result_cleared();
         }
 
-        if (isCleared)
+        if (isCleared && !isEnded)
         {
             clear_bg_spr.transform.Rotate(Vector3.forward * Time.deltaTime * 7.5f);
         }
@@ -84,6 +87,10 @@ public class FlowchartAnswerController : MonoBehaviour
 
         mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
         gCon.GetComponent<GameController>().isPaused = false;
+        isEnded = true;
+        effect_bg.SetActive(false);
+        clear_spr.SetActive(false);
+        clear_bg_spr.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -92,6 +99,7 @@ public class FlowchartAnswerController : MonoBehaviour
         effect_bg.SetActive(true);
         clear_spr.SetActive(true);
         clear_bg_spr.SetActive(true);
+        PlayData.isFlowchartCleared[flowchartNum] = true;
         StartCoroutine(waitForResult_cleared());
     }
 
