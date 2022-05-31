@@ -44,8 +44,8 @@ public class PuzzleGameController : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        mainSoundBox.GetComponent<GameSoundController>().stop_audio();
-        soundBox.GetComponent<GameSoundController>().on_pRightJINGLE();
+        mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
+        soundBox.GetComponent<GameSubSoundController>().on_pRightJINGLE();
         yield return new WaitForSeconds(2f);
 
         if (PlayData.preSceneName != null)
@@ -62,7 +62,8 @@ public class PuzzleGameController : MonoBehaviour
 
     IEnumerator waitForResult_failed()
     {
-        mainSoundBox.GetComponent<GameSoundController>().on_pWrongJINGLE();
+        mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
+        soundBox.GetComponent<GameSubSoundController>().on_pWrongJINGLE();
         yield return new WaitForSeconds(3.5f);
 
         if (PlayData.puzzleName == "Puzzle1_int"|| PlayData.puzzleName == "Puzzle2_char_string"

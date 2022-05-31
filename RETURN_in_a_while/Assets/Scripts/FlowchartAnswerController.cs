@@ -22,8 +22,8 @@ public class FlowchartAnswerController : MonoBehaviour
     {
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
-        mainSoundBox.GetComponent<GameSoundController>().flowchart_bgm = bgm;
-        mainSoundBox.GetComponent<GameSoundController>().on_flowchartBGM();
+        mainSoundBox.GetComponent<GameMainSoundController>().flowchart_bgm = bgm;
+        mainSoundBox.GetComponent<GameMainSoundController>().on_flowchartBGM();
         gCon = GameObject.Find("GameController");
         text = flee_name_tmp.text;
         
@@ -82,10 +82,11 @@ public class FlowchartAnswerController : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        mainSoundBox.GetComponent<GameSoundController>().on_flowchartJINGLE();
+        mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
+        soundBox.GetComponent<GameSubSoundController>().on_flowchartJINGLE();
         yield return new WaitForSeconds(6.5f);
 
-        mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
+        mainSoundBox.GetComponent<GameMainSoundController>().on_fieldBGM();
         gCon.GetComponent<GameController>().isPaused = false;
         isEnded = true;
         effect_bg.SetActive(false);
@@ -106,7 +107,7 @@ public class FlowchartAnswerController : MonoBehaviour
     public void flee()
     {
         flee_panel.SetActive(true);
-        soundBox.GetComponent<GameSoundController>().on_pWrongJINGLE();
+        soundBox.GetComponent<GameSubSoundController>().on_pWrongJINGLE();
         flee_name_tmp.text = text + PlayData.playerName + "!";
     }
 

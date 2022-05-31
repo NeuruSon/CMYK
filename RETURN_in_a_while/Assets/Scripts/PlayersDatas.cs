@@ -23,7 +23,7 @@ public class PlayData //저장해야 할 데이터 목록
     //settings
     public static float curBrightness = 1.0f;
     public static float curBgmVolume = 0.5f;
-    public static float curSfxVolume = 1.0f;
+    public static float curSfxVolume = 0.6f;
 
     protected PlayData() { }
 }

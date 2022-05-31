@@ -58,7 +58,7 @@ public class DADSlotController : MonoBehaviour, IDropHandler
                 child.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
             }
 
-            soundBox.GetComponent<GameSoundController>().on_inSFX();
+            soundBox.GetComponent<GameSubSoundController>().on_inSFX();
         }
     }
 

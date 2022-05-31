@@ -6,11 +6,12 @@ public class ColliderEventController : MonoBehaviour
 {
     public GameObject light_guide_spr, light_spr;
     bool isLightOn = false;
-    GameObject mainSoundBox;
+    GameObject mainSoundBox, soundBox;
 
     void Start()
     {
         mainSoundBox = GameObject.Find("mainSoundBox");
+        mainSoundBox = GameObject.Find("soundBox");
     }
 
     void Update()
@@ -20,7 +21,8 @@ public class ColliderEventController : MonoBehaviour
             isLightOn = true;
             light_spr.SetActive(false);
             light_guide_spr.SetActive(false);
-            mainSoundBox.GetComponent<GameSoundController>().on_flowchartJINGLE();
+            mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
+            soundBox.GetComponent<GameSubSoundController>().on_flowchartJINGLE();
             Invoke("returnBGM", 10);
         }
     }
@@ -42,6 +44,6 @@ public class ColliderEventController : MonoBehaviour
 
     void returnBGM()
     {
-        mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
+        mainSoundBox.GetComponent<GameMainSoundController>().on_fieldBGM();
     }
 }

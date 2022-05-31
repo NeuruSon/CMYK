@@ -92,7 +92,7 @@ public class PuzzleController_Puzzle3_bool : MonoBehaviour
         {
             PlayData.p3 += 1;
             answerCount = PlayData.p3;
-            soundBox.GetComponent<GameSoundController>().on_flowchartJINGLE(); //정답 징글로 일시 대체 
+            soundBox.GetComponent<GameSubSoundController>().on_flowchartJINGLE(); //정답 징글로 일시 대체 
             changeQuestion();
 
             if (answerCount == 3)

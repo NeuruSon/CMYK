@@ -105,10 +105,11 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     IEnumerator waitForResult_cleared()
     {
         isCleared = true;
-        mainSoundBox.GetComponent<GameSoundController>().on_flowchartJINGLE();
+        mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
+        soundBox.GetComponent<GameSubSoundController>().on_flowchartJINGLE();
         yield return new WaitForSeconds(6.5f);
 
-        mainSoundBox.GetComponent<GameSoundController>().on_fieldBGM();
+        mainSoundBox.GetComponent<GameMainSoundController>().on_fieldBGM();
         gCon.GetComponent<GameController>().isPaused = false;
         gameObject.SetActive(false);
     }

@@ -16,14 +16,14 @@ public class PuzzleController_Puzzle5_if_else : MonoBehaviour
 
     public void on_if_bell()
     {
-        soundBox.GetComponent<GameSoundController>().on_flowchartJINGLE(); //종소리 
+        soundBox.GetComponent<GameSubSoundController>().on_effectSFX(); //종소리 
         r_bell_r.SetActive(true);
         r_bell_b.SetActive(false);
     }
 
     public void on_else_bell()
     {
-        soundBox.GetComponent<GameSoundController>().on_flowchartJINGLE(); //종소리 
+        soundBox.GetComponent<GameSubSoundController>().on_effectSFX(); //종소리 
         r_bell_r.SetActive(false);
         r_bell_b.SetActive(true);
     }
@@ -61,7 +61,7 @@ public class PuzzleController_Puzzle5_if_else : MonoBehaviour
         r_bell_b.SetActive(false);
         r_bell_r.SetActive(false);
 
-        soundBox.GetComponent<GameSoundController>().on_flowchartBGM(); //종소리
+        soundBox.GetComponent<GameSubSoundController>().on_flowchartJINGLE(); //종소리
         pgCon.GetComponent<PuzzleGameController>().offNextBtn();
     }
 }
