@@ -13,12 +13,15 @@ public class GameController : MonoBehaviour
     public Slider bright_slider, bgm_slider, sfx_slider;
     private bool isGuideOn = false, isSettingOn = false;
     GameObject pCon, cCon;
-    public GameObject soundBox;
+    GameObject mainSoundBox, soundBox;
 
     public bool isPaused = false;
 
     void Start()
     {
+        mainSoundBox = GameObject.Find("mainSoundBox");
+        soundBox = GameObject.Find("soundBox");
+
         if (PlayData.toPreScene == true)
         {
             setPosition();
@@ -48,7 +51,12 @@ public class GameController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true)
         {
             isSettingOn = false;
+
+            PlayData.curBrightness = bright_slider.value;
+            PlayData.curBgmVolume = bgm_slider.value;
+            PlayData.curSfxVolume = sfx_slider.value;
             settingCanvas.SetActive(false);
+
             isGuideOn = true;
             guideImage.SetActive(true);
         }
@@ -57,19 +65,28 @@ public class GameController : MonoBehaviour
         {
             if (isSettingOn == true)
             {
-                isSettingOn = false;
+                PlayData.curBrightness = bright_slider.value;
+                PlayData.curBgmVolume = bgm_slider.value;
+                PlayData.curSfxVolume = sfx_slider.value;
                 settingCanvas.SetActive(false);
+
+                isSettingOn = false;
             }
             else
             {
-                isSettingOn = true;
                 settingCanvas.SetActive(true);
+                bright_slider.value = Screen.brightness;
+                bgm_slider.value = mainSoundBox.GetComponent<AudioSource>().volume;
+                sfx_slider.value = soundBox.GetComponent<AudioSource>().volume;
+
+                isSettingOn = true;
             }
         }
         else if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == true)
         {
             isGuideOn = false;
             guideImage.SetActive(false);
+
             isSettingOn = true;
             settingCanvas.SetActive(true);
         }
@@ -79,7 +96,8 @@ public class GameController : MonoBehaviour
             isPaused = true;
 
             Screen.brightness = bright_slider.value;
-            soundBox.GetComponent<AudioSource>().volume = bgm_slider.value;
+            mainSoundBox.GetComponent<AudioSource>().volume = bgm_slider.value;
+            soundBox.GetComponent<AudioSource>().volume = sfx_slider.value;
         }
         else
         {
@@ -95,10 +113,10 @@ public class GameController : MonoBehaviour
     public void closeBtn()
     {
         isSettingOn = false;
-        settingCanvas.SetActive(false);
         PlayData.curBrightness = bright_slider.value;
         PlayData.curBgmVolume = bgm_slider.value;
         PlayData.curSfxVolume = sfx_slider.value;
+        settingCanvas.SetActive(false);
 
         isGuideOn = false;
         guideImage.SetActive(false);
