@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     Slider bright_slider, bgm_slider, sfx_slider;
     private bool isGuideOn = false, isSettingOn = false;
     GameObject pCon, cCon;
-    GameObject mainSoundBox, soundBox, dialogueAudio;
+    GameObject mainSoundBox, soundBox, sayDialog;
     public AudioClip click_sfx;
     AudioSource audio;
 
@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     {
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
-        dialogueAudio = GameObject.Find("SayDialog");
+        sayDialog = GameObject.Find("SayDialog");
         audio = GetComponent<AudioSource>();
         audio.clip = click_sfx;
         audio.loop = false;
@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
         sfx_slider.value = PlayData.curSfxVolume;
         if (GameObject.Find("SayDialog"))
         {
-            dialogueAudio.GetComponent<WriterAudio>().volume = PlayData.curSfxVolume;
+            sayDialog.GetComponent<WriterAudio>().volume = PlayData.curSfxVolume;
         }
         gameObject.GetComponent<AudioSource>().volume = PlayData.curSfxVolume;
 
@@ -150,6 +150,7 @@ public class GameController : MonoBehaviour
             }
         }
 
+        //isPaused check
         if (isSettingOn || isGuideOn)
         {
             isPaused = true;
@@ -157,9 +158,22 @@ public class GameController : MonoBehaviour
             RenderSettings.ambientIntensity = bright_slider.value;
             mainSoundBox.GetComponent<AudioSource>().volume = bgm_slider.value;
             soundBox.GetComponent<AudioSource>().volume = sfx_slider.value;
-            if (GameObject.Find("SayDialog"))
-                dialogueAudio.GetComponent<WriterAudio>().volume = sfx_slider.value;
+            if (sayDialog)
+            {
+                sayDialog.GetComponent<WriterAudio>().volume = sfx_slider.value;
+            }
             gameObject.GetComponent<AudioSource>().volume = sfx_slider.value;
+        }
+        else if (sayDialog)
+        {
+            if (sayDialog.activeInHierarchy)
+            {
+                isPaused = true;
+            }
+            else
+            {
+                isPaused = false;
+            }
         }
         else
         {

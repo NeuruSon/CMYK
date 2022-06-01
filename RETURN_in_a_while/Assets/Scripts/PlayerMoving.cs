@@ -7,7 +7,7 @@ public class PlayerMoving : MonoBehaviour
 {
     [SerializeField] private Canvas canvas;
 
-    Rigidbody r;
+    Rigidbody rigid;
     float speed = 5f; //기준 이동 속도.
     float rotateSpeed = 7f;
     float jumpHeight = 16f;
@@ -27,7 +27,7 @@ public class PlayerMoving : MonoBehaviour
     void Start()
     {
         Physics.gravity = new Vector3(0, -29.8f, 0);
-        r = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
         moveSpeed = speed;
         gCon = GameObject.Find("GameController");
         pAnim = player.GetComponent<Animator>();
@@ -97,7 +97,7 @@ public class PlayerMoving : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && isGround)
             {
                 isGround = false;
-                r.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+                rigid.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
             }
 
             //플레이어가 카메라 기준 정면을 바라보도록 돌려야 함.
@@ -122,6 +122,7 @@ public class PlayerMoving : MonoBehaviour
         }
         else
         {
+            pAnim.SetInteger("walk", 0);
         }
     }
 
