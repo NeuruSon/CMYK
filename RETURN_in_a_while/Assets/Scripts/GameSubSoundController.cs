@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameSubSoundController : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource audio_source;
 
     [Header("sub")]
     public AudioClip in_sfx;
+    public AudioClip save_sfx;
 
     [Header("tower")]
     public AudioClip light_on_jingle;
@@ -23,9 +24,9 @@ public class GameSubSoundController : MonoBehaviour
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
-        audio.playOnAwake = true;
-        audio.loop = false;
+        audio_source = GetComponent<AudioSource>();
+        audio_source.playOnAwake = true;
+        audio_source.loop = false;
     }
 
     void Update()
@@ -35,47 +36,53 @@ public class GameSubSoundController : MonoBehaviour
 
     public void on_effectSFX()
     {
-        audio.clip = effect_sfx;
-        audio.Play();
+        audio_source.clip = effect_sfx;
+        audio_source.Play();
+    }
+
+    public void on_saveSFX()
+    {
+        audio_source.clip = save_sfx;
+        audio_source.Play();
     }
 
     public void on_inSFX()
     {
-        audio.clip = in_sfx;
-        audio.Play();
+        audio_source.clip = in_sfx;
+        audio_source.Play();
     }
 
     public void on_flowchartJINGLE()
     {
-        audio.clip = flowchart_win_jignle;
-        audio.Play();
+        audio_source.clip = flowchart_win_jignle;
+        audio_source.Play();
     }
 
     public void on_pRightJINGLE()
     {
-        audio.clip = puzzle_right_jingle;
-        audio.Play();
+        audio_source.clip = puzzle_right_jingle;
+        audio_source.Play();
     }
 
     public void on_pWrongJINGLE()
     {
-        audio.clip = puzzle_wrong_jingle;
-        audio.Play();
+        audio_source.clip = puzzle_wrong_jingle;
+        audio_source.Play();
     }
 
     public void on_lightOnJINGLE()
     {
-        audio.clip = light_on_jingle;
-        audio.Play();
+        audio_source.clip = light_on_jingle;
+        audio_source.Play();
     }
 
     public void pause_audio()
     {
-        audio.Pause();
+        audio_source.Pause();
     }
 
     public void stop_audio()
     {
-        audio.Stop();
+        audio_source.Stop();
     }
 }

@@ -65,6 +65,11 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Cave");
     }
 
+    public void toVillageYScene()
+    {
+        SceneManager.LoadScene("Ch01_Yvillage");
+    }
+
     public void toShowPuzzleScene()
     {
         SceneManager.LoadScene("showPuzzle");

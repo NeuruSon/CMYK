@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fungus;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -11,12 +12,15 @@ public class GameController : MonoBehaviour
     public GameObject guideImage; //유니티 에디터에서 지정하는 옵션 
     public GameObject settingCanvas; //유니티 에디터에서 지정하는 옵션
     public GameObject reAskTitle_panel; //유니티 에디터에서 지정하는 옵션
+    public GameObject askSave_panel, askContinue_panel, waitForSave_panel;
+    public TextMeshProUGUI askContinue_tmp;
+    string askContinue_text = "";
     Slider bright_slider, bgm_slider, sfx_slider;
     private bool isGuideOn = false, isSettingOn = false;
     GameObject pCon, cCon;
     GameObject mainSoundBox, soundBox, sayDialog;
     public AudioClip click_sfx;
-    AudioSource audio;
+    AudioSource audio_source;
 
     public bool isPaused = false;
 
@@ -25,9 +29,10 @@ public class GameController : MonoBehaviour
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
         sayDialog = GameObject.Find("SayDialog");
-        audio = GetComponent<AudioSource>();
-        audio.clip = click_sfx;
-        audio.loop = false;
+        audio_source = GetComponent<AudioSource>();
+        audio_source.clip = click_sfx;
+        audio_source.loop = false;
+        askContinue_text = askContinue_tmp.text;
 
         settingCanvas.SetActive(true);
 
@@ -91,7 +96,7 @@ public class GameController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            audio.Play();
+            audio_source.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.G) && isSettingOn == false) //setting 창이 켜진 상태에서는 가이드 이미지를 띄우지 못함.
@@ -206,6 +211,43 @@ public class GameController : MonoBehaviour
     public void closeReAskTitle()
     {
         reAskTitle_panel.SetActive(false);
+    }
+
+    public void askSaveBtn()
+    {
+        askSave_panel.SetActive(true);
+    }
+
+    public void closeAskSavePanel()
+    {
+        askSave_panel.SetActive(false);
+    }
+
+    public void save()
+    {
+        PlayData.currentSceneName = GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName();
+        SaveController.saveDatas(PlayData.curSaveSlotNum);
+        StartCoroutine(waitForSave());
+    }
+
+    IEnumerator waitForSave()
+    {
+        waitForSave_panel.SetActive(true);
+        mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
+        soundBox.GetComponent<GameSubSoundController>().on_saveSFX();
+        yield return new WaitForSeconds(5.3f);
+        mainSoundBox.GetComponent<GameMainSoundController>().on_fieldBGM();
+        waitForSave_panel.SetActive(false);
+        askContinue_tmp.text = PlayData.curSaveSlotNum + askContinue_text;
+        askContinue_panel.SetActive(true);
+    }
+
+    public void acceptContinue()
+    {
+        askSave_panel.SetActive(false);
+        askContinue_panel.SetActive(false);
+        askContinue_tmp.text = askContinue_text;
+        isSettingOn = false;
     }
 
     void setPosition()

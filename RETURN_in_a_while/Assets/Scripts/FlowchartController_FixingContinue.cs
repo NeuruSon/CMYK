@@ -6,7 +6,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
 {
     public GameObject mainSoundBox, soundBox, block_int, block_char, block_bool, block_array;
     public AudioClip right_sfx, wrong_sfx;
-    AudioSource audio;
+    AudioSource audio_source;
     bool b_1 = false, b_2 = false, b_3 = false, b_4 = false;
     GameObject gCon;
     public GameObject effect_bg, clear_spr, clear_bg_spr; //유니티 에디터에서 지정하는 옵션
@@ -19,7 +19,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     {
         gCon = GameObject.Find("GameController");
 
-        audio = soundBox.GetComponent<AudioSource>();
+        audio_source = soundBox.GetComponent<AudioSource>();
 
         answers = new List<bool>();
         for (int i = 0; i < slots.Count; ++i)
@@ -35,32 +35,32 @@ public class FlowchartController_FixingContinue : MonoBehaviour
         if (answers[0] && !b_1)
         {
             b_1 = true;
-            audio.clip = right_sfx;
-            audio.Play();
+            audio_source.clip = right_sfx;
+            audio_source.Play();
             block_int.SetActive(true);
         }
 
         if (answers[1] && !b_2)
         {
             b_2 = true;
-            audio.clip = right_sfx;
-            audio.Play();
+            audio_source.clip = right_sfx;
+            audio_source.Play();
             block_char.SetActive(true);
         }
 
         if (answers[2] && !b_3)
         {
             b_3 = true;
-            audio.clip = right_sfx;
-            audio.Play();
+            audio_source.clip = right_sfx;
+            audio_source.Play();
             block_bool.SetActive(true);
         }
 
         if (answers[3] && !b_4)
         {
             b_4 = true;
-            audio.clip = right_sfx;
-            audio.Play();
+            audio_source.clip = right_sfx;
+            audio_source.Play();
             block_array.SetActive(true);
         }
 

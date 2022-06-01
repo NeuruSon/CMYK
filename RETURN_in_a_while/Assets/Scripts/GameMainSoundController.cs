@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameMainSoundController : MonoBehaviour
 {
     
-    AudioSource audio;
+    AudioSource audio_source;
 
     [Header("main")]
     public AudioClip field_bgm;
@@ -15,11 +15,11 @@ public class GameMainSoundController : MonoBehaviour
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
-        audio.playOnAwake = true;
-        audio.loop = true;
-        audio.clip = field_bgm;
-        audio.Play();
+        audio_source = GetComponent<AudioSource>();
+        audio_source.playOnAwake = true;
+        audio_source.loop = true;
+        audio_source.clip = field_bgm;
+        audio_source.Play();
     }
 
     void Update()
@@ -29,23 +29,23 @@ public class GameMainSoundController : MonoBehaviour
 
     public void on_fieldBGM()
     {
-        audio.clip = field_bgm;
-        audio.Play();
+        audio_source.clip = field_bgm;
+        audio_source.Play();
     }
 
     public void on_flowchartBGM()
     {
-        audio.clip = flowchart_bgm;
-        audio.Play();
+        audio_source.clip = flowchart_bgm;
+        audio_source.Play();
     }
 
     public void pause_audio()
     {
-        audio.Pause();
+        audio_source.Pause();
     }
 
     public void stop_audio()
     {
-        audio.Stop();
+        audio_source.Stop();
     }
 }

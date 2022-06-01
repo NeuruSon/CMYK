@@ -123,6 +123,7 @@ public class PlayerMoving : MonoBehaviour
         else
         {
             pAnim.SetInteger("walk", 0);
+            moveSpeed = speed;
         }
     }
 
