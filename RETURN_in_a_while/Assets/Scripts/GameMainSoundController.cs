@@ -13,9 +13,6 @@ public class GameMainSoundController : MonoBehaviour
     [Header("flowchart")]
     public AudioClip flowchart_bgm;
 
-    [Header("puzzle")]
-    public AudioClip puzzle_bgm;
-
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -28,12 +25,6 @@ public class GameMainSoundController : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void on_puzzleBGM()
-    {
-        audio.clip = puzzle_bgm;
-        audio.Play();
     }
 
     public void on_fieldBGM()

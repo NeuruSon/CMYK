@@ -41,7 +41,7 @@ public class PlayerMoving : MonoBehaviour
             {
                 pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y, 0);
-                transform.Translate(pCam.transform.forward * moveSpeed * Time.deltaTime);
+                transform.Translate(pCam.transform.forward.x * moveSpeed * Time.deltaTime, 0, pCam.transform.forward.z * moveSpeed * Time.deltaTime);
             }
             else if (Input.GetKeyUp(KeyCode.W)) {
                 pAnim.SetInteger("walk", 0);
@@ -51,7 +51,7 @@ public class PlayerMoving : MonoBehaviour
             {
                 pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y - 90, 0);
-                transform.Translate(-1 * pCam.transform.right * moveSpeed * Time.deltaTime);
+                transform.Translate(-1 * pCam.transform.right.x * moveSpeed * Time.deltaTime, 0 , -1 * pCam.transform.right.z * moveSpeed * Time.deltaTime);
             }
             else if (Input.GetKeyUp(KeyCode.A))
             {
@@ -62,7 +62,7 @@ public class PlayerMoving : MonoBehaviour
             {
                 pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y - 180, 0);
-                transform.Translate(-1 * pCam.transform.forward * moveSpeed * Time.deltaTime);
+                transform.Translate(-1 * pCam.transform.forward.x * moveSpeed * Time.deltaTime, 0, -1 * pCam.transform.forward.z * moveSpeed * Time.deltaTime);
             }
             else if (Input.GetKeyUp(KeyCode.S))
             {
@@ -73,7 +73,7 @@ public class PlayerMoving : MonoBehaviour
             {
                 pAnim.SetInteger("walk", 1);
                 player.transform.rotation = Quaternion.Euler(0, pCam.transform.rotation.eulerAngles.y + 90, 0);
-                transform.Translate(pCam.transform.right * moveSpeed * Time.deltaTime);
+                transform.Translate(pCam.transform.right.x * moveSpeed * Time.deltaTime, 0, pCam.transform.right.z * moveSpeed * Time.deltaTime);
             }
             else if (Input.GetKeyUp(KeyCode.D))
             {

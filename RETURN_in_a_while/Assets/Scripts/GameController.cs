@@ -61,7 +61,10 @@ public class GameController : MonoBehaviour
         bright_slider.value = PlayData.curBrightness;
         bgm_slider.value = PlayData.curBgmVolume;
         sfx_slider.value = PlayData.curSfxVolume;
-        dialogueAudio.GetComponent<WriterAudio>().volume = PlayData.curSfxVolume;
+        if (GameObject.Find("SayDialog"))
+        {
+            dialogueAudio.GetComponent<WriterAudio>().volume = PlayData.curSfxVolume;
+        }
         gameObject.GetComponent<AudioSource>().volume = PlayData.curSfxVolume;
 
         RenderSettings.ambientIntensity = PlayData.curBrightness;
@@ -154,7 +157,8 @@ public class GameController : MonoBehaviour
             RenderSettings.ambientIntensity = bright_slider.value;
             mainSoundBox.GetComponent<AudioSource>().volume = bgm_slider.value;
             soundBox.GetComponent<AudioSource>().volume = sfx_slider.value;
-            dialogueAudio.GetComponent<WriterAudio>().volume = sfx_slider.value;
+            if (GameObject.Find("SayDialog"))
+                dialogueAudio.GetComponent<WriterAudio>().volume = sfx_slider.value;
             gameObject.GetComponent<AudioSource>().volume = sfx_slider.value;
         }
         else

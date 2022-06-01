@@ -9,6 +9,9 @@ public class GameSubSoundController : MonoBehaviour
     [Header("sub")]
     public AudioClip in_sfx;
 
+    [Header("tower")]
+    public AudioClip light_on_jingle;
+
     [Header("flowchart")]
     public AudioClip flowchart_win_jignle;
     public AudioClip flowchart_sfx;
@@ -57,6 +60,12 @@ public class GameSubSoundController : MonoBehaviour
     public void on_pWrongJINGLE()
     {
         audio.clip = puzzle_wrong_jingle;
+        audio.Play();
+    }
+
+    public void on_lightOnJINGLE()
+    {
+        audio.clip = light_on_jingle;
         audio.Play();
     }
 

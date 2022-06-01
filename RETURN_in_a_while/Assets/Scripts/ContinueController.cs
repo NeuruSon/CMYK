@@ -6,8 +6,6 @@ public class ContinueController : MonoBehaviour
 {
     GameObject player;
     public bool isFollowing = true;
-    float targetDistance;
-    float allowedDistance = 3f;
     float followSpeed;
     public Vector3 offset = new Vector3(-2, 2, 0);
 
@@ -22,6 +20,7 @@ public class ContinueController : MonoBehaviour
         {
             followSpeed = 1f;
             transform.position = Vector3.Lerp(transform.position, player.transform.position + offset, followSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, player.transform.rotation, followSpeed * Time.deltaTime);
         }
     }
 }
