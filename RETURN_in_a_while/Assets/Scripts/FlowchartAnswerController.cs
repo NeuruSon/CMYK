@@ -65,7 +65,11 @@ public class FlowchartAnswerController : MonoBehaviour
                 answer += "1";
                 hearts[i].GetComponent<Image>().sprite = color_heart;
             }
-            else answer += "0";
+            else
+            {
+                answer += "0";
+                hearts[i].GetComponent<Image>().sprite = mono_heart;
+            }
         }
         Debug.Log(answer);
 
@@ -114,5 +118,17 @@ public class FlowchartAnswerController : MonoBehaviour
     public void close_flee()
     {
         flee_panel.SetActive(false);
+    }
+
+    public void retry()
+    {
+        for (int i = 0; i < slots.Count; ++i)
+        {
+            if (slots[i].GetComponent<DADSlotController>().child != null)
+            {
+                slots[i].GetComponent<DADSlotController>().child.GetComponent<DADBlockController>().resetParent();
+                slots[i].GetComponent<DADSlotController>().child.GetComponent<DADBlockController>().resetOffset();
+            }
+        }
     }
 }

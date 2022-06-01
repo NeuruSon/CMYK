@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     //모험 모드일 때의 게임 컨트롤러입니다.
 
+    public GameObject settingIcon, guideIcon;
     public GameObject guideImage; //유니티 에디터에서 지정하는 옵션 
     public GameObject settingCanvas; //유니티 에디터에서 지정하는 옵션
     public GameObject reAskTitle_panel; //유니티 에디터에서 지정하는 옵션
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI askContinue_tmp;
     string askContinue_text = "";
     Slider bright_slider, bgm_slider, sfx_slider;
-    private bool isGuideOn = false, isSettingOn = false;
+    private bool isGuideOn = false, isSettingOn = false, isFlowchartOn = false;
     GameObject pCon, cCon;
     GameObject mainSoundBox, soundBox, sayDialog;
     public AudioClip click_sfx;
@@ -89,9 +90,19 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (GameObject.Find("flowchartCanvas"))
         {
-            //particle
+            isFlowchartOn = true;
+            settingIcon.SetActive(false);
+            guideIcon.SetActive(false);
+            isSettingOn = false;
+            isGuideOn = false;
+        }
+        else
+        {
+            isFlowchartOn = false;
+            settingIcon.SetActive(true);
+            guideIcon.SetActive(true);
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -99,7 +110,16 @@ public class GameController : MonoBehaviour
             audio_source.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && isSettingOn == false) //setting 창이 켜진 상태에서는 가이드 이미지를 띄우지 못함.
+        if (!isSettingOn)
+        {
+            settingCanvas.SetActive(false);
+        }
+        if (!isGuideOn)
+        {
+            guideImage.SetActive(false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.G) && isSettingOn == false && !isFlowchartOn) //setting 창이 켜진 상태에서는 가이드 이미지를 띄우지 못함.
         {
             if (isGuideOn == true)
             {
@@ -112,7 +132,7 @@ public class GameController : MonoBehaviour
                 guideImage.SetActive(true);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true)
+        else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true && !isFlowchartOn)
         {
             isSettingOn = false;
 
@@ -125,7 +145,7 @@ public class GameController : MonoBehaviour
             guideImage.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == true)
+        if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == true && !isFlowchartOn)
         {
             isGuideOn = false;
             guideImage.SetActive(false);
@@ -133,7 +153,7 @@ public class GameController : MonoBehaviour
             isSettingOn = true;
             settingCanvas.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == false)
+        else if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == false &&!isFlowchartOn)
         {
             if (isSettingOn == true)
             {
@@ -169,22 +189,20 @@ public class GameController : MonoBehaviour
             }
             gameObject.GetComponent<AudioSource>().volume = sfx_slider.value;
         }
-        else if (sayDialog)
+        else if (GameObject.Find("SayDialog"))
         {
-            if (sayDialog.activeInHierarchy)
-            {
-                isPaused = true;
-            }
-            else
-            {
-                isPaused = false;
-            }
+            isPaused = true;
+        }
+        else if (GameObject.Find("NamingObject"))
+        {
+            isPaused = true;
         }
         else
         {
             isPaused = false;
         }
     }
+
     public void openSettingPanel()
     {
         isSettingOn = true;

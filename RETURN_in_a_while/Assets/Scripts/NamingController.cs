@@ -23,8 +23,6 @@ public class NamingController : MonoBehaviour
     {
         if (isNaming)
         {
-            gCon.GetComponent<GameController>().isPaused = true;
-
             namingPanel.SetActive(true);
             isWriting = true;
 
@@ -52,8 +50,6 @@ public class NamingController : MonoBehaviour
             checkPanel.SetActive(false);
             namingField.interactable = false;
             namingPanel.SetActive(false);
-
-            gCon.GetComponent<GameController>().isPaused = false;
         }
 
         if (namingField.text=="")
