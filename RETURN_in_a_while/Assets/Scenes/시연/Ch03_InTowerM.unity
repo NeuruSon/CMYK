@@ -6384,7 +6384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1505538385}
+  selectedFlowchart: {fileID: 1699050685}
 --- !u!4 &919829257
 Transform:
   m_ObjectHideFlags: 1
@@ -10427,9 +10427,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1505538397}
+  - {fileID: 1505538468}
   selectedCommands:
-  - {fileID: 1505538470}
+  - {fileID: 1505538485}
   variables:
   - {fileID: 1505538393}
   - {fileID: 1505538402}
@@ -14937,6 +14937,7 @@ GameObject:
   - component: {fileID: 1699050694}
   - component: {fileID: 1699050731}
   - component: {fileID: 1699050733}
+  - component: {fileID: 1699050750}
   m_Layer: 0
   m_Name: FC2
   m_TagString: Untagged
@@ -14969,8 +14970,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1699050710}
-  selectedCommands: []
+  - {fileID: 1699050758}
+  selectedCommands:
+  - {fileID: 1699050750}
   variables:
   - {fileID: 1699050687}
   - {fileID: 1699050717}
@@ -17681,6 +17683,25 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1699050750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699050684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 118
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: Ch04_InTowerK
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
 --- !u!114 &1699050751
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -17817,6 +17838,7 @@ MonoBehaviour:
   - {fileID: 1699050761}
   - {fileID: 1699050760}
   - {fileID: 1699050759}
+  - {fileID: 1699050750}
   suppressAllAutoSelections: 0
 --- !u!114 &1699050759
 MonoBehaviour:
