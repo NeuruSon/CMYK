@@ -4455,6 +4455,8 @@ GameObject:
   - component: {fileID: 697543324}
   - component: {fileID: 697543348}
   - component: {fileID: 697543347}
+  - component: {fileID: 697543349}
+  - component: {fileID: 697543350}
   m_Layer: 0
   m_Name: AreaInFC
   m_TagString: Untagged
@@ -4501,8 +4503,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 697543338}
-  selectedCommands: []
+  - {fileID: 697543317}
+  selectedCommands:
+  - {fileID: 697543349}
   variables:
   - {fileID: 697543330}
   - {fileID: 697543310}
@@ -4580,7 +4583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 789
+    x: 790
     y: 110
     width: 74
     height: 40
@@ -5143,6 +5146,7 @@ MonoBehaviour:
   - {fileID: 697543345}
   - {fileID: 697543328}
   - {fileID: 697543327}
+  - {fileID: 697543350}
   - {fileID: 697543344}
   - {fileID: 697543342}
   - {fileID: 697543335}
@@ -5150,6 +5154,7 @@ MonoBehaviour:
   - {fileID: 697543334}
   - {fileID: 697543326}
   - {fileID: 697543325}
+  - {fileID: 697543349}
   - {fileID: 697543333}
   - {fileID: 697543332}
   - {fileID: 697543331}
@@ -6533,6 +6538,84 @@ MonoBehaviour:
   tagFilter: []
   FireOn: 4
   colliderVar: {fileID: 0}
+--- !u!114 &697543349
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697543306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dd111db90064d2cb85e3370cdfe3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 68
+  indentLevel: 1
+  _targetObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 5012400487979962403}
+  _tweenName:
+    stringRef: {fileID: 0}
+    stringVal: 
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  easeType: 2
+  loopType: 0
+  stopPreviousTweens: 0
+  waitUntilFinished: 1
+  targetObjectOLD: {fileID: 0}
+  tweenNameOLD: 
+  durationOLD: 0
+  _toTransform:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 100388343}
+  _toRotation:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
+  isLocal: 0
+  toTransformOLD: {fileID: 0}
+  toRotationOLD: {x: 0, y: 0, z: 0}
+--- !u!114 &697543350
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697543306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dd111db90064d2cb85e3370cdfe3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 69
+  indentLevel: 1
+  _targetObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 5012400487979962403}
+  _tweenName:
+    stringRef: {fileID: 0}
+    stringVal: 
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  easeType: 2
+  loopType: 0
+  stopPreviousTweens: 0
+  waitUntilFinished: 1
+  targetObjectOLD: {fileID: 0}
+  tweenNameOLD: 
+  durationOLD: 0
+  _toTransform:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 1046147633}
+  _toRotation:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
+  isLocal: 0
+  toTransformOLD: {fileID: 0}
+  toRotationOLD: {x: 0, y: 0, z: 0}
 --- !u!1 &704550229
 GameObject:
   m_ObjectHideFlags: 0

@@ -179,6 +179,7 @@ public class GameController : MonoBehaviour
         if (isSettingOn || isGuideOn)
         {
             isPaused = true;
+            Time.timeScale = 0f;
 
             RenderSettings.ambientIntensity = bright_slider.value;
             mainSoundBox.GetComponent<AudioSource>().volume = bgm_slider.value;
@@ -192,14 +193,17 @@ public class GameController : MonoBehaviour
         else if (GameObject.Find("SayDialog"))
         {
             isPaused = true;
+            Time.timeScale = 1f;
         }
         else if (GameObject.Find("NamingObject"))
         {
             isPaused = true;
+            Time.timeScale = 1f;
         }
         else
         {
             isPaused = false;
+            Time.timeScale = 1f;
         }
     }
 
@@ -282,4 +286,6 @@ public class GameController : MonoBehaviour
         cCon = GameObject.Find("Continue");
         cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
     }
+
+
 }
