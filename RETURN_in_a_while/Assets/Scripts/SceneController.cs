@@ -7,7 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public void toTitleScene()
     {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Ch00_Title");
     }
 
     public void toTestScene() //작업용 임시
@@ -57,22 +57,17 @@ public class SceneController : MonoBehaviour
 
     public void toGotoCScene() //
     {
-        SceneManager.LoadScene("gotoC");
+        SceneManager.LoadScene("Ch02_gotoC");
     }
 
     public void toCaveScene() //
     {
-        SceneManager.LoadScene("Cave");
+        SceneManager.LoadScene("Ch02_CCave");
     }
 
     public void toVillageYScene()
     {
         SceneManager.LoadScene("Ch01_Yvillage");
-    }
-
-    public void toShowPuzzleScene()
-    {
-        SceneManager.LoadScene("showPuzzle");
     }
 
     public void toShowOffScene()
