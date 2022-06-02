@@ -287,5 +287,21 @@ public class GameController : MonoBehaviour
         cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
     }
 
+    public void get_item()
+    {
+        StartCoroutine(waitForItem());
+    }
 
+    IEnumerator waitForItem()
+    {
+        mainSoundBox.GetComponent<GameMainSoundController>().pause_audio();
+        soundBox.GetComponent<GameSubSoundController>().on_effectSFX();
+        yield return new WaitForSeconds(4f);
+        mainSoundBox.GetComponent<GameMainSoundController>().resume_audio();
+    }
+
+    public void close_itemPanel(GameObject gameObject)
+    {
+        gameObject.SetActive(false);
+    }
 }

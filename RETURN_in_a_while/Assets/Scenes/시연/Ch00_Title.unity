@@ -3001,6 +3001,7 @@ Transform:
   m_Children:
   - {fileID: 1993760648}
   - {fileID: 2095346743}
+  - {fileID: 983755651}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3016,11 +3017,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ca9d1af758c14acb9e366f3e6535d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingIcon: {fileID: 983755650}
+  guideIcon: {fileID: 983755650}
   guideImage: {fileID: 233536529}
   settingCanvas: {fileID: 1881283158}
   reAskTitle_panel: {fileID: 233536529}
   askSave_panel: {fileID: 233536529}
   askContinue_panel: {fileID: 233536529}
+  waitForSave_panel: {fileID: 983755650}
   askContinue_tmp: {fileID: 444228101}
   click_sfx: {fileID: 8300000, guid: 004ac3f00abfd4f0a959c71367a92739, type: 3}
   isPaused: 0
@@ -3454,6 +3458,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982457706}
   m_CullTransparentMesh: 0
+--- !u!1 &983755650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 983755651}
+  m_Layer: 0
+  m_Name: fake_ui_icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &983755651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983755650}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 852582670}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1018488059
 GameObject:
   m_ObjectHideFlags: 0

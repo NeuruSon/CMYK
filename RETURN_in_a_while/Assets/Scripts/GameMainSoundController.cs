@@ -48,4 +48,9 @@ public class GameMainSoundController : MonoBehaviour
     {
         audio_source.Stop();
     }
+
+    public void resume_audio()
+    {
+        audio_source.Play();
+    }
 }
