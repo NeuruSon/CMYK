@@ -48,6 +48,8 @@ namespace Fungus
 
         protected Writer writer;
 
+        protected bool setNext;
+
         protected virtual void Awake()
         {
             writer = GetComponent<Writer>();
@@ -92,7 +94,7 @@ namespace Fungus
             if (writer != null)
             {
                 if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-                    (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+                    (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)) || setNext)
                 {
                     SetNextLineFlag();
                 }
@@ -154,6 +156,7 @@ namespace Fungus
         /// </summary>
         public virtual void SetNextLineFlag()
         {
+            setNext = false;
             if(writer.IsWaitingForInput || writer.IsWriting)
             {
                 nextLineInputFlag = true;
@@ -205,6 +208,11 @@ namespace Fungus
             {
                 SetNextLineFlag();
             }
+        }
+
+        public void virtualClick()
+        {
+            setNext = true;
         }
 
         #endregion

@@ -9149,6 +9149,8 @@ MonoBehaviour:
   askContinue_tmp: {fileID: 1099437573}
   click_sfx: {fileID: 8300000, guid: 004ac3f00abfd4f0a959c71367a92739, type: 3}
   isPaused: 0
+  deisPaused: 0
+  isFirst: 0
 --- !u!4 &1062312715
 Transform:
   m_ObjectHideFlags: 0
@@ -12773,6 +12775,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3434325883868729698, guid: 01c50f61b76d4498baf8364dcca9c6b0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 77fc3d49bd52e4589904b128b9f86b5d, type: 2}
     - target: {fileID: 3793604981737196086, guid: 01c50f61b76d4498baf8364dcca9c6b0,
         type: 3}
       propertyPath: m_LocalRotation.y

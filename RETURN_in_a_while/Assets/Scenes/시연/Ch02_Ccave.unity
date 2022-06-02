@@ -1431,6 +1431,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 71.795
       objectReference: {fileID: 0}
+    - target: {fileID: 1781204792622758413, guid: 2cadabec2571947a2b4b331ba5685886,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 77fc3d49bd52e4589904b128b9f86b5d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cadabec2571947a2b4b331ba5685886, type: 3}
 --- !u!1 &192215735 stripped
@@ -3583,6 +3588,8 @@ MonoBehaviour:
   askContinue_tmp: {fileID: 1607917575}
   click_sfx: {fileID: 8300000, guid: 004ac3f00abfd4f0a959c71367a92739, type: 3}
   isPaused: 0
+  deisPaused: 0
+  isFirst: 0
 --- !u!82 &454634595
 AudioSource:
   m_ObjectHideFlags: 0

@@ -2586,6 +2586,8 @@ MonoBehaviour:
   askContinue_tmp: {fileID: 490491189}
   click_sfx: {fileID: 8300000, guid: 004ac3f00abfd4f0a959c71367a92739, type: 3}
   isPaused: 0
+  deisPaused: 0
+  isFirst: 0
 --- !u!4 &214574972
 Transform:
   m_ObjectHideFlags: 0
@@ -29803,6 +29805,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5857334903726351838, guid: 3e233cd22bd314f4b8992890442f9477,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 77fc3d49bd52e4589904b128b9f86b5d, type: 2}
     - target: {fileID: 8262406371774951301, guid: 3e233cd22bd314f4b8992890442f9477,
         type: 3}
       propertyPath: m_ApplyRootMotion

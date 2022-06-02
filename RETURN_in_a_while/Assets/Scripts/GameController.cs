@@ -23,10 +23,14 @@ public class GameController : MonoBehaviour
     public AudioClip click_sfx;
     AudioSource audio_source;
 
-    public bool isPaused = false;
+    public bool isPaused = false, deisPaused = false, isFirst = false;
 
     void Start()
     {
+        if (PlayData.playerName == "용사")
+        {
+            isFirst = true;
+        }
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
         sayDialog = GameObject.Find("SayDialog");
@@ -90,6 +94,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (isFirst && GameObject.Find("talk_spr"))
+        {
+            GameObject.Find("talk_spr").SetActive(false);
+        }
+
         if (GameObject.Find("flowchartCanvas"))
         {
             isFlowchartOn = true;
@@ -178,7 +187,7 @@ public class GameController : MonoBehaviour
         //isPaused check
         if (isSettingOn || isGuideOn)
         {
-            isPaused = true;
+            tryPause();
             Time.timeScale = 0f;
 
             RenderSettings.ambientIntensity = bright_slider.value;
@@ -190,14 +199,14 @@ public class GameController : MonoBehaviour
             }
             gameObject.GetComponent<AudioSource>().volume = sfx_slider.value;
         }
-        else if (GameObject.Find("SayDialog"))
+        else if (GameObject.Find("SayDialog") && deisPaused == false)
         {
-            isPaused = true;
+            tryPause();
             Time.timeScale = 1f;
         }
         else if (GameObject.Find("NamingObject"))
         {
-            isPaused = true;
+            tryPause();
             Time.timeScale = 1f;
         }
         else
@@ -303,5 +312,32 @@ public class GameController : MonoBehaviour
     public void close_itemPanel(GameObject gameObject)
     {
         gameObject.SetActive(false);
+    }
+
+    public void on_deisPaused()
+    {
+        deisPaused = true;
+    }
+
+    public void off_deisPaused()
+    {
+        deisPaused = false;
+    }
+
+    public void tryPause()
+    {
+        if (deisPaused)
+        {
+            isPaused = false;
+        }
+        else
+        {
+            isPaused = true;
+        }
+    }
+
+    public void non_first()
+    {
+        isFirst = false;
     }
 }
