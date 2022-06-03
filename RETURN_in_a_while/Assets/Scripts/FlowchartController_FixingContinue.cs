@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class FlowchartController_FixingContinue : MonoBehaviour
 {
-    public GameObject mainSoundBox, soundBox, block_int, block_char, block_bool, block_array;
-    public AudioClip right_sfx, wrong_sfx;
+    public GameObject mainSoundBox, block_int, block_char, block_bool, block_array;
     AudioSource audio_source;
-    bool b_1 = false, b_2 = false, b_3 = false, b_4 = false;
-    GameObject gCon;
+    GameObject gCon, soundBox;
     public GameObject effect_bg, clear_spr, clear_bg_spr; //유니티 에디터에서 지정하는 옵션
     public AudioClip jingle_cleared;
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
@@ -18,8 +16,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     void Start()
     {
         gCon = GameObject.Find("GameController");
-
-        audio_source = soundBox.GetComponent<AudioSource>();
+        soundBox = GameObject.Find("soundBox");
 
         answers = new List<bool>();
         for (int i = 0; i < slots.Count; ++i)
@@ -32,36 +29,40 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     {
         gCon.GetComponent<GameController>().isPaused = true;
 
-        if (answers[0] && !b_1)
+        if (slots[0].GetComponent<DADSlotController>().isCorrect())
         {
-            b_1 = true;
-            audio_source.clip = right_sfx;
-            audio_source.Play();
             block_int.SetActive(true);
         }
-
-        if (answers[1] && !b_2)
+        else
         {
-            b_2 = true;
-            audio_source.clip = right_sfx;
-            audio_source.Play();
+            block_int.SetActive(false);
+        }
+
+        if (slots[1].GetComponent<DADSlotController>().isCorrect())
+        {
             block_char.SetActive(true);
         }
-
-        if (answers[2] && !b_3)
+        else
         {
-            b_3 = true;
-            audio_source.clip = right_sfx;
-            audio_source.Play();
-            block_bool.SetActive(true);
+            block_char.SetActive(false);
         }
 
-        if (answers[3] && !b_4)
+        if (slots[2].GetComponent<DADSlotController>().isCorrect())
         {
-            b_4 = true;
-            audio_source.clip = right_sfx;
-            audio_source.Play();
+            block_bool.SetActive(true);
+        }
+        else
+        {
+            block_bool.SetActive(false);
+        }
+
+        if (slots[3].GetComponent<DADSlotController>().isCorrect())
+        {
             block_array.SetActive(true);
+        }
+        else
+        {
+            block_array.SetActive(false);
         }
 
         if (!isCleared && checkAnswer())
@@ -90,7 +91,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
             }
             else answer += "0";
         }
-        Debug.Log(answer);
+        //Debug.Log(answer);
 
         if (answers.Contains(false)) //오답이 하나라도 있을 경우
         {

@@ -20,10 +20,10 @@ public class SaveCheckController : MonoBehaviour
     void Start()
     {
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
         savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
@@ -80,7 +80,7 @@ public class SaveCheckController : MonoBehaviour
             isSaveSlotFilled[playerNum - 1] = true;
             GameObject.Find("Slot" + playerNum + "_Btn").GetComponent<Button>().interactable = true;
             GameObject.Find("Slot" + playerNum + "_DeleteBtn").GetComponent<Button>().interactable = true;
-            GameObject.Find("slot" + playerNum + "_tmp").GetComponent<TextMeshProUGUI>().text = SaveController.getName(playerNum) + "의 모험\n어디까지 했더라?";
+            GameObject.Find("slot" + playerNum + "_tmp").GetComponent<TextMeshProUGUI>().text = SaveController.getName(playerNum) + "의 모험\n" + printChapter_subtitle(SaveController.getCurSceneName(playerNum));
         }
         else
         {
@@ -202,5 +202,36 @@ public class SaveCheckController : MonoBehaviour
     {
         loading_panel.SetActive(true);
         sCon.GetComponent<SceneController>().toVillageYScene();
+    }
+
+    public string printChapter_subtitle(string currentSceneName)
+    {
+        switch(currentSceneName)
+        {
+            case "Ch00_Title":
+                return "error_title";
+            case "Ch01_InTowerY":
+                return "챕터1: 모험의 시작에 불을 지피자";
+            case "Ch01_Yvillage":
+                return "챕터1: 여기는 어디?";
+            case "Ch02_Ccave":
+                return "챕터2: 우연히 찾은 지름길";
+            case "Ch02_gotoC":
+                return "챕터2: C탑을 향한 여정";
+            case "Ch02_InTowerC":
+                return "챕터2: C탑의 가디언, 두(DO)";
+            case "Ch03_CVillage":
+                return "챕터3: 장인 배만드라를 찾아서";
+            case "Ch03_InTowerM":
+                return "챕터3: M탑의 가디언, 고투(GOTO)";
+            case "Ch03_Kkaebu":
+                return "챕터3: 깨부를 구하기 위해";
+            case "Ch04_InTowerK":
+                return "챕터4: K탑의 가디언, 그리고 마왕, 브레이크(BREAK)";
+            case "Ch05_Ending":
+                return "error_ending";
+        }
+
+        return "N/A";
     }
 }
