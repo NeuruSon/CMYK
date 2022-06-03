@@ -22,9 +22,10 @@ public class FlowchartAnswerController : MonoBehaviour
     {
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
+        gCon = GameObject.Find("GameController");
         mainSoundBox.GetComponent<GameMainSoundController>().flowchart_bgm = bgm;
         mainSoundBox.GetComponent<GameMainSoundController>().on_flowchartBGM();
-        gCon = GameObject.Find("GameController");
+       
         text = flee_name_tmp.text;
         
         answers = new List<bool>();
