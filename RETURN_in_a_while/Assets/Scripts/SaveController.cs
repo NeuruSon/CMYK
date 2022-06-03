@@ -7,10 +7,24 @@ using System.IO;
 
 public static class SaveController
 {
-    //static string savePath = "/Users/tarrtarr/Desktop/programming/Unity/CMYK/RETURN_in_a_while/Saves";
-    static string savePath = Application.dataPath + "/Resources";
+    static string savePath = "/Users/tarrtarr/Desktop/programming/Unity/CMYK/RETURN_in_a_while/Saves";
+    //static string savePath = Application.dataPath + "/Resources";
+
     public static void saveDatas(int playerNum)
     {
+#if UNITY_EDITOR_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_OSX_" + savePath);
+#elif UNITY_EDITOR_64
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_WIN_" + savePath);
+#elif UNITY_STANDALONE_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_OSX_" + savePath);
+#elif UNITY_STANDALONE_WIN
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_WIN_" + savePath);
+#endif
         BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
         FileStream streamer = new FileStream(savePath + "/p"+ playerNum + ".sav", FileMode.Create); //파일 입출력 객체 생성. 파일 생성 
         PlayerData data = new PlayerData(); //데이터 객체 생성 
@@ -18,8 +32,21 @@ public static class SaveController
         streamer.Close(); //파일 변환 종료 
     }
      
-    public static PlayerData loadDatas(int playerNum) 
+    public static PlayerData loadDatas(int playerNum)
     {
+#if UNITY_EDITOR_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_OSX_" + savePath);
+#elif UNITY_EDITOR_64
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_WIN_" + savePath);
+#elif UNITY_STANDALONE_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_OSX_" + savePath);
+#elif UNITY_STANDALONE_WIN
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_WIN_" + savePath);
+#endif
         if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
         {
             BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
@@ -35,6 +62,20 @@ public static class SaveController
 
     public static void deleteDatas(int playerNum)
     {
+
+#if UNITY_EDITOR_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_OSX_" + savePath);
+#elif UNITY_EDITOR_64
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_WIN_" + savePath);
+#elif UNITY_STANDALONE_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_OSX_" + savePath);
+#elif UNITY_STANDALONE_WIN
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_WIN_" + savePath);
+#endif
         if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
         {
             string path = savePath + "/p" + playerNum + ".sav";

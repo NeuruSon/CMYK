@@ -13,12 +13,26 @@ public class SaveCheckController : MonoBehaviour
     GameObject soundBox, sCon;
     GameObject conBtn, deleted_panel, deleteSaveSlot_panel, saveSlot, askStart_panel, loading_panel;
     bool isContinue = false;
+    string savePath = System.IO.Directory.GetCurrentDirectory() + "/Resources";
 
-    //string savePath = "/Users/tarrtarr/Desktop/programming/Unity/CMYK/RETURN_in_a_while/Saves";
-    string savePath = Application.dataPath + "/Resources";
+    //string savePath = Application.dataPath + "/Resources";
 
     void Start()
     {
+#if UNITY_EDITOR_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_OSX_" + savePath);
+#elif UNITY_EDITOR_64
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        Debug.Log("E_WIN_" + savePath);
+#elif UNITY_STANDALONE_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_OSX_" + savePath);
+#elif UNITY_STANDALONE_WIN
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_WIN_" + savePath);
+#endif
+
         //player num: 1-3
         isSaveSlotFilled = new List<bool>();
         reAskText = reAskTmp.text;
