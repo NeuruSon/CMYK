@@ -1076,8 +1076,6 @@ MonoBehaviour:
   askContinue_tmp: {fileID: 1025849048}
   click_sfx: {fileID: 8300000, guid: 004ac3f00abfd4f0a959c71367a92739, type: 3}
   isPaused: 0
-  deisPaused: 0
-  isFirst: 0
 --- !u!4 &201425187
 Transform:
   m_ObjectHideFlags: 0
@@ -4262,6 +4260,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.613123, y: 3.020776, z: 2.4325635}
   m_Center: {x: 9.337071e-16, y: 1.5103837, z: -0.0000001362392}
+--- !u!1 &955063044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955063046}
+  - component: {fileID: 955063045}
+  m_Layer: 0
+  m_Name: wall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &955063045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955063044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 51.036865, y: 124.219894, z: 226.75641}
+  m_Center: {x: -148.11914, y: -61.609947, z: -18.017944}
+--- !u!4 &955063046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955063044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 200.97922, y: 67.01886, z: 20.629425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &959568787
 GameObject:
   m_ObjectHideFlags: 0
@@ -7537,6 +7579,7 @@ GameObject:
   - component: {fileID: 1704183803}
   - component: {fileID: 1704183800}
   - component: {fileID: 1704183830}
+  - component: {fileID: 1704183831}
   m_Layer: 5
   m_Name: FC
   m_TagString: Untagged
@@ -8060,9 +8103,9 @@ SphereCollider:
   m_GameObject: {fileID: 1704183730}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 0.00001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1704183751
 MonoBehaviour:
@@ -10303,6 +10346,19 @@ MonoBehaviour:
     stringVal: Ch02_Ccave
   loadingImage: {fileID: 0}
   sceneNameOLD: 
+--- !u!65 &1704183831
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704183730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 131.52037, y: 131.1897, z: 437.99844}
+  m_Center: {x: 42.74186, y: 4.778354, z: 52.183224}
 --- !u!1 &1705621579
 GameObject:
   m_ObjectHideFlags: 0
