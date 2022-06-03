@@ -7,7 +7,8 @@ using System.IO;
 
 public static class SaveController
 {
-    static string savePath = "/Users/tarrtarr/Desktop/programming/Unity/CMYK/RETURN_in_a_while/Saves";
+    //static string savePath = "/Users/tarrtarr/Desktop/programming/Unity/CMYK/RETURN_in_a_while/Saves";
+    static string savePath = Application.dataPath + "/Resources";
     public static void saveDatas(int playerNum)
     {
         BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 

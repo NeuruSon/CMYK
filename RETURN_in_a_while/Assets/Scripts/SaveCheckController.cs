@@ -14,7 +14,8 @@ public class SaveCheckController : MonoBehaviour
     GameObject conBtn, deleted_panel, deleteSaveSlot_panel, saveSlot, askStart_panel, loading_panel;
     bool isContinue = false;
 
-    string savePath = "/Users/tarrtarr/Desktop/programming/Unity/CMYK/RETURN_in_a_while/Saves";
+    //string savePath = "/Users/tarrtarr/Desktop/programming/Unity/CMYK/RETURN_in_a_while/Saves";
+    string savePath = Application.dataPath + "/Resources";
 
     void Start()
     {
