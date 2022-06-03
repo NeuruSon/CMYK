@@ -27,6 +27,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        if (PlayData.playerName == "용사")
+        {
+            isFirst = true;
+        }
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
         sayDialog = GameObject.Find("SayDialog");
@@ -90,6 +94,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (isFirst && GameObject.Find("talk_spr"))
+        {
+            GameObject.Find("talk_spr").SetActive(false);
+        }
+
         if (GameObject.Find("flowchartCanvas"))
         {
             isFlowchartOn = true;
