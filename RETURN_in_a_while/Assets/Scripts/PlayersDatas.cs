@@ -11,6 +11,7 @@ public class PlayData : PlayerData //저장해야 할 데이터 목록
     //퍼즐 진행상태; 음수: 오답 횟수 /0: 미진행 /1: 클리어 
     public static int[] isPuzzleCleared = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
     public static int p3 = 0;
+    public static bool isContinueDied = false;
     public static bool[] isFlowchartCleared = new bool[6] { false, false, false, false, false, false };
 
     //for save

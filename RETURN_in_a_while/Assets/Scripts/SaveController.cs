@@ -155,6 +155,7 @@ public class PlayerData : object
     string _playerName = "용사"; 
     int[] _isPuzzleCleared = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
     int _p3 = 0;
+    bool _isContinueDied = false;
     bool[] _isFlowchartCleared = new bool[6] { false, false, false, false, false, false };
 
     //for save
@@ -182,6 +183,7 @@ public class PlayerData : object
         _playerName = PlayData.playerName;
         _isPuzzleCleared = PlayData.isPuzzleCleared;
         _p3 = PlayData.p3;
+        _isContinueDied = PlayData.isContinueDied;
         _isFlowchartCleared = PlayData.isFlowchartCleared;
         _currentSceneName = PlayData.currentSceneName;
         _curBrightness = PlayData.curBrightness;
@@ -204,6 +206,7 @@ public class PlayerData : object
         PlayData.playerName = _playerName;
         PlayData.isPuzzleCleared = _isPuzzleCleared;
         PlayData.p3 = _p3;
+        PlayData.isContinueDied = _isContinueDied;
         PlayData.isFlowchartCleared = _isFlowchartCleared;
         PlayData.currentSceneName = _currentSceneName;
         PlayData.curBrightness = _curBrightness;

@@ -2586,8 +2586,6 @@ MonoBehaviour:
   askContinue_tmp: {fileID: 490491189}
   click_sfx: {fileID: 8300000, guid: 004ac3f00abfd4f0a959c71367a92739, type: 3}
   isPaused: 0
-  deisPaused: 0
-  isFirst: 0
 --- !u!4 &214574972
 Transform:
   m_ObjectHideFlags: 0
@@ -3704,7 +3702,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.000011206, y: 159}
-  m_SizeDelta: {x: 1300, y: 230}
+  m_SizeDelta: {x: 1300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424970760
 MonoBehaviour:
@@ -7804,7 +7802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &955756379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16758,6 +16756,7 @@ GameObject:
   - component: {fileID: 1699050754}
   - component: {fileID: 1699050750}
   - component: {fileID: 1699050755}
+  - component: {fileID: 1699050756}
   m_Layer: 0
   m_Name: FC2
   m_TagString: Untagged
@@ -16790,8 +16789,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1699050710}
-  selectedCommands: []
+  - {fileID: 1699050758}
+  selectedCommands:
+  - {fileID: 1699050756}
   variables:
   - {fileID: 1699050687}
   - {fileID: 1699050717}
@@ -19643,6 +19643,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   light_guide_spr: {fileID: 224312368}
   light_spr: {fileID: 2042564985}
+--- !u!114 &1699050756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699050684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d03ae0919f04264b018681ed534177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 120
+  indentLevel: 0
+  _sceneName:
+    stringRef: {fileID: 0}
+    stringVal: Ch04_InTowerK
+  loadingImage: {fileID: 0}
+  sceneNameOLD: 
 --- !u!114 &1699050757
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -19696,6 +19715,7 @@ MonoBehaviour:
   - {fileID: 1699050761}
   - {fileID: 1699050760}
   - {fileID: 1699050759}
+  - {fileID: 1699050756}
   suppressAllAutoSelections: 0
 --- !u!114 &1699050759
 MonoBehaviour:
@@ -21234,10 +21254,10 @@ RectTransform:
   m_Father: {fileID: 424970759}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 650, y: -50}
-  m_SizeDelta: {x: 1300, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843486171
 MonoBehaviour:
@@ -22286,10 +22306,10 @@ RectTransform:
   m_Father: {fileID: 424970759}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 650, y: -180}
-  m_SizeDelta: {x: 1300, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936065886
 MonoBehaviour:
@@ -23574,7 +23594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &2060687114
 AudioSource:
   m_ObjectHideFlags: 0
