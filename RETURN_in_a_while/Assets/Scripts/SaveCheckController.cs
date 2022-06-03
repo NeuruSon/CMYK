@@ -20,16 +20,16 @@ public class SaveCheckController : MonoBehaviour
     void Start()
     {
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources/p";
         Debug.Log("S_OSX_" + savePath);
 #elif UNITY_STANDALONE_WIN
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "\RETURN_in_a_while_Data\Resources\p";
         Debug.Log("S_WIN_" + savePath);
 #endif
 
@@ -54,7 +54,7 @@ public class SaveCheckController : MonoBehaviour
 
         for (int i = 1; i <= 3; ++i)
         {
-            isSaveSlotFilled.Add(File.Exists(savePath + "/p" + i + ".sav"));
+            isSaveSlotFilled.Add(File.Exists(savePath + i + ".sav"));
         }
 
         if (!isSaveSlotFilled.Contains(true))
@@ -75,7 +75,7 @@ public class SaveCheckController : MonoBehaviour
     public void setSaveSlotInfo(int playerNum)
     {
         Debug.Log(playerNum);
-        if (File.Exists(savePath + "/p" + playerNum + ".sav"))
+        if (File.Exists(savePath + playerNum + ".sav"))
         {
             isSaveSlotFilled[playerNum - 1] = true;
             GameObject.Find("Slot" + playerNum + "_Btn").GetComponent<Button>().interactable = true;

@@ -13,20 +13,20 @@ public static class SaveController
     public static void saveDatas(int playerNum)
     {
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources/p";
         Debug.Log("S_OSX_" + savePath);
 #elif UNITY_STANDALONE_WIN
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "\RETURN_in_a_while_Data\Resources\p";
         Debug.Log("S_WIN_" + savePath);
 #endif
         BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
-        FileStream streamer = new FileStream(savePath + "/p"+ playerNum + ".sav", FileMode.Create); //파일 입출력 객체 생성. 파일 생성 
+        FileStream streamer = new FileStream(savePath + playerNum + ".sav", FileMode.Create); //파일 입출력 객체 생성. 파일 생성 
         PlayerData data = new PlayerData(); //데이터 객체 생성 
         formatter.Serialize(streamer, data); //이진화 
         streamer.Close(); //파일 변환 종료 
@@ -35,22 +35,22 @@ public static class SaveController
     public static PlayerData loadDatas(int playerNum)
     {
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources/p";
         Debug.Log("S_OSX_" + savePath);
 #elif UNITY_STANDALONE_WIN
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "\RETURN_in_a_while_Data\Resources\p";
         Debug.Log("S_WIN_" + savePath);
 #endif
-        if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
+        if (File.Exists(savePath + playerNum + ".sav")) //세이브 파일이 있으면 
         {
             BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
-            FileStream streamer = new FileStream(savePath + "/p" + playerNum + ".sav", FileMode.Open); //파일 열기 
+            FileStream streamer = new FileStream(savePath + playerNum + ".sav", FileMode.Open); //파일 열기 
             PlayerData data = formatter.Deserialize(streamer) as PlayerData; //해석해서 데이터 값으로 assign해줌 
             streamer.Close(); //파일 입출력 종료
             return data; //데이터 값 반환 
@@ -64,21 +64,21 @@ public static class SaveController
     {
 
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources/p";
         Debug.Log("S_OSX_" + savePath);
 #elif UNITY_STANDALONE_WIN
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "\RETURN_in_a_while_Data\Resources\p";
         Debug.Log("S_WIN_" + savePath);
 #endif
-        if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
+        if (File.Exists(savePath + playerNum + ".sav")) //세이브 파일이 있으면 
         {
-            string path = savePath + "/p" + playerNum + ".sav";
+            string path = savePath + playerNum + ".sav";
             FileInfo fileInfo = new FileInfo(path);
             fileInfo.Delete(); //지운다.
             loadDatas(playerNum);
@@ -88,22 +88,22 @@ public static class SaveController
     public static string getName(int playerNum)
     {
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources/p";
         Debug.Log("S_OSX_" + savePath);
 #elif UNITY_STANDALONE_WIN
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "\RETURN_in_a_while_Data\Resources\p";
         Debug.Log("S_WIN_" + savePath);
 #endif
-        if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
+        if (File.Exists(savePath + playerNum + ".sav")) //세이브 파일이 있으면 
         {
             BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
-            FileStream streamer = new FileStream(savePath + "/p" + playerNum + ".sav", FileMode.Open); //파일 열기 
+            FileStream streamer = new FileStream(savePath + playerNum + ".sav", FileMode.Open); //파일 열기 
             PlayerData data = formatter.Deserialize(streamer) as PlayerData; //해석해서 데이터 값으로 assign해줌 
             streamer.Close(); //파일 입출력 종료
             return data.getName(); //데이터 값 반환 
@@ -116,22 +116,22 @@ public static class SaveController
     public static string getCurSceneName(int playerNum)
     {
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves/p";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources/p";
         Debug.Log("S_OSX_" + savePath);
 #elif UNITY_STANDALONE_WIN
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "\RETURN_in_a_while_Data\Resources\p";
         Debug.Log("S_WIN_" + savePath);
 #endif
-        if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
+        if (File.Exists(savePath + playerNum + ".sav")) //세이브 파일이 있으면 
         {
             BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
-            FileStream streamer = new FileStream(savePath + "/p" + playerNum + ".sav", FileMode.Open); //파일 열기 
+            FileStream streamer = new FileStream(savePath + playerNum + ".sav", FileMode.Open); //파일 열기 
             PlayerData data = formatter.Deserialize(streamer) as PlayerData; //해석해서 데이터 값으로 assign해줌 
             streamer.Close(); //파일 입출력 종료
             return data.getCurSceneName(); //데이터 값 반환 
