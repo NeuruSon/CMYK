@@ -112,7 +112,7 @@ public class FlowchartAnswerController : MonoBehaviour
     public void flee()
     {
         flee_panel.SetActive(true);
-        soundBox.GetComponent<GameSubSoundController>().on_pWrongJINGLE();
+        soundBox.GetComponent<GameSubSoundController>().on_flowchartSFX();
         flee_name_tmp.text = text + PlayData.playerName + "!";
     }
 

@@ -58,6 +58,12 @@ public class GameSubSoundController : MonoBehaviour
         audio_source.Play();
     }
 
+    public void on_flowchartSFX()
+    {
+        audio_source.clip = flowchart_sfx;
+        audio_source.Play();
+    }
+
     public void on_pRightJINGLE()
     {
         audio_source.clip = puzzle_right_jingle;
