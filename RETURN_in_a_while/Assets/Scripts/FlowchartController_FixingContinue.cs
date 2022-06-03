@@ -13,7 +13,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
     public AudioClip jingle_cleared;
     public List<GameObject> slots; //유니티 에디터에서 지정하는 옵션 
     public List<bool> answers;
-    bool isCleared = false;
+    bool isCleared = false, isEnded = false;
 
     void Start()
     {
@@ -73,7 +73,7 @@ public class FlowchartController_FixingContinue : MonoBehaviour
             result_cleared();
         }
 
-        if (isCleared)
+        if (isCleared && !isEnded)
         {
             clear_bg_spr.transform.Rotate(Vector3.forward * Time.deltaTime * 7.5f);
         }
@@ -111,6 +111,10 @@ public class FlowchartController_FixingContinue : MonoBehaviour
 
         mainSoundBox.GetComponent<GameMainSoundController>().on_fieldBGM();
         gCon.GetComponent<GameController>().isPaused = false;
+        isEnded = true;
+        effect_bg.SetActive(false);
+        clear_spr.SetActive(false);
+        clear_bg_spr.SetActive(false);
         gameObject.SetActive(false);
     }
 
