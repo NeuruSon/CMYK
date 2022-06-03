@@ -35,10 +35,10 @@ public static class SaveController
     public static PlayerData loadDatas(int playerNum)
     {
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
         savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
@@ -64,10 +64,10 @@ public static class SaveController
     {
 
 #if UNITY_EDITOR_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
         Debug.Log("E_OSX_" + savePath);
 #elif UNITY_EDITOR_64
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources";
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
         savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
@@ -87,6 +87,19 @@ public static class SaveController
 
     public static string getName(int playerNum)
     {
+#if UNITY_EDITOR_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        Debug.Log("E_OSX_" + savePath);
+#elif UNITY_EDITOR_64
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        Debug.Log("E_WIN_" + savePath);
+#elif UNITY_STANDALONE_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_OSX_" + savePath);
+#elif UNITY_STANDALONE_WIN
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_WIN_" + savePath);
+#endif
         if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
         {
             BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
@@ -102,6 +115,19 @@ public static class SaveController
 
     public static string getCurSceneName(int playerNum)
     {
+#if UNITY_EDITOR_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        Debug.Log("E_OSX_" + savePath);
+#elif UNITY_EDITOR_64
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
+        Debug.Log("E_WIN_" + savePath);
+#elif UNITY_STANDALONE_OSX
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_OSX_" + savePath);
+#elif UNITY_STANDALONE_WIN
+        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
+        Debug.Log("S_WIN_" + savePath);
+#endif
         if (File.Exists(savePath + "/p" + playerNum + ".sav")) //세이브 파일이 있으면 
         {
             BinaryFormatter formatter = new BinaryFormatter(); //이진 변환 객체 생성 
@@ -113,6 +139,11 @@ public static class SaveController
 
         //saveDatas(playerNum); //없으면 만들기 
         return "N/A";
+    }
+
+    public static void setData(int playerNum)
+    {
+        loadDatas(playerNum).setData();
     }
 }
 

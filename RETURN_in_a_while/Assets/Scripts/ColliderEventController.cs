@@ -24,7 +24,7 @@ public class ColliderEventController : MonoBehaviour
 
             mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
             soundBox.GetComponent<GameSubSoundController>().on_flowchartJINGLE();
-            Invoke("returnBGM", 10);
+            Invoke("returnBGM", 8);
         }
     }
 

@@ -17,20 +17,16 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI askContinue_tmp;
     string askContinue_text = "";
     Slider bright_slider, bgm_slider, sfx_slider;
-    private bool isGuideOn = false, isSettingOn = false, isFlowchartOn = false;
+    private bool isGuideOn = false, isSettingOn = false, isFlowchartOn = false, isFirst = true, deisPaused = false;
     GameObject pCon, cCon;
     GameObject mainSoundBox, soundBox, sayDialog;
     public AudioClip click_sfx;
     AudioSource audio_source;
 
-    public bool isPaused = false, deisPaused = false, isFirst = false;
+    public bool isPaused = false;
 
     void Start()
     {
-        if (PlayData.playerName == "용사")
-        {
-            isFirst = true;
-        }
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
         sayDialog = GameObject.Find("SayDialog");
@@ -94,11 +90,6 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (isFirst && GameObject.Find("talk_spr"))
-        {
-            GameObject.Find("talk_spr").SetActive(false);
-        }
-
         if (GameObject.Find("flowchartCanvas"))
         {
             isFlowchartOn = true;
@@ -128,7 +119,7 @@ public class GameController : MonoBehaviour
             guideImage.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && isSettingOn == false && !isFlowchartOn) //setting 창이 켜진 상태에서는 가이드 이미지를 띄우지 못함.
+        if (Input.GetKeyDown(KeyCode.G) && isSettingOn == false && !isFlowchartOn && !GameObject.Find("loading_panel")) //setting 창이 켜진 상태에서는 가이드 이미지를 띄우지 못함.
         {
             if (isGuideOn == true)
             {
@@ -141,7 +132,7 @@ public class GameController : MonoBehaviour
                 guideImage.SetActive(true);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true && !isFlowchartOn)
+        else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true && !isFlowchartOn && !GameObject.Find("loading_panel"))
         {
             isSettingOn = false;
 
@@ -154,7 +145,7 @@ public class GameController : MonoBehaviour
             guideImage.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == true && !isFlowchartOn)
+        if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == true && !isFlowchartOn && !GameObject.Find("loading_panel"))
         {
             isGuideOn = false;
             guideImage.SetActive(false);
@@ -162,7 +153,7 @@ public class GameController : MonoBehaviour
             isSettingOn = true;
             settingCanvas.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == false &&!isFlowchartOn)
+        else if (Input.GetKeyDown(KeyCode.Escape) && isGuideOn == false &&!isFlowchartOn && !GameObject.Find("loading_panel"))
         {
             if (isSettingOn == true)
             {
@@ -256,21 +247,27 @@ public class GameController : MonoBehaviour
 
     public void save()
     {
-        PlayData.currentSceneName = GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName();
-        SaveController.saveDatas(PlayData.curSaveSlotNum);
         StartCoroutine(waitForSave());
     }
 
     IEnumerator waitForSave()
     {
         waitForSave_panel.SetActive(true);
-        mainSoundBox.GetComponent<GameMainSoundController>().stop_audio();
+
+        PlayData.currentSceneName = GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName();
+        SaveController.saveDatas(PlayData.curSaveSlotNum);
+
+        mainSoundBox.GetComponent<GameMainSoundController>().pause_audio();
         soundBox.GetComponent<GameSubSoundController>().on_saveSFX();
-        yield return new WaitForSeconds(5.3f);
-        mainSoundBox.GetComponent<GameMainSoundController>().on_fieldBGM();
+
+        yield return new WaitForSecondsRealtime(6.6f);
+
+        mainSoundBox.GetComponent<GameMainSoundController>().resume_audio();
         waitForSave_panel.SetActive(false);
         askContinue_tmp.text = PlayData.curSaveSlotNum + askContinue_text;
         askContinue_panel.SetActive(true);
+
+
     }
 
     public void acceptContinue()
@@ -305,7 +302,7 @@ public class GameController : MonoBehaviour
     {
         mainSoundBox.GetComponent<GameMainSoundController>().pause_audio();
         soundBox.GetComponent<GameSubSoundController>().on_effectSFX();
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         mainSoundBox.GetComponent<GameMainSoundController>().resume_audio();
     }
 

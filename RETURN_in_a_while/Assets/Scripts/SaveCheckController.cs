@@ -162,7 +162,8 @@ public class SaveCheckController : MonoBehaviour
         if (isContinue)
         {
             loading_panel.SetActive(true);
-            SaveController.loadDatas(playerNum).setData();
+            Debug.Log(playerNum);
+            SaveController.setData(playerNum);
             sCon.GetComponent<SceneController>().toScene(PlayData.currentSceneName);
         }
         else
