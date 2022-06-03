@@ -298,8 +298,8 @@ public class GameController : MonoBehaviour
             pCon.transform.GetChild(i).GetComponent<Transform>().transform.localEulerAngles = PlayData.preSceneRotation; //player를 이전 씬과 동일하게 배치
         }
 
-        cCon = GameObject.Find("Continue");
-        cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
+        //cCon = GameObject.Find("Continue");
+        //cCon.GetComponent<Transform>().transform.localPosition = PlayData.preSceneLocation + cCon.GetComponent<ContinueController>().offset;
     }
 
     public void get_item()
@@ -345,5 +345,10 @@ public class GameController : MonoBehaviour
     public void non_first()
     {
         isFirst = false;
+    }
+
+    public void continueRevived()
+    {
+        PlayData.isContinueDied = false;
     }
 }

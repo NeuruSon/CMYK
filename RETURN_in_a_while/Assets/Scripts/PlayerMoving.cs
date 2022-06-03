@@ -16,7 +16,7 @@ public class PlayerMoving : MonoBehaviour
     float X, Y;
     Animator pAnim;
 
-    public GameObject pCam, player;
+    public GameObject pCam, player, deadContinue;
     GameObject gCon;
 
     public float getPlayerSpeed()
@@ -37,6 +37,20 @@ public class PlayerMoving : MonoBehaviour
     {
         if (gCon.GetComponent<GameController>().isPaused == false) //게임이 진행중일 때만 이동할 수 있음 
         {
+            if (PlayData.isContinueDied)
+            {
+                pAnim.SetBool("hold", true);
+                deadContinue.SetActive(true);
+            }
+            else
+            {
+                pAnim.SetBool("hold", false);
+                if (GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() == "Ch01_Yvillage")
+                {
+                    deadContinue.SetActive(false);
+                }
+            }
+
             if (Input.GetKey(KeyCode.W))
             {
                 pAnim.SetInteger("walk", 1);
