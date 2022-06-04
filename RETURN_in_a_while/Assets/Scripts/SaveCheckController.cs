@@ -26,8 +26,7 @@ public class SaveCheckController : MonoBehaviour
         savePath = System.IO.Directory.GetCurrentDirectory() + "/Assets/Resources/Saves";
         Debug.Log("E_WIN_" + savePath);
 #elif UNITY_STANDALONE_OSX
-        savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
-        Debug.Log("S_OSX_" + savePath);
+        savePath = System.IO.Directory.GetCurrentDirectory();
 #elif UNITY_STANDALONE_WIN
         savePath = System.IO.Directory.GetCurrentDirectory() + "/RETURN_in_a_while_Data/Resources";
         Debug.Log("S_WIN_" + savePath);

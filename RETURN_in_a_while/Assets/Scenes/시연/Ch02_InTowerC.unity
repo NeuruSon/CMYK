@@ -10302,8 +10302,6 @@ MonoBehaviour:
   askContinue_tmp: {fileID: 1773096373}
   click_sfx: {fileID: 8300000, guid: 004ac3f00abfd4f0a959c71367a92739, type: 3}
   isPaused: 0
-  deisPaused: 0
-  isFirst: 0
 --- !u!4 &1143865306
 Transform:
   m_ObjectHideFlags: 0
@@ -10767,7 +10765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -20454,6 +20452,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   pCam: {fileID: 2020124139430089139}
   player: {fileID: 1829068565508240861}
+  deadContinue: {fileID: 0}
 --- !u!136 &2020124140335529047
 CapsuleCollider:
   m_ObjectHideFlags: 0
