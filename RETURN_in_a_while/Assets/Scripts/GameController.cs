@@ -351,4 +351,30 @@ public class GameController : MonoBehaviour
     {
         PlayData.isContinueDied = false;
     }
+
+    public void reset_for_title()
+    {
+        PlayData.curSaveSlotNum = 0;
+
+        PlayData.playerName = "용사";
+
+        PlayData.isPuzzleCleared = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
+        PlayData.p3 = 0;
+        PlayData.isContinueDied = false;
+        PlayData.isFlowchartCleared = new bool[6] { false, false, false, false, false, false };
+
+        //for save
+        PlayData.currentSceneName = "";
+
+        //settings
+        PlayData.curBrightness = 1.0f;
+        PlayData.curBgmVolume = 0.7f;
+        PlayData.curSfxVolume = 0.7f;
+
+        PlayData.toPreScene = false;
+        PlayData.preSceneName = "";
+        PlayData.puzzleName = "";
+        PlayData.preSceneLocation = new Vector3(0, 0, 0);
+        PlayData.preSceneRotation = new Vector3(0, 0, 0);
+}
 }

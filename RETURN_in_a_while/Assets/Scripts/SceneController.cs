@@ -8,6 +8,7 @@ public class SceneController : MonoBehaviour
     public void toTitleScene()
     {
         SceneManager.LoadScene("Ch00_Title");
+        GameObject.Find("GameController").GetComponent<GameController>().reset_for_title();
     }
 
     public void toTestScene() //작업용 임시
