@@ -1104,6 +1104,7 @@ GameObject:
   - component: {fileID: 143092034}
   - component: {fileID: 143092033}
   - component: {fileID: 143092032}
+  - component: {fileID: 143092054}
   m_Layer: 0
   m_Name: FC
   m_TagString: Untagged
@@ -1770,7 +1771,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 143092053}
   selectedCommands:
-  - {fileID: 143092051}
+  - {fileID: 143092054}
   variables:
   - {fileID: 143092026}
   - {fileID: 143092027}
@@ -3331,6 +3332,7 @@ MonoBehaviour:
   - {fileID: 143092051}
   - {fileID: 143092050}
   - {fileID: 143092049}
+  - {fileID: 143092054}
   - {fileID: 143092048}
   - {fileID: 143092047}
   - {fileID: 143092046}
@@ -3342,6 +3344,36 @@ MonoBehaviour:
   - {fileID: 143092034}
   - {fileID: 143092033}
   suppressAllAutoSelections: 0
+--- !u!114 &143092054
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143091996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6dd8d3a780f4d1ea772e3daf10c372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 203
+  indentLevel: 1
+  targetObjects:
+  - {fileID: 368417991}
+  tweenType: 2
+  waitUntilFinished:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  duration:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeMode: 0
+  targetColor:
+    colorRef: {fileID: 0}
+    colorVal: {r: 1, g: 1, b: 1, a: 1}
+  targetAlpha:
+    floatRef: {fileID: 0}
+    floatVal: 0
 --- !u!114 &143092092
 MonoBehaviour:
   m_ObjectHideFlags: 2

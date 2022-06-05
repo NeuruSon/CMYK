@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     string askContinue_text = "";
     Slider bright_slider, bgm_slider, sfx_slider;
     private bool isGuideOn = false, isSettingOn = false, isFlowchartOn = false, isFirst = true, deisPaused = false;
-    GameObject pCon, cCon;
+    GameObject pCon;
     GameObject mainSoundBox, soundBox, sayDialog;
     public AudioClip click_sfx;
     AudioSource audio_source;
@@ -38,6 +38,20 @@ public class GameController : MonoBehaviour
         audio_source.clip = click_sfx;
         audio_source.loop = false;
         askContinue_text = askContinue_tmp.text;
+
+        if (GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() != "Ch00_Title" &&
+            GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() != "Ch01_Yvillage" &&
+            GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() != "Ch01_InTowerY")
+        {
+            if (GameObject.Find("StartScene"))
+            {
+                GameObject.Find("StartScene").GetComponent<Flowchart>().SetStringVariable("PlayerName", PlayData.playerName);
+            }
+            else if (GameObject.Find("FC"))
+            {
+                GameObject.Find("FC").GetComponent<Flowchart>().SetStringVariable("PlayerName", PlayData.playerName);
+            }
+        }
 
         settingCanvas.SetActive(true);
 
@@ -128,7 +142,7 @@ public class GameController : MonoBehaviour
             guideImage.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && isSettingOn == false && !isFlowchartOn && !GameObject.Find("loading_panel")) //setting 창이 켜진 상태에서는 가이드 이미지를 띄우지 못함.
+        if (Input.GetKeyDown(KeyCode.G) && isSettingOn == false && !isFlowchartOn && !GameObject.Find("loading_panel") && !GameObject.Find("NamingObject")) //setting 창이 켜진 상태에서는 가이드 이미지를 띄우지 못함.
         {
             if (isGuideOn == true)
             {
@@ -141,7 +155,7 @@ public class GameController : MonoBehaviour
                 guideImage.SetActive(true);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true && !isFlowchartOn && !GameObject.Find("loading_panel"))
+        else if (Input.GetKeyDown(KeyCode.G) && isSettingOn == true && !isFlowchartOn && !GameObject.Find("loading_panel") && !GameObject.Find("NamingObject"))
         {
             isSettingOn = false;
 
@@ -199,7 +213,7 @@ public class GameController : MonoBehaviour
             }
             gameObject.GetComponent<AudioSource>().volume = sfx_slider.value;
         }
-        else if (GameObject.Find("SayDialog") && deisPaused == false)
+        else if ((GameObject.Find("SayDialog") || GameObject.Find("OptionButton0_1") || GameObject.Find("OptionButton0_2")) && deisPaused == false)
         {
             tryPause();
             Time.timeScale = 1f;
@@ -263,7 +277,15 @@ public class GameController : MonoBehaviour
     {
         waitForSave_panel.SetActive(true);
 
-        PlayData.currentSceneName = GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName();
+        string save_scene = GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName();
+        if (save_scene == "Ch05_Ending")
+        {
+            PlayData.currentSceneName = "Ch04_InTowerK";
+        }
+        else
+        {
+            PlayData.currentSceneName = save_scene;
+        }
         SaveController.saveDatas(PlayData.curSaveSlotNum);
 
         mainSoundBox.GetComponent<GameMainSoundController>().pause_audio();
@@ -366,10 +388,10 @@ public class GameController : MonoBehaviour
         //for save
         PlayData.currentSceneName = "";
 
-        //settings
-        PlayData.curBrightness = 1.0f;
-        PlayData.curBgmVolume = 0.7f;
-        PlayData.curSfxVolume = 0.7f;
+        ////settings
+        //PlayData.curBrightness = 1.0f;
+        //PlayData.curBgmVolume = 0.7f;
+        //PlayData.curSfxVolume = 0.7f;
 
         PlayData.toPreScene = false;
         PlayData.preSceneName = "";

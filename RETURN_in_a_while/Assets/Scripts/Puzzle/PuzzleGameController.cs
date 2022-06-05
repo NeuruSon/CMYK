@@ -23,6 +23,10 @@ public class PuzzleGameController : MonoBehaviour
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
         sCon = GameObject.Find("SceneController");
+
+        mainSoundBox.GetComponent<AudioSource>().volume = PlayData.curBgmVolume;
+        soundBox.GetComponent<AudioSource>().volume = PlayData.curSfxVolume;
+
         //puzzles 뭉탱이에 들어있는 퍼즐 개체를 dictionary에 담음 
         for (int i = 0; i < puzzles.transform.childCount; ++i)
         {
