@@ -16,15 +16,14 @@ public class EndingController : MonoBehaviour
 
     void Start()
     {
-        mainSoundBox.GetComponent<AudioSource>().volume = PlayData.curBgmVolume;
-        soundBox.GetComponent<AudioSource>().volume = PlayData.curSfxVolume;
-
         fade_panel = GameObject.Find("fade_panel");
         and_you_panel = GameObject.Find("and_you_bold");
         and_you_tmp = GameObject.Find("and_you_black").GetComponent<TextMeshProUGUI>();
         and_you_tmp.text = PlayData.playerName;
         mainSoundBox = GameObject.Find("mainSoundBox");
         soundBox = GameObject.Find("soundBox");
+        mainSoundBox.GetComponent<AudioSource>().volume = PlayData.curBgmVolume;
+        soundBox.GetComponent<AudioSource>().volume = PlayData.curSfxVolume;
         staffRoll_panel = GameObject.Find("staffRoll_panel");
         logo_spr = GameObject.Find("logo_spr");
         team_panel = GameObject.Find("staffRoll_tmp_black_제작");

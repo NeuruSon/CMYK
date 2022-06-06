@@ -55,36 +55,40 @@ public class GameController : MonoBehaviour
 
         settingCanvas.SetActive(true);
 
-        for (int i = 0; i < 3; ++i)
+        if (GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() != "Ch05_Ending")
         {
-            if (FindObjectsOfType(typeof(Slider))[i].name == "bright_slider")
+            for (int i = 0; i < 3; ++i)
             {
-                bright_slider = (Slider)FindObjectsOfType(typeof(Slider))[i];
+                if (FindObjectsOfType(typeof(Slider))[i].name == "bright_slider")
+                {
+                    bright_slider = (Slider)FindObjectsOfType(typeof(Slider))[i];
+                }
+                else if (FindObjectsOfType(typeof(Slider))[i].name == "bgm_slider")
+                {
+                    bgm_slider = (Slider)FindObjectsOfType(typeof(Slider))[i];
+                }
+                else if (FindObjectsOfType(typeof(Slider))[i].name == "sfx_slider")
+                {
+                    sfx_slider = (Slider)FindObjectsOfType(typeof(Slider))[i];
+                }
             }
-            else if (FindObjectsOfType(typeof(Slider))[i].name == "bgm_slider")
-            {
-                bgm_slider = (Slider)FindObjectsOfType(typeof(Slider))[i];
-            }
-            else if (FindObjectsOfType(typeof(Slider))[i].name == "sfx_slider")
-            {
-                sfx_slider = (Slider)FindObjectsOfType(typeof(Slider))[i];
-            }
+
+            bright_slider.wholeNumbers = false;
+            bgm_slider.wholeNumbers = false;
+            sfx_slider.wholeNumbers = false;
+
+            bright_slider.minValue = 0.5f;
+            bright_slider.maxValue = 2.35f;
+            bgm_slider.minValue = 0f;
+            bgm_slider.maxValue = 1f;
+            sfx_slider.minValue = 0f;
+            sfx_slider.maxValue = 1f;
+
+            bright_slider.value = PlayData.curBrightness;
+            bgm_slider.value = PlayData.curBgmVolume;
+            sfx_slider.value = PlayData.curSfxVolume;
         }
 
-        bright_slider.wholeNumbers = false;
-        bgm_slider.wholeNumbers = false;
-        sfx_slider.wholeNumbers = false;
-
-        bright_slider.minValue = 0.5f;
-        bright_slider.maxValue = 2.35f;
-        bgm_slider.minValue = 0f;
-        bgm_slider.maxValue = 1f;
-        sfx_slider.minValue = 0f;
-        sfx_slider.maxValue = 1f;
-
-        bright_slider.value = PlayData.curBrightness;
-        bgm_slider.value = PlayData.curBgmVolume;
-        sfx_slider.value = PlayData.curSfxVolume;
         if (GameObject.Find("SayDialog"))
         {
             sayDialog.GetComponent<WriterAudio>().volume = PlayData.curSfxVolume;
@@ -387,11 +391,6 @@ public class GameController : MonoBehaviour
 
         //for save
         PlayData.currentSceneName = "";
-
-        ////settings
-        //PlayData.curBrightness = 1.0f;
-        //PlayData.curBgmVolume = 0.7f;
-        //PlayData.curSfxVolume = 0.7f;
 
         PlayData.toPreScene = false;
         PlayData.preSceneName = "";
