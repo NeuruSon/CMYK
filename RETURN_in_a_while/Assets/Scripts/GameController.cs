@@ -382,6 +382,7 @@ public class GameController : MonoBehaviour
     public void non_first()
     {
         isFirst = false;
+        PlayData.isNub = false;
     }
 
     public void continueRevived()
