@@ -39,6 +39,12 @@ public class GameController : MonoBehaviour
         audio_source.loop = false;
         askContinue_text = askContinue_tmp.text;
 
+        if (PlayData.isNub == true && GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() == "Ch01_Yvillage")
+        {
+            Flowchart StartScene = GameObject.Find("StartScene").GetComponent<Flowchart>();
+            StartScene.SetBooleanVariable("startDone", false);
+        }
+        
         if (GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() != "Ch00_Title" &&
             GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() != "Ch01_Yvillage" &&
             GameObject.Find("SceneController").GetComponent<SceneController>().getThisSceneName() != "Ch01_InTowerY")
@@ -112,6 +118,11 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Slash))
+        {
+            showCurrentLog();
+        }
+
         if (isFirst && GameObject.Find("talk_spr"))
         {
             GameObject.Find("talk_spr").SetActive(false);
@@ -378,10 +389,10 @@ public class GameController : MonoBehaviour
         PlayData.isContinueDied = false;
     }
 
-    public void reset_for_title()
+    public void reset_for_title(int playerNum)
     {
-        PlayData.curSaveSlotNum = 0;
-
+        PlayData.curSaveSlotNum = playerNum;
+        PlayData.isNub = true;
         PlayData.playerName = "용사";
 
         PlayData.isPuzzleCleared = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -397,5 +408,21 @@ public class GameController : MonoBehaviour
         PlayData.puzzleName = "";
         PlayData.preSceneLocation = new Vector3(0, 0, 0);
         PlayData.preSceneRotation = new Vector3(0, 0, 0);
-}
+    }
+
+    public void showCurrentLog()
+    {
+        Debug.Log("curSaveSlotNum: " + PlayData.curSaveSlotNum + "\n" +
+                  "isNub: " + PlayData.isNub + "\n" +
+                  "playerName: " + PlayData.playerName + "\n" +
+                  "isPuzzleCleared: " + PlayData.isPuzzleCleared + "\n" +
+                  "p3: " + PlayData.p3 + "\n" +
+                  "isContinueDied: " + PlayData.isContinueDied + "\n" +
+                  "isFlowchartCleared: " + PlayData.isFlowchartCleared + "\n" +
+                  "currentSceneName: " + PlayData.currentSceneName + "\n" +
+                  "toPreScene: " + PlayData.toPreScene + "\n" +
+                  "preSceneName: " + PlayData.preSceneName + "\n" +
+                  "preSceneLocation: " + PlayData.preSceneLocation + "\n" +
+                  "preSceneRotation: " + PlayData.preSceneRotation);
+    }
 }

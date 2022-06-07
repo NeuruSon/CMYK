@@ -10,7 +10,7 @@ public class SaveCheckController : MonoBehaviour
     List<bool> isSaveSlotFilled;
     public TextMeshProUGUI reAskTmp, deletedTmp, startTmp;
     string reAskText, deletedText, startText;
-    GameObject soundBox, sCon;
+    GameObject soundBox, sCon, gCon;
     GameObject conBtn, deleted_panel, deleteSaveSlot_panel, saveSlot, askStart_panel, loading_panel;
     bool isContinue = false;
     string savePath = System.IO.Directory.GetCurrentDirectory() + "/Resources";
@@ -39,6 +39,7 @@ public class SaveCheckController : MonoBehaviour
         startText = startTmp.text;
         soundBox = GameObject.Find("soundBox");
         sCon = GameObject.Find("SceneController");
+        gCon = GameObject.Find("GameController");
         conBtn = GameObject.Find("ContinueBtn");
         loading_panel = GameObject.Find("loading_panel");
         loading_panel.SetActive(false);
@@ -126,6 +127,7 @@ public class SaveCheckController : MonoBehaviour
         soundBox.GetComponent<GameSubSoundController>().on_effectSFX();
         setSaveSlotInfo(playerNum);
         yield return new WaitForSeconds(3f);
+        gCon.GetComponent<GameController>().reset_for_title(0);
         deletedTmp.text = deletedText;
         deleted_panel.gameObject.SetActive(false);
         cancelDeleteSaveSlot();
@@ -200,7 +202,9 @@ public class SaveCheckController : MonoBehaviour
 
     public void acceptedNewGame()
     {
+        int playerNum = PlayData.curSaveSlotNum;
         loading_panel.SetActive(true);
+        gCon.GetComponent<GameController>().reset_for_title(playerNum);
         sCon.GetComponent<SceneController>().toVillageYScene();
     }
 

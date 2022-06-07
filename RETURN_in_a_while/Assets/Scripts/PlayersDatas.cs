@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayData : PlayerData //저장해야 할 데이터 목록 
 {
     public static int curSaveSlotNum = 0;
-
+    public static bool isNub = true;
     public static string playerName = "용사";
 
     //퍼즐 진행상태; 음수: 오답 횟수 /0: 미진행 /1: 클리어 

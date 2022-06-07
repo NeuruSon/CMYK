@@ -147,7 +147,7 @@ public static class SaveController
 public class PlayerData : object
 {
     int _curSaveSlotNum = 0;
-
+    bool _isNub = true;
     string _playerName = "용사"; 
     int[] _isPuzzleCleared = new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 };
     int _p3 = 0;
@@ -176,6 +176,7 @@ public class PlayerData : object
     public PlayerData()
     {
         _curSaveSlotNum = PlayData.curSaveSlotNum;
+        _isNub = PlayData.isNub;
         _playerName = PlayData.playerName;
         _isPuzzleCleared = PlayData.isPuzzleCleared;
         _p3 = PlayData.p3;
@@ -199,6 +200,7 @@ public class PlayerData : object
     public void setData()
     {
         PlayData.curSaveSlotNum = _curSaveSlotNum;
+        PlayData.isNub = _isNub;
         PlayData.playerName = _playerName;
         PlayData.isPuzzleCleared = _isPuzzleCleared;
         PlayData.p3 = _p3;

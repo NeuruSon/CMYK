@@ -7,7 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public void toTitleScene()
     {
-        GameObject.Find("GameController").GetComponent<GameController>().reset_for_title();
+        GameObject.Find("GameController").GetComponent<GameController>().reset_for_title(0);
         SceneManager.LoadScene("Ch00_Title");
     }
 
